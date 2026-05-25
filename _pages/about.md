@@ -22,7 +22,7 @@ I hold an engineering degree from INSA Rennes and also studied aerospace enginee
 ## Research Overview
 A central challenge in neural video optimization is that standard codecs are fundamentally non-differentiable: $$y = \phi(x), \qquad \frac{\partial \phi(x)}{\partial x} \approx 0$$ which prevents direct end-to-end optimization through standard backpropagation.
 
-In our work *SCALED* (*Surrogate-gradient for Codec-Aware Learning of Downsampling in ABR Streaming*), we investigate surrogate-gradient approaches enabling neural networks to optimize directly with real codecs such as H.264/x264. We jointly optimize a learned downsampling function $$f(x;\theta_f)$$ within the video compression pipeline: $$\hat{x} = g(\phi(f(x;\theta_f)))$$ while leveraging surrogate gradients derived from real compression errors during backpropagation: $$\hat{y} = y + \mathrm{sg}(\epsilon)\frac{\sigma(\epsilon)}{\mathrm{sg}(\sigma(\epsilon))}, \qquad \epsilon = \phi(y)-y$$
+In our work *SCALED* (*Surrogate-gradient for Codec-Aware Learning of Downsampling in ABR Streaming*), we investigate surrogate-gradient approaches enabling neural networks to optimize directly with real codecs such as H.264/x264. We jointly optimize a learned downsampling function $$f(x;\theta_f)$$ within the video compression pipeline: $$\hat{x} = g(\phi(f(x;\theta_f)))$$ while leveraging surrogate gradients derived from real compression errors during backpropagation.
 
 ## Research Interests
 
