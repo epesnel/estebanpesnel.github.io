@@ -1,184 +1,324 @@
 ---
-title: "SCALED: Surrogate-gradient for Codec-Aware Learning of Downsampling in ABR Streaming"
+layout: single
 collection: publications
 category: conferences
 permalink: /publication/scaled
-excerpt: 'Surrogate-gradient framework enabling end-to-end optimization with real non-differentiable video codecs for ABR streaming.'
+title: "SCALED: Surrogate-gradient for Codec-Aware Learning of Downsampling in ABR Streaming"
+excerpt: 'End-to-end training with real non-differentiable video codecs via surrogate gradients.'
 date: 2025-12-08
-venue: 'Picture Coding Symposium (PCS) 2025 — Aachen, Germany'
+venue: 'Picture Coding Symposium (PCS) 2025'
 paperurl: 'https://arxiv.org/pdf/2602.00198'
-header:
-  teaser: /images/scaled_overview.png
+author_profile: true
 ---
 
 <style>
-.pub-badges { margin: 0.5em 0 1.5em 0; display: flex; flex-wrap: wrap; gap: 0.5em; }
-.pub-badge {
-  display: inline-flex; align-items: center; gap: 0.3em;
-  padding: 0.3em 0.8em; border-radius: 20px;
-  font-size: 0.82em; font-weight: 500; text-decoration: none !important;
-}
-.badge-arxiv   { background: #b31b1b; color: white; }
-.badge-arxiv:hover { background: #8b1414; }
-.badge-doi     { background: #2c6fad; color: white; }
-.badge-doi:hover { background: #1a4f7a; }
-.badge-venue   { background: #f0f4f8; color: #333; border: 1px solid #ccc; }
-.badge-tag     { background: #e8f4f8; color: #1a5276; border: 1px solid #aed6f1; }
+/* Hide template auto-generated header */
+.page__title, .page__meta, .page__share, .page__footer-follow { display: none !important; }
 
-.pub-section {
-  margin: 1.8em 0 0.5em 0;
-  font-size: 1.05em;
-  font-weight: 700;
-  color: #2c3e50;
-  border-left: 4px solid #4a90d9;
-  padding-left: 0.6em;
+/* ── Base ── */
+.sp { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: #1a1a2e; }
+
+/* ── Hero banner ── */
+.sp-hero {
+  background: linear-gradient(135deg, #0d1b2a 0%, #1b3a5c 60%, #2c6fad 100%);
+  border-radius: 12px; padding: 2em 2.2em 1.8em;
+  margin-bottom: 2em; color: white; position: relative; overflow: hidden;
 }
-.pub-abstract {
-  background: #f8fbff;
-  border: 1px solid #d6eaf8;
-  border-radius: 6px;
-  padding: 1em 1.2em;
-  font-size: 0.93em;
-  line-height: 1.75;
-  color: #333;
+.sp-hero::before {
+  content: ''; position: absolute; top: -40px; right: -40px;
+  width: 200px; height: 200px; border-radius: 50%;
+  background: rgba(255,255,255,0.04);
 }
-.contrib-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 0.8em;
-  margin: 0.8em 0;
+.sp-hero::after {
+  content: ''; position: absolute; bottom: -60px; left: 30%;
+  width: 300px; height: 300px; border-radius: 50%;
+  background: rgba(255,255,255,0.03);
 }
-.contrib-item {
-  background: #f9f9f9;
-  border-left: 3px solid #4a90d9;
-  border-radius: 0 4px 4px 0;
-  padding: 0.6em 0.8em;
-  font-size: 0.88em;
-  line-height: 1.5;
+.sp-hero-venue {
+  display: inline-flex; align-items: center; gap: 0.4em;
+  background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 20px; padding: 0.25em 0.9em;
+  font-size: 0.8em; font-weight: 500; margin-bottom: 1em;
 }
-.contrib-item strong { display: block; color: #1a3a5c; margin-bottom: 0.2em; }
-.result-box {
-  display: inline-block;
-  background: linear-gradient(135deg, #1a5276, #2c6fad);
-  color: white;
-  border-radius: 8px;
-  padding: 0.8em 1.4em;
-  font-size: 1.1em;
-  font-weight: 700;
-  margin: 0.5em 0.5em 0.5em 0;
-  text-align: center;
-  min-width: 140px;
+.sp-hero-title {
+  font-size: 1.5em; font-weight: 800; line-height: 1.3;
+  margin: 0 0 0.8em 0; max-width: 700px;
 }
-.result-box span { display: block; font-size: 0.68em; font-weight: 400; opacity: 0.9; margin-top: 0.2em; }
-.eq-block {
-  background: #f5f5f5;
-  border-radius: 6px;
-  padding: 0.8em 1.2em;
-  margin: 0.8em 0;
-  overflow-x: auto;
+.sp-hero-title em { color: #63b3ed; font-style: normal; }
+.sp-authors {
+  font-size: 0.88em; margin-bottom: 0.5em; opacity: 0.9; line-height: 1.8;
 }
-.citation-box {
-  position: relative;
-  background: #1e2a38;
-  color: #abb2bf;
-  border-radius: 8px;
-  padding: 1.2em 1.4em;
+.sp-authors .me { font-weight: 700; color: #63b3ed; }
+.sp-affiliations {
+  font-size: 0.75em; opacity: 0.65; margin-bottom: 1.4em; line-height: 1.7;
+}
+.sp-buttons { display: flex; flex-wrap: wrap; gap: 0.5em; }
+.sp-btn {
+  display: inline-flex; align-items: center; gap: 0.35em;
+  padding: 0.45em 1.1em; border-radius: 6px;
+  font-size: 0.82em; font-weight: 600;
+  text-decoration: none !important; cursor: pointer; border: none;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.sp-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,0.25); }
+.sp-btn-primary { background: #e53e3e; color: white; }
+.sp-btn-secondary { background: rgba(255,255,255,0.15); color: white; border: 1px solid rgba(255,255,255,0.3); }
+.sp-btn-secondary:hover { background: rgba(255,255,255,0.25); }
+
+/* ── Tags ── */
+.sp-tags { margin: 0 0 0.8em 0; }
+.sp-tag {
+  display: inline-block; padding: 0.2em 0.7em; border-radius: 20px;
+  font-size: 0.76em; font-weight: 500; margin: 2px;
+  background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.85);
+  border: 1px solid rgba(255,255,255,0.18);
+}
+
+/* ── Sections ── */
+.sp-section { margin: 2em 0 0.6em; }
+.sp-section-title {
+  font-size: 1.05em; font-weight: 700; color: #1b3a5c;
+  border-left: 4px solid #2c6fad; padding-left: 0.65em;
+  margin: 0 0 0.8em 0;
+}
+.sp-abstract {
+  background: #f0f6ff; border: 1px solid #c3daf7;
+  border-radius: 8px; padding: 1.1em 1.3em;
+  font-size: 0.92em; line-height: 1.8; color: #2d3748;
+}
+
+/* ── Contribution grid ── */
+.sp-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px,1fr)); gap: 0.8em; }
+.sp-card {
+  background: #fafafa; border: 1px solid #e2e8f0;
+  border-radius: 8px; padding: 0.9em 1em;
+  font-size: 0.87em; line-height: 1.55;
+  border-top: 3px solid #2c6fad;
+}
+.sp-card strong { display: block; color: #1b3a5c; margin-bottom: 0.3em; font-size: 0.95em; }
+
+/* ── Equation blocks ── */
+.sp-eq {
+  background: #f7f7f7; border-left: 3px solid #cbd5e0;
+  border-radius: 0 6px 6px 0; padding: 0.8em 1.2em;
+  margin: 0.8em 0; overflow-x: auto;
+}
+.sp-eq-label { font-size: 0.75em; color: #718096; text-align: right; margin-top: 0.3em; }
+
+/* ── Result cards ── */
+.sp-results { display: flex; flex-wrap: wrap; gap: 0.8em; margin: 0.8em 0 1.4em; }
+.sp-result {
+  border-radius: 10px; padding: 1em 1.4em; text-align: center;
+  min-width: 120px; flex: 1;
+}
+.sp-result-a { background: linear-gradient(135deg,#1a365d,#2b6cb0); color:white; }
+.sp-result-b { background: linear-gradient(135deg,#1c4532,#276749); color:white; }
+.sp-result-c { background: linear-gradient(135deg,#44337a,#6b46c1); color:white; }
+.sp-result-d { background: linear-gradient(135deg,#7b341e,#c05621); color:white; }
+.sp-result .val { font-size: 1.5em; font-weight: 800; }
+.sp-result .lbl { font-size: 0.7em; opacity: 0.88; margin-top: 0.3em; line-height: 1.4; }
+
+/* ── Table ── */
+.sp-table-wrap { overflow-x: auto; margin: 1em 0; }
+.sp-table { width: 100%; border-collapse: collapse; font-size: 0.84em; }
+.sp-table thead tr { background: #1b3a5c; color: white; }
+.sp-table th { padding: 0.6em 0.8em; text-align: center; font-weight: 600; white-space: nowrap; }
+.sp-table td { padding: 0.45em 0.8em; text-align: center; border-bottom: 1px solid #e2e8f0; }
+.sp-table tbody tr:hover { background: #f0f6ff; }
+.sp-table .ours { background: #f0fff4; font-weight: 600; }
+.sp-table .ours td:first-child { border-left: 3px solid #27ae60; }
+.sp-table .good { color: #276749; font-weight: 600; }
+.sp-table .bad  { color: #c53030; font-weight: 600; }
+.sp-table .group-header td {
+  background: #edf2f7; color: #4a5568; font-size: 0.8em;
+  font-weight: 700; text-align: left; padding: 0.3em 0.8em;
+  letter-spacing: 0.05em; text-transform: uppercase;
+}
+
+/* ── Citation ── */
+.sp-citation {
+  position: relative; background: #1a202c; color: #a0aec0;
+  border-radius: 10px; padding: 1.3em 1.5em 1em;
   font-family: 'SFMono-Regular', Consolas, monospace;
-  font-size: 0.82em;
-  line-height: 1.7;
-  overflow-x: auto;
-  margin-top: 0.8em;
+  font-size: 0.81em; line-height: 1.75; overflow-x: auto; margin-top: 0.8em;
 }
-.citation-box .kw  { color: #c678dd; }
-.citation-box .val { color: #98c379; }
-.citation-box .key { color: #e06c75; }
-.citation-box .num { color: #d19a66; }
-.copy-btn {
-  position: absolute; top: 0.6em; right: 0.8em;
-  background: #3a4a5a; color: #abb2bf; border: none;
-  border-radius: 4px; padding: 0.25em 0.7em;
+.sp-copy {
+  position: absolute; top: 0.7em; right: 0.8em;
+  background: #2d3748; color: #a0aec0; border: none;
+  border-radius: 5px; padding: 0.25em 0.8em;
   font-size: 0.78em; cursor: pointer;
 }
-.copy-btn:hover { background: #4a6a8a; color: white; }
+.sp-copy:hover { background: #4a5568; color: #fff; }
+pre.sp-bib { margin: 0; white-space: pre-wrap; color: #a0aec0; }
+.bib-key  { color: #fc8181; }
+.bib-val  { color: #68d391; }
+.bib-type { color: #b794f4; font-weight: 700; }
+.bib-field { color: #63b3ed; }
 </style>
 
-<div class="pub-badges">
-  <a class="pub-badge badge-arxiv" href="https://arxiv.org/pdf/2602.00198" target="_blank">📄 arXiv</a>
-  <a class="pub-badge badge-doi" href="https://doi.org/10.1109/PCS65673.2025.11417641" target="_blank">🔗 DOI</a>
-  <span class="pub-badge badge-venue">📍 PCS 2025 · Aachen · Dec 2025</span>
-  <span class="pub-badge badge-tag">Video Compression</span>
-  <span class="pub-badge badge-tag">Surrogate Gradients</span>
-  <span class="pub-badge badge-tag">ABR Streaming</span>
-  <span class="pub-badge badge-tag">Deep Learning</span>
-</div>
+<div class="sp">
 
-<div class="pub-section">Abstract</div>
-
-<div class="pub-abstract">
-ABR streaming pipelines traditionally optimize downsampling, compression, and reconstruction independently, leading to suboptimal end-to-end rate-distortion performance. Recent deep learning approaches attempted to jointly optimize these stages using differentiable codec proxies, but such approximations often fail to accurately reproduce the behavior of real video codecs. We introduce <strong>SCALED</strong>, a surrogate-gradient framework enabling end-to-end optimization directly with real, non-differentiable codecs (H.264/x264). The method leverages data-driven surrogate gradients derived from actual compression errors while keeping the true codec in the forward pass.
-</div>
-
-<div class="pub-section">Key Contributions</div>
-
-<div class="contrib-grid">
-  <div class="contrib-item">
-    <strong>True-codec training</strong>
-    End-to-end optimization with real H.264/VVC codecs — no learned proxy required.
+<!-- ════════════ HERO ════════════ -->
+<div class="sp-hero">
+  <div class="sp-hero-venue">📍 PCS 2025 &nbsp;·&nbsp; Aachen, Germany &nbsp;·&nbsp; December 2025</div>
+  <div class="sp-hero-title">
+    <em>SCALED</em>: Surrogate-gradient for Codec-Aware<br/>Learning of Downsampling in ABR Streaming
   </div>
-  <div class="contrib-item">
-    <strong>Surrogate gradient</strong>
-    Data-driven Jacobian derived from actual compression noise for stable backpropagation.
+  <div class="sp-authors">
+    <span class="me">Esteban Pesnel</span><sup>*†</sup>,
+    Julien Le Tanou<sup>*</sup>,
+    Michael Ropert<sup>*</sup>,
+    Thomas Maugey<sup>†</sup>,
+    Aline Roumy<sup>†</sup>
   </div>
-  <div class="contrib-item">
-    <strong>Codec-agnostic</strong>
-    Works across different codecs and quality parameters without retraining.
+  <div class="sp-affiliations">
+    <sup>*</sup>MediaKind, Rennes, France &nbsp;&nbsp;
+    <sup>†</sup>INRIA, Rennes, France — team COMPACT
   </div>
-  <div class="contrib-item">
-    <strong>ABR pipeline</strong>
-    Jointly optimizes downscaling, compression, and reconstruction end-to-end.
+  <div class="sp-tags">
+    <span class="sp-tag">Video Compression</span>
+    <span class="sp-tag">Surrogate Gradients</span>
+    <span class="sp-tag">ABR Streaming</span>
+    <span class="sp-tag">Deep Learning</span>
+    <span class="sp-tag">H.264 / x264</span>
+    <span class="sp-tag">Rate-Distortion</span>
+  </div>
+  <div class="sp-buttons">
+    <a class="sp-btn sp-btn-primary" href="https://arxiv.org/pdf/2602.00198" target="_blank">📄 PDF (arXiv)</a>
+    <a class="sp-btn sp-btn-secondary" href="https://arxiv.org/abs/2602.00198" target="_blank">🔗 arXiv:2602.00198</a>
+    <a class="sp-btn sp-btn-secondary" href="https://doi.org/10.1109/PCS65673.2025.11417641" target="_blank">🏛 DOI</a>
   </div>
 </div>
 
-<div class="pub-section">Method</div>
-
-Standard codecs are non-differentiable — the gradient is zero almost everywhere:
-
-<div class="eq-block">
-$$y = \phi(x), \qquad \dfrac{\partial \phi(x)}{\partial x} \approx 0$$
+<!-- ════════════ ABSTRACT ════════════ -->
+<div class="sp-section">
+<div class="sp-section-title">Abstract</div>
+<div class="sp-abstract">
+OTT video delivery relies on Adaptive Bitrate (ABR) streaming, where downsampling, encoding, decoding, and upsampling stages are traditionally optimized in isolation. Recent deep learning approaches attempted to jointly optimize these stages using differentiable codec proxies, but such approximations fail to capture the true behavior of real codecs. We introduce <strong>SCALED</strong>, a surrogate-gradient framework enabling end-to-end training directly with real, non-differentiable codecs. By leveraging data-driven surrogate gradients derived from actual compression errors, the method aligns training objectives with deployment performance — achieving up to <strong>6.11% BD-BR (PSNR) improvement</strong> over codec-agnostic baselines without any proxy model.
+</div>
 </div>
 
-SCALED replaces the codec in the backward pass with a surrogate forward:
-
-<div class="eq-block">
-$$\hat{y} = y + \mathrm{sg}(\epsilon)\,\dfrac{\sigma(\epsilon)}{\mathrm{sg}(\sigma(\epsilon))}, \qquad \epsilon = \phi(y) - y$$
+<!-- ════════════ CONTRIBUTIONS ════════════ -->
+<div class="sp-section">
+<div class="sp-section-title">Contributions</div>
+<div class="sp-grid">
+  <div class="sp-card">
+    <strong>🎯 True-codec training</strong>
+    Real H.264/x264 in the forward pass. No learned or handcrafted proxy required.
+  </div>
+  <div class="sp-card">
+    <strong>∂ Surrogate Jacobian</strong>
+    Reparameterization of the codec gradient via the std. deviation of true compression noise.
+  </div>
+  <div class="sp-card">
+    <strong>⚡ Two training variants</strong>
+    SCALED<sub>D</sub> (distortion only) and SCALED<sub>RD</sub> (rate-distortion with differentiable rate proxy).
+  </div>
+  <div class="sp-card">
+    <strong>🔌 Drop-in compatible</strong>
+    Works across codecs and QPs without retraining. Fully standard-pipeline compatible.
+  </div>
+</div>
 </div>
 
-where $\mathrm{sg}(\cdot)$ denotes the stop-gradient operator. Gradient flow goes exclusively through $\sigma(\epsilon)$, yielding a Jacobian that encodes true compression statistics.
+<!-- ════════════ METHOD ════════════ -->
+<div class="sp-section">
+<div class="sp-section-title">Method</div>
 
-<div class="pub-section">Results</div>
+<p>The core challenge: applying Straight-Through Estimation (STE) to codecs causes divergence — the compression error fully disconnects from gradient flow, leading to $|\,f(x;\theta_f)\,|_1 \to \infty$. SCALED reparameterizes the codec output as:</p>
 
-<div>
-  <div class="result-box">−6.1% BD-BR<span>vs. codec-agnostic training</span></div>
-  <div class="result-box">x264 · VVenC<span>codec-agnostic</span></div>
-  <div class="result-box">× 1 / ½ / ¼<span>all scale ratios</span></div>
+<div class="sp-eq">
+$$\hat{y} = y + \mathrm{sg}(\epsilon)\,\frac{\sigma(\epsilon)}{\mathrm{sg}(\sigma(\epsilon))}, \qquad \epsilon = \phi(y) - y$$
+<div class="sp-eq-label">Eq. (7) — SCALED forward pass</div>
 </div>
 
-<div class="pub-section">Citation</div>
+<p>Gradient flows exclusively through $\sigma(\epsilon)$, yielding a dynamically scaled surrogate Jacobian that encodes true codec statistics:</p>
 
-<div class="citation-box" id="citationBox">
-<button class="copy-btn" onclick="
-  navigator.clipboard.writeText(document.getElementById('citationRaw').innerText);
-  this.textContent='Copied!';
-  setTimeout(()=>this.textContent='Copy',1500);
+<div class="sp-eq">
+$$\frac{\partial \hat{y}}{\partial y}\bigg|_{\text{surrogate}} = \mathbf{I} - \frac{\boldsymbol{\epsilon}\,(\boldsymbol{\epsilon} - \bar{\boldsymbol{\epsilon}})^T}{N\,\sigma^2(\boldsymbol{\epsilon})}$$
+<div class="sp-eq-label">Eq. (8) — Surrogate Jacobian</div>
+</div>
+
+<p>Unlike STE or proxy-based methods, the gradient adapts dynamically to the current compression error distribution.</p>
+</div>
+
+<!-- ════════════ RESULTS ════════════ -->
+<div class="sp-section">
+<div class="sp-section-title">Results</div>
+
+<div class="sp-results">
+  <div class="sp-result sp-result-a">
+    <div class="val">−6.11%</div>
+    <div class="lbl">BD-BR PSNR · XIPH<br/>SCALED<sub>RD</sub> vs Lanczos</div>
+  </div>
+  <div class="sp-result sp-result-b">
+    <div class="val">−5.07%</div>
+    <div class="lbl">BD-BR PSNR · UVG<br/>SCALED<sub>RD</sub> vs Lanczos</div>
+  </div>
+  <div class="sp-result sp-result-c">
+    <div class="val">+5.19%</div>
+    <div class="lbl">BD-BR gain<br/>vs codec-agnostic</div>
+  </div>
+  <div class="sp-result sp-result-d">
+    <div class="val">×6</div>
+    <div class="lbl">scale ratios<br/>2/3 → 1/5</div>
+  </div>
+</div>
+
+<div class="sp-table-wrap">
+<table class="sp-table">
+<thead>
+<tr>
+  <th>Method</th><th>Strategy</th><th>Codec-aware</th>
+  <th>PSNR</th><th>SSIM</th><th>VMAF</th><th>VMAF-NEG</th>
+</tr>
+</thead>
+<tbody>
+<tr class="group-header"><td colspan="7">XIPH dataset — BD-BR vs Lanczos (↓ is better)</td></tr>
+<tr>
+  <td>ProgDownLite<sub>YUV</sub></td><td>D-only, no codec</td><td>✗</td>
+  <td>-0.85%</td><td>-1.19%</td><td>-4.71%</td><td>-3.60%</td>
+</tr>
+<tr>
+  <td>ProgDownLite<sub>YUV</sub></td><td>STE</td><td>✓</td>
+  <td class="bad">+68.57%</td><td class="bad">+48.34%</td><td class="bad">+11.22%</td><td class="bad">+20.69%</td>
+</tr>
+<tr>
+  <td>ProgDownLite<sub>YUV</sub></td><td>Proxy [Guleryuz et al.]</td><td>✓</td>
+  <td>-1.47%</td><td>-1.87%</td><td>-2.58%</td><td>-1.67%</td>
+</tr>
+<tr class="ours">
+  <td><strong>SCALED<sub>D</sub></strong></td><td>D + true codec</td><td>✓</td>
+  <td class="good">-4.67%</td><td class="good">-5.21%</td><td class="good">-9.80%</td><td class="good">-7.78%</td>
+</tr>
+<tr class="ours">
+  <td><strong>SCALED<sub>RD</sub></strong></td><td>R-D + true codec</td><td>✓</td>
+  <td class="good">-6.11%</td><td class="good">-4.29%</td><td class="good">-8.80%</td><td class="good">-7.59%</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<!-- ════════════ CITATION ════════════ -->
+<div class="sp-section">
+<div class="sp-section-title">Citation</div>
+<div class="sp-citation">
+<button class="sp-copy" onclick="
+  navigator.clipboard.writeText(document.getElementById('bibRaw').innerText);
+  this.textContent='✓ Copied'; setTimeout(()=>this.textContent='Copy',1800);
 ">Copy</button>
-<pre id="citationRaw" style="margin:0; white-space:pre-wrap;">@INPROCEEDINGS{11417641,
-  author    = {Pesnel, Esteban and Le Tanou, Julien and Ropert, Michael
-               and Maugey, Thomas and Roumy, Aline},
-  booktitle = {2025 Picture Coding Symposium (PCS)},
-  title     = {SCALED: Surrogate-gradient for Codec-Aware Learning
-               of Downsampling in ABR Streaming},
-  year      = {2025},
-  pages     = {1--5},
-  doi       = {10.1109/PCS65673.2025.11417641}
+<pre class="sp-bib" id="bibRaw"><span class="bib-type">@INPROCEEDINGS</span>{<span class="bib-key">11417641</span>,
+  <span class="bib-field">author</span>    = {<span class="bib-val">Pesnel, Esteban and Le Tanou, Julien and Ropert, Michael
+               and Maugey, Thomas and Roumy, Aline</span>},
+  <span class="bib-field">booktitle</span> = {<span class="bib-val">2025 Picture Coding Symposium (PCS)</span>},
+  <span class="bib-field">title</span>     = {<span class="bib-val">SCALED: Surrogate-gradient for Codec-Aware Learning
+               of Downsampling in ABR Streaming</span>},
+  <span class="bib-field">year</span>      = {<span class="bib-val">2025</span>},
+  <span class="bib-field">pages</span>     = {<span class="bib-val">1--5</span>},
+  <span class="bib-field">doi</span>       = {<span class="bib-val">10.1109/PCS65673.2025.11417641</span>}
 }</pre>
 </div>
+</div>
+
+</div><!-- end .sp -->
