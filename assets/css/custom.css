@@ -1,139 +1,196 @@
 /* ═══════════════════════════════════════════════════
    GLOBAL CUSTOM OVERRIDES — Esteban Pesnel
    File: assets/css/custom.css
-   Include via: _includes/head/custom.html
 ═══════════════════════════════════════════════════ */
 
-/* ── Variables ── */
 :root {
-  --blue-dark:   #0d1b2a;
-  --blue-mid:    #1b3a5c;
-  --blue:        #2c6fad;
-  --blue-light:  #4a90d9;
-  --blue-pale:   #ebf4ff;
-  --text:        #2d3748;
-  --text-muted:  #718096;
-  --border:      #e2e8f0;
-  --radius:      8px;
+  --blue-dark:  #0d1b2a;
+  --blue-mid:   #1b3a5c;
+  --blue:       #2c6fad;
+  --blue-light: #4a90d9;
+  --blue-pale:  #ebf4ff;
+  --text:       #2d3748;
+  --text-muted: #718096;
+  --border:     #e2e8f0;
 }
 
-/* ══════════════════════════════
-   SIDEBAR — profile photo + layout
-══════════════════════════════ */
+/* ══════════════════════════════════════════
+   SIDEBAR — dark blue textured panel
+══════════════════════════════════════════ */
 
-/* Profile photo — bigger */
-.author__avatar img {
-  max-width: 180px !important;
-  width: 180px !important;
+/* The whole sidebar gets the blue panel */
+.sidebar {
+  background: linear-gradient(160deg, #0d1b2a 0%, #1b3a5c 55%, #2c6fad 100%) !important;
+  border-radius: 14px !important;
+  padding: 1.8em 1.2em 1.5em !important;
+  position: relative !important;
+  overflow: hidden !important;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.18) !important;
+  margin-top: 0.5em !important;
+}
+/* Decorative circles (texture) */
+.sidebar::before {
+  content: '' !important;
+  position: absolute !important;
+  top: -50px !important; right: -50px !important;
+  width: 180px !important; height: 180px !important;
+  border-radius: 50% !important;
+  background: rgba(255,255,255,0.05) !important;
+  pointer-events: none !important;
+}
+.sidebar::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: -60px !important; left: -30px !important;
+  width: 220px !important; height: 220px !important;
+  border-radius: 50% !important;
+  background: rgba(255,255,255,0.04) !important;
+  pointer-events: none !important;
+}
+
+/* ── Profile photo: SQUARE ── */
+.author__avatar {
+  border-radius: 0 !important;
+  overflow: visible !important;
+  display: flex !important;
+  justify-content: center !important;
+}
+.author__avatar img,
+.author__avatar img.u-photo {
   border-radius: 10px !important;
-  border: 3px solid var(--border) !important;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.12) !important;
-  transition: box-shadow 0.2s, transform 0.2s !important;
+  width: 160px !important;
+  max-width: 160px !important;
+  height: 160px !important;
   object-fit: cover !important;
+  border: 3px solid rgba(255,255,255,0.25) !important;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.3) !important;
+  transition: transform 0.2s, box-shadow 0.2s !important;
+  display: block !important;
 }
 .author__avatar img:hover {
-  box-shadow: 0 6px 24px rgba(44,111,173,0.25) !important;
   transform: translateY(-2px) !important;
-}
-/* Make the sidebar a bit wider to accommodate bigger photo */
-.sidebar.sticky {
-  width: 220px !important;
-}
-@media (min-width: 80em) {
-  .sidebar.sticky { width: 240px !important; }
+  box-shadow: 0 8px 28px rgba(0,0,0,0.35) !important;
 }
 
-/* Author name */
+/* ── Name + bio ── */
 .author__name {
-  font-size: 1.1em !important;
+  color: white !important;
+  font-size: 1.05em !important;
   font-weight: 700 !important;
-  color: var(--blue-mid) !important;
-  margin-top: 0.6em !important;
+  margin-top: 0.8em !important;
+  text-align: center !important;
 }
-
-/* Bio */
+.author__pronouns {
+  color: rgba(255,255,255,0.55) !important;
+  font-size: 0.8em !important;
+  text-align: center !important;
+}
 .author__bio {
-  font-size: 0.85em !important;
-  color: var(--text-muted) !important;
+  color: rgba(255,255,255,0.72) !important;
+  font-size: 0.82em !important;
   line-height: 1.6 !important;
+  text-align: center !important;
 }
 
-/* Social links */
-.author__urls a {
-  color: var(--text) !important;
-  font-size: 0.85em !important;
+/* ── Location / employer metadata ── */
+.author__urls-wrapper .author__urls.social-icons li,
+.author__content .author__urls li {
+  color: rgba(255,255,255,0.75) !important;
+}
+.sidebar .author__urls-wrapper button {
+  color: rgba(255,255,255,0.85) !important;
+  background: rgba(255,255,255,0.1) !important;
+  border: 1px solid rgba(255,255,255,0.2) !important;
+  border-radius: 20px !important;
+  font-size: 0.82em !important;
+  padding: 0.3em 0.9em !important;
+}
+.sidebar .author__urls-wrapper button:hover {
+  background: rgba(255,255,255,0.2) !important;
+}
+
+/* ── Social links + icons ── */
+.author__urls a,
+.author__urls span {
+  color: rgba(255,255,255,0.82) !important;
+  font-size: 0.83em !important;
   transition: color 0.15s !important;
 }
 .author__urls a:hover {
-  color: var(--blue) !important;
+  color: #63b3ed !important;
   text-decoration: none !important;
 }
-
-/* Sidebar overall */
-.sidebar .author__content {
-  text-align: center !important;
+/* Icons: force white */
+.author__urls svg,
+.author__urls .svg-inline--fa,
+.author__urls i,
+.author__urls .fas, .author__urls .fab, .author__urls .far,
+.author__urls [class*="fa-"] {
+  color: rgba(255,255,255,0.8) !important;
+  fill: rgba(255,255,255,0.8) !important;
 }
-.sidebar {
-  padding-top: 1.5em !important;
+.author__urls a:hover svg,
+.author__urls a:hover i,
+.author__urls a:hover [class*="fa-"] {
+  color: #63b3ed !important;
+  fill: #63b3ed !important;
+}
+/* Location / employer icons in sidebar header */
+.sidebar .author__content p,
+.sidebar .author__content p a,
+.sidebar p.author__location,
+.sidebar p.author__employer {
+  color: rgba(255,255,255,0.7) !important;
+  font-size: 0.82em !important;
+}
+.sidebar .author__content svg,
+.sidebar .author__content i,
+.sidebar .author__content [class*="fa-"] {
+  color: rgba(255,255,255,0.7) !important;
+  fill: rgba(255,255,255,0.7) !important;
 }
 
-/* ══════════════════════════════
-   MASTHEAD — top navigation
-══════════════════════════════ */
+/* ══════════════════════════════════════════
+   MASTHEAD — top navbar
+══════════════════════════════════════════ */
 .masthead {
   background: var(--blue-dark) !important;
   border-bottom: 2px solid var(--blue) !important;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.15) !important;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.2) !important;
 }
-.masthead__inner-wrap {
-  padding: 0.6em 1em !important;
-}
-.site-title, .masthead__menu-item a,
-.greedy-nav a {
+.site-title, .masthead__menu-item a, .greedy-nav a {
   color: rgba(255,255,255,0.9) !important;
   font-weight: 500 !important;
 }
-.greedy-nav a:hover,
-.masthead__menu-item a:hover {
+.greedy-nav a:hover, .masthead__menu-item a:hover {
   color: #63b3ed !important;
   text-decoration: none !important;
 }
 .greedy-nav .visible-links a::before {
   background: var(--blue-light) !important;
 }
-/* Active nav item */
-.greedy-nav .visible-links a.active,
-.masthead__menu-item--active a {
-  color: #63b3ed !important;
-}
 
-/* ══════════════════════════════
+/* ══════════════════════════════════════════
    PAGE CONTENT
-══════════════════════════════ */
+══════════════════════════════════════════ */
 .page__content {
   font-size: 0.95em !important;
   line-height: 1.75 !important;
   color: var(--text) !important;
 }
-
-/* H2 headings */
 .page__content h2 {
-  font-size: 1.25em !important;
+  font-size: 1.2em !important;
   font-weight: 700 !important;
   color: var(--blue-mid) !important;
   border-bottom: 2px solid var(--blue-pale) !important;
   padding-bottom: 0.3em !important;
   margin-top: 1.8em !important;
 }
-
-/* H3 */
 .page__content h3 {
-  font-size: 1.05em !important;
+  font-size: 1.03em !important;
   font-weight: 700 !important;
   color: var(--blue-mid) !important;
 }
-
-/* Links in content */
 .page__content a {
   color: var(--blue) !important;
   text-decoration: none !important;
@@ -143,78 +200,39 @@
 .page__content a:hover {
   border-bottom-color: var(--blue) !important;
 }
-
-/* Page title */
 .page__title {
   font-size: 1.5em !important;
   font-weight: 800 !important;
   color: var(--blue-dark) !important;
 }
 
-/* ══════════════════════════════
-   ARCHIVE / PUBLICATIONS LIST
-══════════════════════════════ */
-.archive__item-title {
-  font-size: 1em !important;
-  font-weight: 700 !important;
-}
-.archive__item-title a {
-  color: var(--blue-mid) !important;
-}
-.archive__item-title a:hover {
-  color: var(--blue) !important;
-}
-.archive__item-excerpt {
-  font-size: 0.85em !important;
-  color: var(--text-muted) !important;
-}
-
-/* ══════════════════════════════
+/* ══════════════════════════════════════════
    FOOTER
-══════════════════════════════ */
+══════════════════════════════════════════ */
 .page__footer {
   background: var(--blue-dark) !important;
   color: rgba(255,255,255,0.6) !important;
-  margin-top: 3em !important;
 }
 .page__footer a {
   color: rgba(255,255,255,0.7) !important;
 }
-.page__footer a:hover {
-  color: #63b3ed !important;
-}
+.page__footer a:hover { color: #63b3ed !important; }
 
-/* ══════════════════════════════
+/* ══════════════════════════════════════════
    MISC
-══════════════════════════════ */
-/* Smooth scrolling */
+══════════════════════════════════════════ */
 html { scroll-behavior: smooth; }
-
-/* Nicer blockquote */
 blockquote {
   border-left: 4px solid var(--blue) !important;
   background: var(--blue-pale) !important;
-  border-radius: 0 var(--radius) var(--radius) 0 !important;
+  border-radius: 0 8px 8px 0 !important;
   padding: 0.8em 1.2em !important;
   color: var(--text) !important;
 }
-
-/* Nicer code */
 code {
   background: #f0f4f8 !important;
   color: #c53030 !important;
   padding: 0.1em 0.35em !important;
   border-radius: 4px !important;
   font-size: 0.88em !important;
-}
-
-/* Pagination */
-.pagination--pager {
-  background: var(--blue) !important;
-  border-color: var(--blue) !important;
-  color: white !important;
-  border-radius: var(--radius) !important;
-}
-.pagination--pager:hover {
-  background: var(--blue-mid) !important;
 }
