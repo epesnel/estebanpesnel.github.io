@@ -49,3 +49,5 @@ Experimental results on ABR streaming pipelines demonstrate significant rate-dis
   doi={10.1109/PCS65673.2025.11417641}
 }
 ```
+
+![SCALED overview](/images/scaled_overview.png)
