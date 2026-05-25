@@ -19,42 +19,21 @@ MathJax = {
 </script>
 
 <style>
-.home-hero {
-  background: linear-gradient(135deg, #0d1b2a 0%, #1b3a5c 60%, #2c6fad 100%);
-  border-radius: 12px; padding: 2em 2.2em 1.8em;
-  color: white; margin-bottom: 2em; position: relative; overflow: hidden;
+.intro-card {
+  background: #f0f6ff;
+  border: 1px solid #c3daf7;
+  border-left: 4px solid #2c6fad;
+  border-radius: 0 10px 10px 0;
+  padding: 1.1em 1.4em;
+  margin-bottom: 1.8em;
+  font-size: 0.93em;
+  line-height: 1.75;
+  color: #2d3748;
 }
-.home-hero::after {
-  content: ''; position: absolute; bottom: -80px; right: -60px;
-  width: 280px; height: 280px; border-radius: 50%;
-  background: rgba(255,255,255,0.04); pointer-events: none;
+.intro-card p { margin: 0.5em 0 0; }
+.intro-thesis {
+  font-size: 0.9em; color: #1b3a5c; margin-bottom: 0.3em;
 }
-.home-hero-name {
-  font-size: 1.8em; font-weight: 800; margin: 0 0 0.2em; line-height: 1.2;
-}
-.home-hero-sub {
-  font-size: 0.95em; opacity: 0.8; margin-bottom: 1.2em; line-height: 1.6;
-}
-.home-hero-sub em { color: #63b3ed; font-style: normal; font-weight: 600; }
-.home-badge-row { display: flex; flex-wrap: wrap; gap: 0.5em; margin-bottom: 1.4em; }
-.home-badge {
-  display: inline-flex; align-items: center; gap: 0.3em;
-  background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2);
-  border-radius: 20px; padding: 0.25em 0.85em;
-  font-size: 0.78em; color: rgba(255,255,255,0.9);
-}
-.home-links-row { display: flex; flex-wrap: wrap; gap: 0.5em; }
-.home-link {
-  display: inline-flex; align-items: center; gap: 0.35em;
-  padding: 0.4em 1em; border-radius: 6px; font-size: 0.82em; font-weight: 600;
-  text-decoration: none !important; transition: transform 0.15s;
-}
-.home-link:hover { transform: translateY(-1px); }
-.hl-scholar  { background: #4285f4; color: white; }
-.hl-orcid    { background: #a6ce39; color: #333; }
-.hl-linkedin { background: #0077b5; color: white; }
-.hl-rg       { background: #00ccbb; color: white; }
-.hl-github   { background: #24292e; color: white; }
 
 /* Research topics */
 .topic-grid {
@@ -107,32 +86,15 @@ MathJax = {
 }
 </style>
 
-<!-- ══════════════ HERO ══════════════ -->
-<div class="home-hero">
-  <div class="home-hero-name">Esteban Pesnel</div>
-  <div class="home-hero-sub">
-    CIFRE PhD candidate &nbsp;·&nbsp; <em>INRIA</em> &amp; <em>MediaKind</em> &nbsp;·&nbsp; team CompACT, Rennes<br/>
-    AI-driven video compression &amp; neural video processing
+<!-- ══════════════ INTRO ══════════════ -->
+<div class="intro-card">
+  <div class="intro-thesis">
+    🎯 <strong>PhD thesis</strong> — <em>"Learned video downscaling for end-to-end Rate-Distortion optimization of video streaming systems"</em>
   </div>
-  <div class="home-badge-row">
-    <span class="home-badge">🎓 INSA Rennes</span>
-    <span class="home-badge">✈️ ÉTS Montréal</span>
-    <span class="home-badge">📍 Rennes, France</span>
-    <span class="home-badge">🎯 PhD 2023–2026</span>
-  </div>
-  <div class="home-links-row">
-    <a class="home-link hl-scholar"  href="https://scholar.google.com/citations?view_op=list_works&hl=fr&user=Jy7NZNwAAAAJ" target="_blank">🎓 Scholar</a>
-    <a class="home-link hl-orcid"   href="https://orcid.org/0009-0004-5906-0152" target="_blank">🔬 ORCID</a>
-    <a class="home-link hl-linkedin" href="https://www.linkedin.com/in/estebanpesnel" target="_blank">💼 LinkedIn</a>
-    <a class="home-link hl-rg"      href="https://www.researchgate.net/profile/Esteban-Pesnel" target="_blank">📊 ResearchGate</a>
-    <a class="home-link hl-github"  href="https://github.com/epesnel" target="_blank">💻 GitHub</a>
-  </div>
+  <p>CIFRE PhD candidate at <strong>INRIA</strong> &amp; <strong>MediaKind</strong> (team CompACT, Rennes),
+  working on AI-driven video compression and neural video processing.
+  Engineering degree from <strong>INSA Rennes</strong> · exchange semester in aerospace engineering at <strong>ÉTS Montréal</strong>.</p>
 </div>
-
-<!-- ══════════════ ABOUT ══════════════ -->
-<div class="hs">About</div>
-
-I am a CIFRE PhD candidate at <strong>INRIA</strong> and <strong>MediaKind</strong> within the CompACT team in Rennes, working on AI-driven video compression and neural video processing. I hold an engineering degree from <strong>INSA Rennes</strong> and studied aerospace engineering at <strong>ÉTS Montréal</strong> (Canada).
 
 <!-- ══════════════ RESEARCH TOPICS ══════════════ -->
 <div class="hs">Research Focus</div>
