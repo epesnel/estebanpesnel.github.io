@@ -24,11 +24,11 @@ repository               : "academicpages/academicpages.github.io"
 author:
   # Biographic information
   avatar           : "profile.jpg"
-  name             : "Your Sidebar Name"
+  name             : "Esteban Pesnel"
   pronouns         : "he/him"  
-  bio              : "Short biography for the left-hand sidebar"
+  bio              : "CIFRE PhD candidate"
   location         : "Rennes, France"
-  employer         : "MediaKind"
+  employer         : "MediaKind - INRIA, CompACT team"
   uri              : # URL
   email            : "firstname.lastname@mediakind.com" 
 
