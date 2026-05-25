@@ -49,3 +49,4 @@ Experimental results on ABR streaming pipelines demonstrate significant rate-dis
   keywords={Training;Codecs;Quantization (signal);Pipelines;Bit rate;Rate-distortion;Encoding;Video codecs;Standards;Videos},
   doi={10.1109/PCS65673.2025.11417641}
 }
+```
