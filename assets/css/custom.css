@@ -60,11 +60,13 @@ nav.greedy-nav {
    SIDEBAR — wider, bigger, blue panel
 ══════════════════════════════════════════ */
 
-/* Wider sidebar */
+/* Wider sidebar + fit-content height */
 .sidebar.sticky,
 .sidebar {
   width: 300px !important;
   min-width: 300px !important;
+  height: fit-content !important;
+  align-self: flex-start !important;
 }
 @media (min-width: 80em) {
   .sidebar.sticky, .sidebar { width: 320px !important; min-width: 320px !important; }
@@ -119,9 +121,9 @@ nav.greedy-nav {
 .author__avatar img.u-photo,
 .sidebar img.u-photo {
   border-radius: 12px !important;
-  width: 200px !important;
-  max-width: 200px !important;
-  height: 200px !important;
+  width: 220px !important;
+  max-width: 220px !important;
+  height: 220px !important;
   object-fit: cover !important;
   border: none !important;
   outline: none !important;
@@ -155,7 +157,7 @@ nav.greedy-nav {
   margin-bottom: 0.8em !important;
 }
 
-/* ── "Follow" button ── */
+/* ── "Follow" toggle button ── */
 .author__urls-wrapper button,
 .author__urls-wrapper .btn {
   background: rgba(255,255,255,0.12) !important;
@@ -169,63 +171,65 @@ nav.greedy-nav {
 }
 .author__urls-wrapper button:hover { background: rgba(255,255,255,0.22) !important; }
 
-/* ── Social links text ── */
-.author__urls a,
-.author__urls span.label {
-  color: rgba(255,255,255,0.85) !important;
-  font-size: 0.83em !important;
-  transition: color 0.15s !important;
+/* ── PILLS: transform vertical list → colored pill badges ── */
+.author__urls {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 6px !important;
+  justify-content: center !important;
+  padding: 0.3em 0 0 !important;
+  margin: 0.2em 0 0 !important;
+  list-style: none !important;
 }
-.author__urls a:hover { color: #63b3ed !important; text-decoration: none !important; }
+.author__urls li {
+  display: inline-flex !important;
+  list-style: none !important;
+  background: rgba(255,255,255,0.13) !important;
+  border: 1px solid rgba(255,255,255,0.22) !important;
+  border-radius: 20px !important;
+  padding: 0 !important;
+  transition: background 0.15s, transform 0.15s !important;
+}
+.author__urls li:hover {
+  background: rgba(255,255,255,0.24) !important;
+  transform: translateY(-1px) !important;
+}
+.author__urls li a {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.35em !important;
+  padding: 0.32em 0.9em !important;
+  color: rgba(255,255,255,0.92) !important;
+  font-size: 0.78em !important;
+  font-weight: 500 !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+  border: none !important;
+}
+.author__urls li a:hover { color: white !important; }
 
-/* ── ALL icons/logos in sidebar → white ── */
-/* Font Awesome icons */
-.author__urls .fas,
-.author__urls .fab,
-.author__urls .far,
-.author__urls .fal,
-.author__urls [class*="fa-"],
+/* ── Icons inside pills ── */
+.author__urls .fas, .author__urls .fab,
+.author__urls .far, .author__urls [class*="fa-"],
 .author__urls i[class] {
   color: rgba(255,255,255,0.82) !important;
+  font-size: 0.9em !important;
 }
-.author__urls a:hover .fas,
-.author__urls a:hover .fab,
-.author__urls a:hover [class*="fa-"] {
-  color: #63b3ed !important;
-}
-/* SVG icons */
-.author__urls svg path,
-.author__urls svg,
-.sidebar svg path,
-.sidebar svg {
+.author__urls svg path, .author__urls svg,
+.sidebar svg path, .sidebar svg {
   fill: rgba(255,255,255,0.82) !important;
-  color: rgba(255,255,255,0.82) !important;
 }
-.author__urls a:hover svg,
-.author__urls a:hover svg path {
-  fill: #63b3ed !important;
-}
-/* Image-based icons (ORCID, Semantic Scholar, ResearchGate etc.) */
-.author__urls img,
-.author__urls a img,
-.sidebar .author__urls img {
+/* Image-based logos (ORCID, Semantic Scholar, ResearchGate) */
+.author__urls img, .author__urls a img {
   filter: brightness(0) invert(1) !important;
   opacity: 0.85 !important;
-  transition: opacity 0.15s !important;
-  width: 1em !important;
-  height: 1em !important;
+  width: 1em !important; height: 1em !important;
   vertical-align: middle !important;
 }
-.author__urls a:hover img {
-  opacity: 1 !important;
-  filter: brightness(0) invert(0.6) sepia(1) saturate(3) hue-rotate(180deg) !important;
-}
 
-/* Location / employer lines */
-.sidebar p,
-.sidebar .author__content p,
-.sidebar li,
-.sidebar .p-note {
+/* Metadata lines (location, employer) */
+.sidebar p, .sidebar .author__content p,
+.sidebar li, .sidebar .p-note {
   color: rgba(255,255,255,0.72) !important;
   font-size: 0.82em !important;
 }
