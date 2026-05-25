@@ -11,78 +11,140 @@
   --blue-pale:  #ebf4ff;
   --text:       #2d3748;
   --text-muted: #718096;
-  --border:     #e2e8f0;
 }
 
 /* ══════════════════════════════════════════
-   SIDEBAR — dark blue textured panel
+   MASTHEAD — top navbar (high specificity)
+══════════════════════════════════════════ */
+html body .masthead,
+html body header.masthead,
+.masthead,
+nav.greedy-nav {
+  background: var(--blue-dark) !important;
+  background-color: var(--blue-dark) !important;
+  border-bottom: 2px solid var(--blue) !important;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.25) !important;
+}
+.greedy-nav,
+.greedy-nav .visible-links,
+.masthead__inner-wrap {
+  background: var(--blue-dark) !important;
+  background-color: var(--blue-dark) !important;
+}
+.greedy-nav a,
+.greedy-nav .visible-links a,
+.greedy-nav .site-title,
+.masthead a,
+.masthead__menu-item a,
+.site-title {
+  color: rgba(255,255,255,0.92) !important;
+  font-weight: 500 !important;
+}
+.greedy-nav a:hover,
+.greedy-nav .visible-links a:hover,
+.masthead a:hover {
+  color: #63b3ed !important;
+  text-decoration: none !important;
+}
+.greedy-nav .visible-links a::before,
+.greedy-nav .visible-links a:hover::before {
+  background: #63b3ed !important;
+}
+.greedy-nav__toggle svg,
+.greedy-nav button svg {
+  fill: rgba(255,255,255,0.9) !important;
+  color: rgba(255,255,255,0.9) !important;
+}
+
+/* ══════════════════════════════════════════
+   SIDEBAR — wider, bigger, blue panel
 ══════════════════════════════════════════ */
 
-/* The whole sidebar gets the blue panel */
+/* Wider sidebar */
+.sidebar.sticky,
 .sidebar {
-  background: linear-gradient(160deg, #0d1b2a 0%, #1b3a5c 55%, #2c6fad 100%) !important;
-  border-radius: 14px !important;
-  padding: 1.8em 1.2em 1.5em !important;
-  position: relative !important;
-  overflow: hidden !important;
-  box-shadow: 0 6px 24px rgba(0,0,0,0.18) !important;
-  margin-top: 0.5em !important;
+  width: 300px !important;
+  min-width: 300px !important;
 }
-/* Decorative circles (texture) */
-.sidebar::before {
-  content: '' !important;
-  position: absolute !important;
-  top: -50px !important; right: -50px !important;
-  width: 180px !important; height: 180px !important;
-  border-radius: 50% !important;
-  background: rgba(255,255,255,0.05) !important;
-  pointer-events: none !important;
-}
-.sidebar::after {
-  content: '' !important;
-  position: absolute !important;
-  bottom: -60px !important; left: -30px !important;
-  width: 220px !important; height: 220px !important;
-  border-radius: 50% !important;
-  background: rgba(255,255,255,0.04) !important;
-  pointer-events: none !important;
+@media (min-width: 80em) {
+  .sidebar.sticky, .sidebar { width: 320px !important; min-width: 320px !important; }
 }
 
-/* ── Profile photo: SQUARE ── */
+/* Shrink content area accordingly */
+@media (min-width: 64em) {
+  .page { width: calc(100% - 340px) !important; }
+}
+@media (min-width: 80em) {
+  .page { width: calc(100% - 360px) !important; }
+}
+
+/* Blue textured panel */
+.sidebar {
+  background: linear-gradient(160deg, #0d1b2a 0%, #1b3a5c 55%, #2c6fad 100%) !important;
+  border-radius: 16px !important;
+  padding: 2em 1.4em 1.8em !important;
+  position: relative !important;
+  overflow: hidden !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.22) !important;
+  margin-top: 0.8em !important;
+}
+/* Texture circles */
+.sidebar::before {
+  content: '' !important; position: absolute !important;
+  top: -60px !important; right: -50px !important;
+  width: 200px !important; height: 200px !important;
+  border-radius: 50% !important;
+  background: rgba(255,255,255,0.06) !important;
+  pointer-events: none !important; z-index: 0 !important;
+}
+.sidebar::after {
+  content: '' !important; position: absolute !important;
+  bottom: -70px !important; left: -40px !important;
+  width: 250px !important; height: 250px !important;
+  border-radius: 50% !important;
+  background: rgba(255,255,255,0.04) !important;
+  pointer-events: none !important; z-index: 0 !important;
+}
+.sidebar > * { position: relative !important; z-index: 1 !important; }
+
+/* ── Profile photo: square, bigger, no border ── */
 .author__avatar {
   border-radius: 0 !important;
   overflow: visible !important;
   display: flex !important;
   justify-content: center !important;
+  margin-bottom: 0.6em !important;
 }
 .author__avatar img,
-.author__avatar img.u-photo {
-  border-radius: 10px !important;
-  width: 160px !important;
-  max-width: 160px !important;
-  height: 160px !important;
+.author__avatar img.u-photo,
+.sidebar img.u-photo {
+  border-radius: 12px !important;
+  width: 200px !important;
+  max-width: 200px !important;
+  height: 200px !important;
   object-fit: cover !important;
-  border: 3px solid rgba(255,255,255,0.25) !important;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.3) !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.35) !important;
   transition: transform 0.2s, box-shadow 0.2s !important;
   display: block !important;
 }
 .author__avatar img:hover {
   transform: translateY(-2px) !important;
-  box-shadow: 0 8px 28px rgba(0,0,0,0.35) !important;
+  box-shadow: 0 10px 32px rgba(0,0,0,0.4) !important;
 }
 
-/* ── Name + bio ── */
+/* ── Name, pronouns, bio ── */
 .author__name {
   color: white !important;
-  font-size: 1.05em !important;
+  font-size: 1.1em !important;
   font-weight: 700 !important;
-  margin-top: 0.8em !important;
   text-align: center !important;
+  margin-top: 0.7em !important;
 }
 .author__pronouns {
-  color: rgba(255,255,255,0.55) !important;
-  font-size: 0.8em !important;
+  color: rgba(255,255,255,0.5) !important;
+  font-size: 0.78em !important;
   text-align: center !important;
 }
 .author__bio {
@@ -90,84 +152,82 @@
   font-size: 0.82em !important;
   line-height: 1.6 !important;
   text-align: center !important;
+  margin-bottom: 0.8em !important;
 }
 
-/* ── Location / employer metadata ── */
-.author__urls-wrapper .author__urls.social-icons li,
-.author__content .author__urls li {
-  color: rgba(255,255,255,0.75) !important;
-}
-.sidebar .author__urls-wrapper button {
-  color: rgba(255,255,255,0.85) !important;
-  background: rgba(255,255,255,0.1) !important;
-  border: 1px solid rgba(255,255,255,0.2) !important;
+/* ── "Follow" button ── */
+.author__urls-wrapper button,
+.author__urls-wrapper .btn {
+  background: rgba(255,255,255,0.12) !important;
+  color: rgba(255,255,255,0.9) !important;
+  border: 1px solid rgba(255,255,255,0.25) !important;
   border-radius: 20px !important;
-  font-size: 0.82em !important;
-  padding: 0.3em 0.9em !important;
+  font-size: 0.8em !important;
+  padding: 0.3em 1em !important;
+  width: 100% !important;
+  cursor: pointer !important;
 }
-.sidebar .author__urls-wrapper button:hover {
-  background: rgba(255,255,255,0.2) !important;
-}
+.author__urls-wrapper button:hover { background: rgba(255,255,255,0.22) !important; }
 
-/* ── Social links + icons ── */
+/* ── Social links text ── */
 .author__urls a,
-.author__urls span {
-  color: rgba(255,255,255,0.82) !important;
+.author__urls span.label {
+  color: rgba(255,255,255,0.85) !important;
   font-size: 0.83em !important;
   transition: color 0.15s !important;
 }
-.author__urls a:hover {
-  color: #63b3ed !important;
-  text-decoration: none !important;
+.author__urls a:hover { color: #63b3ed !important; text-decoration: none !important; }
+
+/* ── ALL icons/logos in sidebar → white ── */
+/* Font Awesome icons */
+.author__urls .fas,
+.author__urls .fab,
+.author__urls .far,
+.author__urls .fal,
+.author__urls [class*="fa-"],
+.author__urls i[class] {
+  color: rgba(255,255,255,0.82) !important;
 }
-/* Icons: force white */
-.author__urls svg,
-.author__urls .svg-inline--fa,
-.author__urls i,
-.author__urls .fas, .author__urls .fab, .author__urls .far,
-.author__urls [class*="fa-"] {
-  color: rgba(255,255,255,0.8) !important;
-  fill: rgba(255,255,255,0.8) !important;
-}
-.author__urls a:hover svg,
-.author__urls a:hover i,
+.author__urls a:hover .fas,
+.author__urls a:hover .fab,
 .author__urls a:hover [class*="fa-"] {
   color: #63b3ed !important;
+}
+/* SVG icons */
+.author__urls svg path,
+.author__urls svg,
+.sidebar svg path,
+.sidebar svg {
+  fill: rgba(255,255,255,0.82) !important;
+  color: rgba(255,255,255,0.82) !important;
+}
+.author__urls a:hover svg,
+.author__urls a:hover svg path {
   fill: #63b3ed !important;
 }
-/* Location / employer icons in sidebar header */
-.sidebar .author__content p,
-.sidebar .author__content p a,
-.sidebar p.author__location,
-.sidebar p.author__employer {
-  color: rgba(255,255,255,0.7) !important;
-  font-size: 0.82em !important;
+/* Image-based icons (ORCID, Semantic Scholar, ResearchGate etc.) */
+.author__urls img,
+.author__urls a img,
+.sidebar .author__urls img {
+  filter: brightness(0) invert(1) !important;
+  opacity: 0.85 !important;
+  transition: opacity 0.15s !important;
+  width: 1em !important;
+  height: 1em !important;
+  vertical-align: middle !important;
 }
-.sidebar .author__content svg,
-.sidebar .author__content i,
-.sidebar .author__content [class*="fa-"] {
-  color: rgba(255,255,255,0.7) !important;
-  fill: rgba(255,255,255,0.7) !important;
+.author__urls a:hover img {
+  opacity: 1 !important;
+  filter: brightness(0) invert(0.6) sepia(1) saturate(3) hue-rotate(180deg) !important;
 }
 
-/* ══════════════════════════════════════════
-   MASTHEAD — top navbar
-══════════════════════════════════════════ */
-.masthead {
-  background: var(--blue-dark) !important;
-  border-bottom: 2px solid var(--blue) !important;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.2) !important;
-}
-.site-title, .masthead__menu-item a, .greedy-nav a {
-  color: rgba(255,255,255,0.9) !important;
-  font-weight: 500 !important;
-}
-.greedy-nav a:hover, .masthead__menu-item a:hover {
-  color: #63b3ed !important;
-  text-decoration: none !important;
-}
-.greedy-nav .visible-links a::before {
-  background: var(--blue-light) !important;
+/* Location / employer lines */
+.sidebar p,
+.sidebar .author__content p,
+.sidebar li,
+.sidebar .p-note {
+  color: rgba(255,255,255,0.72) !important;
+  font-size: 0.82em !important;
 }
 
 /* ══════════════════════════════════════════
@@ -179,43 +239,27 @@
   color: var(--text) !important;
 }
 .page__content h2 {
-  font-size: 1.2em !important;
-  font-weight: 700 !important;
+  font-size: 1.2em !important; font-weight: 700 !important;
   color: var(--blue-mid) !important;
   border-bottom: 2px solid var(--blue-pale) !important;
   padding-bottom: 0.3em !important;
   margin-top: 1.8em !important;
 }
-.page__content h3 {
-  font-size: 1.03em !important;
-  font-weight: 700 !important;
-  color: var(--blue-mid) !important;
-}
-.page__content a {
-  color: var(--blue) !important;
-  text-decoration: none !important;
-  border-bottom: 1px solid transparent !important;
-  transition: border-color 0.15s !important;
-}
-.page__content a:hover {
-  border-bottom-color: var(--blue) !important;
-}
-.page__title {
-  font-size: 1.5em !important;
-  font-weight: 800 !important;
-  color: var(--blue-dark) !important;
-}
+.page__content h3 { font-size: 1.03em !important; font-weight: 700 !important; color: var(--blue-mid) !important; }
+.page__content a { color: var(--blue) !important; text-decoration: none !important; transition: color 0.15s !important; }
+.page__content a:hover { color: var(--blue-light) !important; }
+.page__title { font-size: 1.5em !important; font-weight: 800 !important; color: var(--blue-dark) !important; }
 
 /* ══════════════════════════════════════════
    FOOTER
 ══════════════════════════════════════════ */
+html body .page__footer,
 .page__footer {
   background: var(--blue-dark) !important;
+  background-color: var(--blue-dark) !important;
   color: rgba(255,255,255,0.6) !important;
 }
-.page__footer a {
-  color: rgba(255,255,255,0.7) !important;
-}
+.page__footer a { color: rgba(255,255,255,0.7) !important; }
 .page__footer a:hover { color: #63b3ed !important; }
 
 /* ══════════════════════════════════════════
@@ -227,12 +271,9 @@ blockquote {
   background: var(--blue-pale) !important;
   border-radius: 0 8px 8px 0 !important;
   padding: 0.8em 1.2em !important;
-  color: var(--text) !important;
 }
 code {
-  background: #f0f4f8 !important;
-  color: #c53030 !important;
-  padding: 0.1em 0.35em !important;
-  border-radius: 4px !important;
+  background: #f0f4f8 !important; color: #c53030 !important;
+  padding: 0.1em 0.35em !important; border-radius: 4px !important;
   font-size: 0.88em !important;
 }
