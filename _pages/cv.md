@@ -36,8 +36,6 @@ redirect_from:
 <div class="cv-entry">
 <div class="cv-entry-header">
 <span class="cv-title">
-<img class="logo" src="https://upload.wikimedia.org/wikipedia/fr/thumb/b/b7/Logo_Universit%C3%A9_de_Rennes_2023.svg/320px-Logo_Universit%C3%A9_de_Rennes_2023.svg.png" alt="Univ Rennes"/>
-<img class="logo" src="https://upload.wikimedia.org/wikipedia/fr/thumb/e/e1/Inria_logo.svg/320px-Inria_logo.svg.png" alt="INRIA"/>
 Ph.D. — Signal Processing, Artificial Intelligence &amp; Video Compression
 </span>
 <span class="cv-date">Jun 2023 – Jun 2026</span>
@@ -60,7 +58,6 @@ Ph.D. — Signal Processing, Artificial Intelligence &amp; Video Compression
 <div class="cv-entry">
 <div class="cv-entry-header">
 <span class="cv-title">
-<img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Logo_INSA_Rennes.svg/320px-Logo_INSA_Rennes.svg.png" alt="INSA Rennes"/>
 M.Ing. — Electronic &amp; Computer Engineering
 </span>
 <span class="cv-date">2020 – 2023</span>
@@ -77,7 +74,6 @@ M.Ing. — Electronic &amp; Computer Engineering
 <div class="cv-entry">
 <div class="cv-entry-header">
 <span class="cv-title">
-<img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/%C3%89TS_Logo.svg/320px-%C3%89TS_Logo.svg.png" alt="ÉTS"/>
 M.Eng. — Aerospace &amp; Aeronautical Engineering (Exchange semester)
 </span>
 <span class="cv-date">Sep 2022 – Jan 2023</span>
@@ -94,7 +90,6 @@ M.Eng. — Aerospace &amp; Aeronautical Engineering (Exchange semester)
 <div class="cv-entry">
 <div class="cv-entry-header">
 <span class="cv-title">
-<img class="logo" src="https://esir.univ-rennes.fr/sites/esir.univ-rennes.fr/files/styles/large/public/media/image/logo-esir.png" alt="ESIR"/>
 CUPGE — Computer Science &amp; Engineering (Preparatory cycle)
 </span>
 <span class="cv-date">2018 – 2020</span>
@@ -112,7 +107,6 @@ CUPGE — Computer Science &amp; Engineering (Preparatory cycle)
 <div class="cv-entry">
 <div class="cv-entry-header">
 <span class="cv-title">
-<img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Inria_logo.svg/320px-Inria_logo.svg.png" alt="INRIA"/>
 PhD Researcher — Neural Video Compression
 </span>
 <span class="cv-date">Aug 2023 – present</span>
@@ -135,7 +129,6 @@ PhD Researcher — Neural Video Compression
 <div class="cv-entry">
 <div class="cv-entry-header">
 <span class="cv-title">
-<img class="logo" src="https://upload.wikimedia.org/wikipedia/fr/thumb/b/b7/Logo_Universit%C3%A9_de_Rennes_2023.svg/320px-Logo_Universit%C3%A9_de_Rennes_2023.svg.png" alt="Univ Rennes"/>
 Part-time Lecturer
 </span>
 <span class="cv-date">Mar 2024 – Jun 2025</span>
