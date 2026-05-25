@@ -171,7 +171,7 @@ nav.greedy-nav {
 }
 .author__urls-wrapper button:hover { background: rgba(255,255,255,0.22) !important; }
 
-/* ── PILLS: transform vertical list → colored pill badges ── */
+/* ── PILLS: colorful per-platform with emojis ── */
 .author__urls {
   display: flex !important;
   flex-wrap: wrap !important;
@@ -181,51 +181,96 @@ nav.greedy-nav {
   margin: 0.2em 0 0 !important;
   list-style: none !important;
 }
+/* Base pill: transparent wrapper, color on <a> */
 .author__urls li {
   display: inline-flex !important;
   list-style: none !important;
-  background: rgba(255,255,255,0.13) !important;
-  border: 1px solid rgba(255,255,255,0.22) !important;
-  border-radius: 20px !important;
+  background: transparent !important;
+  border: none !important;
   padding: 0 !important;
-  transition: background 0.15s, transform 0.15s !important;
+  transition: transform 0.15s !important;
 }
-.author__urls li:hover {
-  background: rgba(255,255,255,0.24) !important;
-  transform: translateY(-1px) !important;
-}
+.author__urls li:hover { transform: translateY(-2px) !important; }
+
+/* Base <a> style */
 .author__urls li a {
   display: inline-flex !important;
   align-items: center !important;
-  gap: 0.35em !important;
-  padding: 0.32em 0.9em !important;
-  color: rgba(255,255,255,0.92) !important;
+  gap: 0.3em !important;
+  padding: 0.32em 0.85em !important;
+  border-radius: 20px !important;
   font-size: 0.78em !important;
-  font-weight: 500 !important;
+  font-weight: 600 !important;
+  color: white !important;
   text-decoration: none !important;
   white-space: nowrap !important;
   border: none !important;
+  /* default fallback */
+  background: rgba(255,255,255,0.18) !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2) !important;
+  transition: filter 0.15s, box-shadow 0.15s !important;
 }
-.author__urls li a:hover { color: white !important; }
+.author__urls li a:hover {
+  filter: brightness(1.15) !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3) !important;
+}
 
-/* ── Icons inside pills ── */
-.author__urls .fas, .author__urls .fab,
-.author__urls .far, .author__urls [class*="fa-"],
-.author__urls i[class] {
-  color: rgba(255,255,255,0.82) !important;
-  font-size: 0.9em !important;
+/* Hide all original icons — replaced by emojis via ::before */
+.author__urls a i,
+.author__urls a svg,
+.author__urls a img,
+.author__urls a [class*="fa-"],
+.author__urls a .svg-inline--fa {
+  display: none !important;
 }
-.author__urls svg path, .author__urls svg,
-.sidebar svg path, .sidebar svg {
-  fill: rgba(255,255,255,0.82) !important;
-}
-/* Image-based logos (ORCID, Semantic Scholar, ResearchGate) */
-.author__urls img, .author__urls a img {
-  filter: brightness(0) invert(1) !important;
-  opacity: 0.85 !important;
-  width: 1em !important; height: 1em !important;
-  vertical-align: middle !important;
-}
+
+/* ── Per-platform colors + emojis ── */
+
+/* Email */
+.author__urls a[href*="mailto"]::before        { content: "📧"; }
+.author__urls a[href*="mailto"]                { background: #e53e3e !important; }
+
+/* Google Scholar */
+.author__urls a[href*="scholar.google"]::before { content: "🎓"; }
+.author__urls a[href*="scholar.google"]         { background: #4285f4 !important; }
+
+/* ORCID */
+.author__urls a[href*="orcid"]::before         { content: "🔬"; }
+.author__urls a[href*="orcid"]                 { background: #78b13f !important; }
+
+/* ResearchGate */
+.author__urls a[href*="researchgate"]::before  { content: "📊"; }
+.author__urls a[href*="researchgate"]          { background: #00b0a0 !important; }
+
+/* Semantic Scholar */
+.author__urls a[href*="semanticscholar"]::before { content: "🧠"; }
+.author__urls a[href*="semanticscholar"]         { background: #7c3aed !important; }
+
+/* GitHub */
+.author__urls a[href*="github"]::before        { content: "💻"; }
+.author__urls a[href*="github"]                { background: #24292e !important; }
+
+/* LinkedIn */
+.author__urls a[href*="linkedin"]::before      { content: "💼"; }
+.author__urls a[href*="linkedin"]              { background: #0077b5 !important; }
+
+/* Twitter / X */
+.author__urls a[href*="twitter"]::before,
+.author__urls a[href*="x.com"]::before         { content: "🐦"; }
+.author__urls a[href*="twitter"],
+.author__urls a[href*="x.com"]                 { background: #000000 !important; }
+
+/* Bluesky */
+.author__urls a[href*="bsky"]::before          { content: "🦋"; }
+.author__urls a[href*="bsky"]                  { background: #0085ff !important; }
+
+/* Google Maps / location */
+.author__urls a[href*="maps"]::before          { content: "📍"; }
+.author__urls a[href*="maps"]                  { background: #ea4335 !important; }
+
+/* arXiv */
+.author__urls a[href*="arxiv"]::before         { content: "📄"; }
+.author__urls a[href*="arxiv"]                 { background: #b31b1b !important; }
 
 /* Metadata lines (location, employer) */
 .sidebar p, .sidebar .author__content p,
