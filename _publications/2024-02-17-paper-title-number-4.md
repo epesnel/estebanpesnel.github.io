@@ -11,6 +11,16 @@ paperurl: 'https://arxiv.org/pdf/2602.00198'
 author_profile: true
 ---
 
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    processEscapes: true
+  }
+};
+</script>
+
 <style>
 /* Hide template auto-generated header */
 .page__title, .page__meta, .page__share, .page__footer-follow { display: none !important; }
@@ -225,14 +235,14 @@ OTT video delivery relies on Adaptive Bitrate (ABR) streaming, where downsamplin
 <div class="sp-section">
 <div class="sp-section-title">Method</div>
 
-<p>The core challenge: applying Straight-Through Estimation (STE) to codecs causes divergence — the compression error fully disconnects from gradient flow, leading to $|\,f(x;\theta_f)\,|_1 \to \infty$. SCALED reparameterizes the codec output as:</p>
+<p>The core challenge: applying Straight-Through Estimation (STE) to codecs causes divergence — the compression error fully disconnects from gradient flow, leading to \(|\,f(x;\theta_f)\,|_1 \to \infty\). SCALED reparameterizes the codec output as:</p>
 
 <div class="sp-eq">
 $$\hat{y} = y + \mathrm{sg}(\epsilon)\,\frac{\sigma(\epsilon)}{\mathrm{sg}(\sigma(\epsilon))}, \qquad \epsilon = \phi(y) - y$$
 <div class="sp-eq-label">Eq. (7) — SCALED forward pass</div>
 </div>
 
-<p>Gradient flows exclusively through $\sigma(\epsilon)$, yielding a dynamically scaled surrogate Jacobian that encodes true codec statistics:</p>
+<p>Gradient flows exclusively through \(\sigma(\epsilon)\), yielding a dynamically scaled surrogate Jacobian that encodes true codec statistics:</p>
 
 <div class="sp-eq">
 $$\frac{\partial \hat{y}}{\partial y}\bigg|_{\text{surrogate}} = \mathbf{I} - \frac{\boldsymbol{\epsilon}\,(\boldsymbol{\epsilon} - \bar{\boldsymbol{\epsilon}})^T}{N\,\sigma^2(\boldsymbol{\epsilon})}$$
