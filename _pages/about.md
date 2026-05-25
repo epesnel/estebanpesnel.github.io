@@ -21,45 +21,11 @@ I hold an engineering degree from INSA Rennes and also studied aerospace enginee
 
 ## Research Overview
 
-A major challenge in neural video optimization is that standard codecs are fundamentally non-differentiable:
+A major challenge in neural video optimization is that standard codecs are non-differentiable: $$ y = C(x) $$ where \(C(\cdot)\) denotes a video codec. Quantization, mode decision, and entropy coding severely disrupt gradient propagation: $$ \frac{\partial C(x)}{\partial x} \approx 0 $$ making standard backpropagation ineffective for codec-aware optimization.
 
-$$
-y = C(x)
-$$
+My research investigates surrogate-gradient approaches enabling neural networks to optimize against the *real codec distortion* while maintaining stable training dynamics.
 
-where \(C(\cdot)\) denotes a video codec.
-
-Because quantization, mode decision, and entropy coding break gradient propagation:
-
-$$
-\frac{\partial C(x)}{\partial x} \approx 0
-$$
-
-standard backpropagation cannot directly optimize codec-aware pipelines.
-
-My work investigates surrogate-gradient approaches enabling neural networks to learn from the *real codec distortion* while maintaining stable optimization.
-
-In our work **SCALED** (*Surrogate-gradient for Codec-Aware Learning of Downsampling in ABR Streaming*), we optimize a neural downsampling module \(f_\theta\) jointly with video compression:
-
-$$
-x_d = f_\theta(x)
-$$
-
-$$
-\hat{x} = C(x_d)
-$$
-
-while using differentiable surrogate gradients during backpropagation:
-
-$$
-\frac{\partial \mathcal{L}}{\partial x_d}
-\approx
-\frac{\partial \tilde{C}(x_d)}{\partial x_d}
-$$
-
-This allows the optimization process to incorporate the *actual codec realization* instead of relying solely on disconnected differentiable approximations.
-
-The resulting framework improves rate-distortion efficiency for ABR streaming pipelines while remaining fully compatible with standard video codecs.
+In **SCALED** (*Surrogate-gradient for Codec-Aware Learning of Downsampling in ABR Streaming*), we jointly optimize a neural downsampling module \(f_\theta\) with video compression: $$ x_d = f_\theta(x), \qquad \hat{x} = C(x_d) $$ while approximating codec gradients during backpropagation using differentiable surrogate models: $$ \frac{\partial \mathcal{L}}{\partial x_d} \approx \frac{\partial \tilde{C}(x_d)}{\partial x_d} $$ This framework enables codec-aware optimization using the actual codec realization rather than disconnected differentiable proxies, improving rate-distortion performance for ABR streaming pipelines while remaining compatible with standard codecs.
 
 ## Research Interests
 
