@@ -34,3 +34,18 @@ $$
 This formulation enables stable gradient propagation while preserving the true codec behavior during optimization.
 
 Experimental results on ABR streaming pipelines demonstrate significant rate-distortion improvements over codec-agnostic and proxy-based training approaches, achieving up to **6.1% BD-BR reduction** while remaining fully compatible with standard deployment pipelines.
+
+## Citation
+
+```bibtex
+@INPROCEEDINGS{11417641,
+  author={Pesnel, Esteban and Tanou, Julien Le and Ropert, Michael and Maugey, Thomas and Roumy, Aline},
+  booktitle={2025 Picture Coding Symposium (PCS)}, 
+  title={SCALED: Surrogate-gradient for Codec-Aware Learning of Downsampling in ABR Streaming}, 
+  year={2025},
+  volume={},
+  number={},
+  pages={1-5},
+  keywords={Training;Codecs;Quantization (signal);Pipelines;Bit rate;Rate-distortion;Encoding;Video codecs;Standards;Videos},
+  doi={10.1109/PCS65673.2025.11417641}
+}
