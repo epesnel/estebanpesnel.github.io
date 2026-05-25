@@ -21,11 +21,12 @@ I hold an engineering degree from INSA Rennes and also studied aerospace enginee
 
 ## Research Overview
 
-A major challenge in neural video optimization is that standard codecs are non-differentiable: $$ y = C(x) $$ where \(C(\cdot)\) denotes a video codec. Quantization, mode decision, and entropy coding severely disrupt gradient propagation: $$ \frac{\partial C(x)}{\partial x} \approx 0 $$ making standard backpropagation ineffective for codec-aware optimization.
+A central challenge is that standard codecs are non-differentiable: $$y = \phi(x), \qquad \frac{\partial \phi(x)}{\partial x} \approx 0$$ which prevents direct end-to-end optimization through standard backpropagation.
 
-My research investigates surrogate-gradient approaches enabling neural networks to optimize against the *real codec distortion* while maintaining stable training dynamics.
+In our work *SCALED* (*Surrogate-gradient for Codec-Aware Learning of Downsampling in ABR Streaming*), we investigate surrogate-gradient approaches enabling neural networks to optimize directly with real codecs such as H.264/x264. We jointly optimize a learned downsampling function \(f(x;\theta_f)\) with the compression pipeline: $$\hat{x} = g(\phi(f(x;\theta_f)))$$ while approximating the backward pass using codec-aware surrogate gradients derived from real compression errors: $$\hat{y} = y + \mathrm{sg}(\epsilon)\frac{\sigma(\epsilon)}{\mathrm{sg}(\sigma(\epsilon))}$$ where $$\epsilon = \phi(y)-y$$
 
-In **SCALED** (*Surrogate-gradient for Codec-Aware Learning of Downsampling in ABR Streaming*), we jointly optimize a neural downsampling module \(f_\theta\) with video compression: $$ x_d = f_\theta(x), \qquad \hat{x} = C(x_d) $$ while approximating codec gradients during backpropagation using differentiable surrogate models: $$ \frac{\partial \mathcal{L}}{\partial x_d} \approx \frac{\partial \tilde{C}(x_d)}{\partial x_d} $$ This framework enables codec-aware optimization using the actual codec realization rather than disconnected differentiable proxies, improving rate-distortion performance for ABR streaming pipelines while remaining compatible with standard codecs.
+This approach improves rate-distortion efficiency for ABR streaming pipelines while remaining fully compatible with standard video codecs.
+
 
 ## Research Interests
 
