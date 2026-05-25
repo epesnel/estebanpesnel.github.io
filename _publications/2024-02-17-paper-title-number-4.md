@@ -1,7 +1,7 @@
 ---
 title: "SCALED: Surrogate-gradient for Codec-Aware Learning of Downsampling in ABR Streaming"
 collection: publications
-category: conference
+category: conferences
 permalink: /publication/scaled
 excerpt: 'Surrogate-gradient framework enabling end-to-end optimization with real non-differentiable video codecs for ABR streaming.'
 date: 2026-01-30
