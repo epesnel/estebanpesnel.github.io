@@ -7,7 +7,6 @@ excerpt: 'Surrogate-gradient framework enabling end-to-end optimization with rea
 date: 2026-01-30
 venue: 'Picture Coding Symposium (PCS) 2025 - Aachen, Germany'
 paperurl: 'https://arxiv.org/pdf/2602.00198'
-citation: 'Esteban Pesnel, Julien Le Tanou, Michael Ropert, Thomas Maugey, and Aline Roumy. (2026). "SCALED: Surrogate-gradient for Codec-Aware Learning of Downsampling in ABR Streaming." <i>arXiv preprint arXiv:2602.00198</i>.'
 ---
 Adaptive Bitrate (ABR) streaming pipelines traditionally optimize downsampling, compression, and reconstruction independently, leading to suboptimal end-to-end rate-distortion performance. Recent deep learning approaches attempted to jointly optimize these stages using differentiable codec proxies, but such approximations often fail to accurately reproduce the behavior of real video codecs.
 
