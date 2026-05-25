@@ -5,32 +5,109 @@ permalink: /publications/
 author_profile: true
 ---
 
-{% if site.author.googlescholar %}
-  <div class="wordwrap">You can also find my articles on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
-{% endif %}
-
 {% include base_path %}
 
-<!-- New style rendering if publication categories are defined -->
-{% if site.publication_category %}
-  {% for category in site.publication_category  %}
-    {% assign title_shown = false %}
-    {% for post in site.publications reversed %}
-      {% if post.category != category[0] %}
-        {% continue %}
+<style>
+.pub-list-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 0;
+  margin-bottom: 1.4em;
+  overflow: hidden;
+  transition: box-shadow 0.2s;
+}
+.pub-list-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.1); }
+.pub-list-header {
+  background: linear-gradient(135deg, #0d1b2a, #1b3a5c);
+  padding: 1em 1.3em 0.9em;
+  display: flex; justify-content: space-between;
+  align-items: flex-start; gap: 1em; flex-wrap: wrap;
+}
+.pub-list-venue {
+  display: inline-flex; align-items: center; gap: 0.3em;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 20px; padding: 0.2em 0.75em;
+  font-size: 0.75em; color: rgba(255,255,255,0.9);
+  white-space: nowrap;
+}
+.pub-list-date {
+  font-size: 0.75em; color: rgba(255,255,255,0.55);
+  white-space: nowrap; padding-top: 0.3em;
+}
+.pub-list-body { padding: 1.1em 1.3em; }
+.pub-list-title {
+  font-size: 1.02em; font-weight: 700;
+  color: #1b3a5c; margin: 0 0 0.5em 0; line-height: 1.4;
+}
+.pub-list-title a {
+  color: inherit; text-decoration: none;
+}
+.pub-list-title a:hover { color: #2c6fad; }
+.pub-list-authors {
+  font-size: 0.83em; color: #555; margin-bottom: 0.6em; line-height: 1.6;
+}
+.pub-list-authors .me { font-weight: 700; color: #1b3a5c; }
+.pub-list-excerpt {
+  font-size: 0.86em; color: #4a5568; line-height: 1.65;
+  margin-bottom: 0.8em;
+}
+.pub-list-footer {
+  display: flex; align-items: center; flex-wrap: wrap;
+  gap: 0.5em; padding-top: 0.6em;
+  border-top: 1px solid #edf2f7;
+}
+.pub-btn {
+  display: inline-flex; align-items: center; gap: 0.3em;
+  padding: 0.3em 0.8em; border-radius: 5px;
+  font-size: 0.78em; font-weight: 600;
+  text-decoration: none !important;
+}
+.pub-btn-red  { background: #c53030; color: white; }
+.pub-btn-red:hover  { background: #9b2c2c; }
+.pub-btn-blue { background: #2b6cb0; color: white; }
+.pub-btn-blue:hover { background: #2c5282; }
+.pub-btn-gray { background: #edf2f7; color: #4a5568; border: 1px solid #e2e8f0; }
+.pub-btn-gray:hover { background: #e2e8f0; }
+.pub-tag {
+  display: inline-block; padding: 0.15em 0.55em;
+  border-radius: 20px; font-size: 0.72em;
+  background: #ebf4ff; color: #2b6cb0;
+  border: 1px solid #bee3f8;
+}
+</style>
+
+{% assign pubs_sorted = site.publications | sort: 'date' | reverse %}
+{% for post in pubs_sorted %}
+<div class="pub-list-card">
+  <div class="pub-list-header">
+    <span class="pub-list-venue">📍 {{ post.venue }}</span>
+    <span class="pub-list-date">{{ post.date | date: "%B %Y" }}</span>
+  </div>
+  <div class="pub-list-body">
+    <div class="pub-list-title">
+      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+    </div>
+    {% if post.authors %}
+    <div class="pub-list-authors">{{ post.authors }}</div>
+    {% endif %}
+    {% if post.excerpt %}
+    <div class="pub-list-excerpt">{{ post.excerpt }}</div>
+    {% endif %}
+    <div class="pub-list-footer">
+      {% if post.paperurl %}
+      <a class="pub-btn pub-btn-red" href="{{ post.paperurl }}" target="_blank">📄 PDF</a>
       {% endif %}
-      {% unless title_shown %}
-        <h2>{{ category[1].title }}</h2><hr />
-        {% assign title_shown = true %}
-      {% endunless %}
-      {% include archive-single.html %}
-    {% endfor %}
-  {% endfor %}
-{% else %}
-  {% for post in site.publications reversed %}
-    {% include archive-single.html %}
-  {% endfor %}
-{% endif %}
-
-
-
+      <a class="pub-btn pub-btn-blue" href="{{ post.url | relative_url }}">🔍 Details</a>
+      {% if post.doi %}
+      <a class="pub-btn pub-btn-gray" href="https://doi.org/{{ post.doi }}" target="_blank">🔗 DOI</a>
+      {% endif %}
+      {% if post.tags %}
+        {% for tag in post.tags %}
+        <span class="pub-tag">{{ tag }}</span>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endfor %}
