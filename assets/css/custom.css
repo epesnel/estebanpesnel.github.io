@@ -1,6 +1,6 @@
 /* ═══════════════════════════════════════════════════
-   GLOBAL CUSTOM OVERRIDES — Esteban Pesnel
-   File: assets/css/custom.css
+   GLOBAL OVERRIDES — Esteban Pesnel
+   NB: sidebar styles are in about.md ONLY
 ═══════════════════════════════════════════════════ */
 
 :root {
@@ -10,272 +10,71 @@
   --blue-light: #4a90d9;
   --blue-pale:  #ebf4ff;
   --text:       #2d3748;
-  --text-muted: #718096;
 }
 
-/* ══════════════════════════════════════════
-   MASTHEAD
-══════════════════════════════════════════ */
-html body .masthead,
-html body header.masthead,
-.masthead, nav.greedy-nav,
-.greedy-nav, .greedy-nav .visible-links,
-.masthead__inner-wrap {
-  background: var(--blue-dark) !important;
+/* ══════════════════════════════
+   MASTHEAD — all pages
+══════════════════════════════ */
+.masthead,
+.masthead__inner-wrap,
+.greedy-nav,
+.greedy-nav .visible-links {
   background-color: var(--blue-dark) !important;
+  background: var(--blue-dark) !important;
+}
+.masthead {
   border-bottom: 2px solid var(--blue) !important;
-  box-shadow: 0 2px 16px rgba(0,0,0,0.25) !important;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.3) !important;
 }
-.greedy-nav a, .greedy-nav .visible-links a,
-.masthead a, .site-title {
+.greedy-nav a,
+.greedy-nav .visible-links a,
+.greedy-nav .site-title,
+.site-title {
   color: rgba(255,255,255,0.92) !important;
-  font-weight: 500 !important;
 }
-.greedy-nav a:hover, .masthead a:hover {
+.greedy-nav a:hover,
+.greedy-nav .visible-links a:hover {
   color: #63b3ed !important;
   text-decoration: none !important;
 }
 .greedy-nav .visible-links a::before {
   background: #63b3ed !important;
 }
-.greedy-nav__toggle svg, .greedy-nav button svg {
-  fill: rgba(255,255,255,0.9) !important;
-}
-
-/* ══════════════════════════════════════════
-   SIDEBAR — scoped to .sticky only (author profile)
-   NOT applied to page-nav sidebars
-══════════════════════════════════════════ */
-.sidebar.sticky {
-  width: 300px !important;
-  min-width: 300px !important;
-  height: fit-content !important;
-  align-self: flex-start !important;
-  background: linear-gradient(160deg, #0d1b2a 0%, #1b3a5c 55%, #2c6fad 100%) !important;
-  border-radius: 16px !important;
-  padding: 2em 1.4em 1.8em !important;
-  position: relative !important;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.22) !important;
-  margin-top: 0.8em !important;
-  /* NO overflow:hidden — would break dropdowns */
-}
-@media (min-width: 80em) {
-  .sidebar.sticky { width: 320px !important; min-width: 320px !important; }
-}
-
-/* Texture circles — clipped by border-radius naturally */
-.sidebar.sticky::before {
-  content: '' !important; position: absolute !important;
-  top: -60px !important; right: -50px !important;
-  width: 200px !important; height: 200px !important;
-  border-radius: 50% !important;
-  background: rgba(255,255,255,0.06) !important;
-  pointer-events: none !important; z-index: 0 !important;
-}
-.sidebar.sticky::after {
-  content: '' !important; position: absolute !important;
-  bottom: -70px !important; left: -40px !important;
-  width: 250px !important; height: 250px !important;
-  border-radius: 50% !important;
-  background: rgba(255,255,255,0.04) !important;
-  pointer-events: none !important; z-index: 0 !important;
-}
-/* Keep content above decorative circles */
-.sidebar.sticky .author__avatar,
-.sidebar.sticky .author__content,
-.sidebar.sticky .author__urls-wrapper {
-  position: relative !important;
-  z-index: 1 !important;
-}
-
-/* ── Profile photo ── */
-.sidebar.sticky .author__avatar {
-  border-radius: 0 !important;
-  overflow: visible !important;
-  display: flex !important;
-  justify-content: center !important;
-  margin-bottom: 0.6em !important;
-}
-.sidebar.sticky .author__avatar img {
-  border-radius: 12px !important;
-  width: 220px !important;
-  max-width: 220px !important;
-  height: 220px !important;
-  object-fit: cover !important;
-  border: none !important;
-  outline: none !important;
-  box-shadow: 0 6px 24px rgba(0,0,0,0.35) !important;
-  transition: transform 0.2s, box-shadow 0.2s !important;
-  display: block !important;
-}
-.sidebar.sticky .author__avatar img:hover {
-  transform: translateY(-2px) !important;
-  box-shadow: 0 10px 32px rgba(0,0,0,0.4) !important;
-}
-
-/* ── Name / bio ── */
-.sidebar.sticky .author__name {
+.greedy-nav__toggle,
+.greedy-nav button {
   color: white !important;
-  font-size: 1.1em !important;
-  font-weight: 700 !important;
-  text-align: center !important;
-  margin-top: 0.7em !important;
 }
-.sidebar.sticky .author__pronouns {
-  color: rgba(255,255,255,0.5) !important;
-  font-size: 0.78em !important;
-  text-align: center !important;
-}
-.sidebar.sticky .author__bio {
-  color: rgba(255,255,255,0.72) !important;
-  font-size: 0.82em !important;
-  line-height: 1.6 !important;
-  text-align: center !important;
-  margin-bottom: 0.8em !important;
+.greedy-nav__toggle svg {
+  fill: white !important;
 }
 
-/* ── Follow toggle button ── */
-.sidebar.sticky .author__urls-wrapper button {
-  background: rgba(255,255,255,0.12) !important;
-  color: rgba(255,255,255,0.9) !important;
-  border: 1px solid rgba(255,255,255,0.25) !important;
-  border-radius: 20px !important;
-  font-size: 0.8em !important;
-  padding: 0.3em 1em !important;
-  width: 100% !important;
-  cursor: pointer !important;
-}
-.sidebar.sticky .author__urls-wrapper button:hover {
-  background: rgba(255,255,255,0.22) !important;
-}
-
-/* ── PILLS ── */
-.sidebar.sticky .author__urls {
-  display: flex !important;
-  flex-wrap: wrap !important;
-  gap: 6px !important;
-  justify-content: center !important;
-  padding: 0.3em 0 0 !important;
-  margin: 0.2em 0 0 !important;
-  list-style: none !important;
-}
-.sidebar.sticky .author__urls li {
-  display: inline-flex !important;
-  list-style: none !important;
-  background: transparent !important;
-  border: none !important;
-  padding: 0 !important;
-  transition: transform 0.15s !important;
-}
-.sidebar.sticky .author__urls li:hover { transform: translateY(-2px) !important; }
-
-.sidebar.sticky .author__urls li a {
-  display: inline-flex !important;
-  align-items: center !important;
-  gap: 0.3em !important;
-  padding: 0.32em 0.85em !important;
-  border-radius: 20px !important;
-  font-size: 0.78em !important;
-  font-weight: 600 !important;
-  color: white !important;
-  text-decoration: none !important;
-  white-space: nowrap !important;
-  border: none !important;
-  background: rgba(255,255,255,0.18) !important;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2) !important;
-  transition: filter 0.15s, box-shadow 0.15s !important;
-}
-.sidebar.sticky .author__urls li a:hover {
-  filter: brightness(1.15) !important;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3) !important;
-}
-
-/* Hide original icons → replaced by emoji ::before */
-.sidebar.sticky .author__urls a i,
-.sidebar.sticky .author__urls a svg,
-.sidebar.sticky .author__urls a img,
-.sidebar.sticky .author__urls a [class*="fa-"] {
-  display: none !important;
-}
-
-/* Per-platform colors + emojis */
-.sidebar.sticky .author__urls a[href*="mailto"]::before        { content: "📧 "; }
-.sidebar.sticky .author__urls a[href*="mailto"]                { background: #e53e3e !important; }
-
-.sidebar.sticky .author__urls a[href*="scholar.google"]::before { content: "🎓 "; }
-.sidebar.sticky .author__urls a[href*="scholar.google"]         { background: #4285f4 !important; }
-
-.sidebar.sticky .author__urls a[href*="orcid"]::before         { content: "🔬 "; }
-.sidebar.sticky .author__urls a[href*="orcid"]                 { background: #78b13f !important; }
-
-.sidebar.sticky .author__urls a[href*="researchgate"]::before  { content: "📊 "; }
-.sidebar.sticky .author__urls a[href*="researchgate"]          { background: #00b0a0 !important; }
-
-.sidebar.sticky .author__urls a[href*="semanticscholar"]::before { content: "🧠 "; }
-.sidebar.sticky .author__urls a[href*="semanticscholar"]         { background: #7c3aed !important; }
-
-.sidebar.sticky .author__urls a[href*="github"]::before        { content: "💻 "; }
-.sidebar.sticky .author__urls a[href*="github"]                { background: #24292e !important; }
-
-.sidebar.sticky .author__urls a[href*="linkedin"]::before      { content: "💼 "; }
-.sidebar.sticky .author__urls a[href*="linkedin"]              { background: #0077b5 !important; }
-
-.sidebar.sticky .author__urls a[href*="twitter"]::before,
-.sidebar.sticky .author__urls a[href*="x.com"]::before         { content: "🐦 "; }
-.sidebar.sticky .author__urls a[href*="twitter"],
-.sidebar.sticky .author__urls a[href*="x.com"]                 { background: #14171a !important; }
-
-.sidebar.sticky .author__urls a[href*="arxiv"]::before         { content: "📄 "; }
-.sidebar.sticky .author__urls a[href*="arxiv"]                 { background: #b31b1b !important; }
-
-/* Metadata text */
-.sidebar.sticky p,
-.sidebar.sticky li:not(.author__urls li) {
-  color: rgba(255,255,255,0.72) !important;
-  font-size: 0.82em !important;
-}
-
-/* ══════════════════════════════════════════
-   PAGE CONTENT — untouched layout
-══════════════════════════════════════════ */
-.page__content {
-  font-size: 0.95em !important;
-  line-height: 1.75 !important;
-  color: var(--text) !important;
-}
+/* ══════════════════════════════
+   PAGE CONTENT
+══════════════════════════════ */
+.page__content { line-height: 1.75 !important; color: var(--text) !important; }
 .page__content h2 {
-  font-size: 1.2em !important; font-weight: 700 !important;
-  color: var(--blue-mid) !important;
+  font-weight: 700 !important; color: var(--blue-mid) !important;
   border-bottom: 2px solid var(--blue-pale) !important;
   padding-bottom: 0.3em !important; margin-top: 1.8em !important;
 }
-.page__content h3 {
-  font-size: 1.03em !important; font-weight: 700 !important;
-  color: var(--blue-mid) !important;
-}
-.page__content a {
-  color: var(--blue) !important; text-decoration: none !important;
-  transition: color 0.15s !important;
-}
+.page__content h3 { font-weight: 700 !important; color: var(--blue-mid) !important; }
+.page__content a { color: var(--blue) !important; text-decoration: none !important; }
 .page__content a:hover { color: var(--blue-light) !important; }
-.page__title {
-  font-size: 1.5em !important; font-weight: 800 !important;
-  color: var(--blue-dark) !important;
-}
+.page__title { font-weight: 800 !important; color: var(--blue-dark) !important; }
 
-/* ══════════════════════════════════════════
+/* ══════════════════════════════
    FOOTER
-══════════════════════════════════════════ */
-html body .page__footer, .page__footer {
-  background: var(--blue-dark) !important;
+══════════════════════════════ */
+.page__footer {
+  background-color: var(--blue-dark) !important;
   color: rgba(255,255,255,0.6) !important;
 }
 .page__footer a { color: rgba(255,255,255,0.7) !important; }
 .page__footer a:hover { color: #63b3ed !important; }
 
-/* ══════════════════════════════════════════
+/* ══════════════════════════════
    MISC
-══════════════════════════════════════════ */
+══════════════════════════════ */
 html { scroll-behavior: smooth; }
 blockquote {
   border-left: 4px solid var(--blue) !important;
@@ -286,5 +85,4 @@ blockquote {
 code {
   background: #f0f4f8 !important; color: #c53030 !important;
   padding: 0.1em 0.35em !important; border-radius: 4px !important;
-  font-size: 0.88em !important;
 }
