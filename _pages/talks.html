@@ -140,15 +140,14 @@ document.addEventListener('keydown', function(e) {
 11/12/2025 🇩🇪
 
 <div class="poster-card">
-  <div
+  <img
     class="poster-thumb"
-    style="display:flex; flex-direction:column; align-items:center; justify-content:center; background:#f0f4f8; color:#4a90d9; font-size:0.8em; text-align:center; gap:0.4em;"
+    src="{{ "/images/pcs2025-thumb.png" | relative_url }}"
+    alt="PCS 2025 Poster thumbnail"
     onclick="openPdfModal('{{ poster_pdf }}', 'SCALED — PCS 2025 Poster')"
     title="Click to view poster"
-  >
-    <span style="font-size:2.8em;">🗂️</span>
-    <span style="color:#555;">PCS 2025<br/>Poster</span>
-  </div>
+    style="object-fit: cover;"
+  />
   <div class="poster-card-info">
     <h3>SCALED: Surrogate-gradient for Codec-Aware Learning of Downsampling in ABR Streaming</h3>
     <div class="venue">📍 PCS 2025 - Picture Coding Symposium &middot; Aachen, Germany &middot; December 2025</div>
