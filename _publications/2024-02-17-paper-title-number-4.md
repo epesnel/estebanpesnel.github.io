@@ -224,10 +224,6 @@ The rapid growth in video consumption has introduced significant challenges to m
     <strong>⚡ Two training variants</strong>
     SCALED<sub>D</sub> (distortion only) and SCALED<sub>RD</sub> (rate-distortion with differentiable rate proxy).
   </div>
-  <div class="sp-card">
-    <strong>🔌 Drop-in compatible</strong>
-    Works across codecs and QPs without retraining. Fully standard-pipeline compatible.
-  </div>
 </div>
 </div>
 
@@ -235,7 +231,7 @@ The rapid growth in video consumption has introduced significant challenges to m
 <div class="sp-section">
 <div class="sp-section-title">Method</div>
 
-<p>The core challenge: applying Straight-Through Estimation (STE) to codecs causes divergence — the compression error fully disconnects from gradient flow, leading to \(|\,f(x;\theta_f)\,|_1 \to \infty\). SCALED reparameterizes the codec output as:</p>
+<p>The core challenge: applying Straight-Through Estimation (STE) to codecs causes divergence - the compression error fully disconnects from gradient flow, leading to \(|\,f(x;\theta_f)\,|_1 \to \infty\). SCALED reparameterizes the codec output as:</p>
 
 <div class="sp-eq">
 $$\hat{y} = y + \mathrm{sg}(\epsilon)\,\frac{\sigma(\epsilon)}{\mathrm{sg}(\sigma(\epsilon))}, \qquad \epsilon = \phi(y) - y$$
