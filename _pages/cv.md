@@ -69,10 +69,8 @@ M.Ing. — Electronic &amp; Computer Engineering
 <p>Embedded systems design (hardware &amp; software), digital/analog signal processing, image analysis, AI (NN, CNN, transfer learning, GANs), VHDL, real-time systems.</p>
 <div class="cv-tags">
 <span class="cv-tag">C/C++</span>
-<span class="cv-tag">VHDL</span>
 <span class="cv-tag">Signal Processing</span>
-<span class="cv-tag">Neural Networks</span>
-<span class="cv-tag">MATLAB</span>
+<span class="cv-tag">Deep learning</span>
 </div>
 </div>
 
@@ -89,7 +87,6 @@ M.Eng. — Aerospace &amp; Aeronautical Engineering (Exchange semester)
 <div class="cv-tags">
 <span class="cv-tag">C++</span>
 <span class="cv-tag">DSP</span>
-<span class="cv-tag">Embedded Systems</span>
 <span class="cv-tag">Avionics</span>
 </div>
 </div>
@@ -128,12 +125,10 @@ PhD Researcher — Neural Video Compression
 <li>Paper accepted at <strong>PCS 2025</strong>, Aachen (IEEE Signal Processing Society).</li>
 </ul>
 <div class="cv-tags">
-<span class="cv-tag cv-tag-blue">PyTorch</span>
-<span class="cv-tag cv-tag-blue">x264 / VVenC</span>
-<span class="cv-tag cv-tag-blue">Surrogate Gradients</span>
-<span class="cv-tag cv-tag-blue">U-Net</span>
-<span class="cv-tag cv-tag-blue">BD-Rate</span>
-<span class="cv-tag cv-tag-blue">PSNR / SSIM / VMAF</span>
+<span class="cv-tag cv-tag-blue">PyTorch/TensorFlow</span>
+<span class="cv-tag cv-tag-blue">Deep learning</span>
+<span class="cv-tag cv-tag-blue">Differentiable programming</span>
+
 </div>
 </div>
 
@@ -166,7 +161,7 @@ Part-time Lecturer
 <div class="cv-tags">
 <span class="cv-tag">H.266 / VVC</span>
 <span class="cv-tag">HEVC</span>
-<span class="cv-tag">Video Compression</span>
+<span class="cv-tag">Partitioning</span>
 <span class="cv-tag">C++</span>
 </div>
 </div>
@@ -187,7 +182,6 @@ Part-time Lecturer
 <div class="cv-tags">
 <span class="cv-tag">AV1</span>
 <span class="cv-tag">VP9</span>
-<span class="cv-tag">VMAF</span>
 <span class="cv-tag">Python</span>
 <span class="cv-tag">Shell</span>
 <span class="cv-tag">Parallel Programming</span>
@@ -218,11 +212,8 @@ Part-time Lecturer
 <div class="skill-grid">
 <div class="skill-item">Python (advanced)</div>
 <div class="skill-item">C / C++ (advanced)</div>
-<div class="skill-item">PyTorch</div>
-<div class="skill-item">Shell / Bash</div>
-<div class="skill-item">MATLAB</div>
+<div class="skill-item">PyTorch/TensorFlow</div>
 <div class="skill-item">VHDL</div>
-<div class="skill-item">JavaScript</div>
 </div>
 
 <p class="skill-cat">Video &amp; Compression</p>
@@ -233,19 +224,14 @@ Part-time Lecturer
 <div class="skill-item">AV1 / VP9</div>
 <div class="skill-item">ABR Streaming</div>
 <div class="skill-item">Bitrate Ladder</div>
-<div class="skill-item">VMAF / PSNR / SSIM</div>
-<div class="skill-item">BD-Rate Analysis</div>
 </div>
 
 <p class="skill-cat">Machine Learning &amp; AI</p>
 <div class="skill-grid">
 <div class="skill-item">Deep Learning</div>
 <div class="skill-item">CNN / U-Net</div>
-<div class="skill-item">GANs</div>
-<div class="skill-item">Transfer Learning</div>
 <div class="skill-item">Differentiable Programming</div>
 <div class="skill-item">Surrogate Gradients</div>
-<div class="skill-item">Rate-Distortion Optimization</div>
 </div>
 
 ---
@@ -292,6 +278,3 @@ Part-time Lecturer
 <tr><td>🇪🇸 Spanish</td><td>Limited professional proficiency</td></tr>
 </tbody>
 </table>
-
----
-
