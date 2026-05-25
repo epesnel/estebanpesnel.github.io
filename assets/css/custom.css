@@ -23,14 +23,24 @@
 
 /* Profile photo — bigger */
 .author__avatar img {
-  max-width: 160px !important;
-  border-radius: 50% !important;
+  max-width: 180px !important;
+  width: 180px !important;
+  border-radius: 10px !important;
   border: 3px solid var(--border) !important;
   box-shadow: 0 4px 16px rgba(0,0,0,0.12) !important;
-  transition: box-shadow 0.2s !important;
+  transition: box-shadow 0.2s, transform 0.2s !important;
+  object-fit: cover !important;
 }
 .author__avatar img:hover {
   box-shadow: 0 6px 24px rgba(44,111,173,0.25) !important;
+  transform: translateY(-2px) !important;
+}
+/* Make the sidebar a bit wider to accommodate bigger photo */
+.sidebar.sticky {
+  width: 220px !important;
+}
+@media (min-width: 80em) {
+  .sidebar.sticky { width: 240px !important; }
 }
 
 /* Author name */
