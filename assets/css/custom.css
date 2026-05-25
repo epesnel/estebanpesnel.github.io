@@ -1,6 +1,5 @@
 /* ═══════════════════════════════════════════════════
    GLOBAL CUSTOM OVERRIDES — Esteban Pesnel
-   File: assets/css/custom.css
 ═══════════════════════════════════════════════════ */
 
 :root {
@@ -15,57 +14,47 @@
 /* ══════════════════════════════
    MASTHEAD
 ══════════════════════════════ */
-.masthead,
-.masthead__inner-wrap,
-.greedy-nav,
-.greedy-nav .visible-links {
+.masthead, .masthead__inner-wrap,
+.greedy-nav, .greedy-nav .visible-links {
   background-color: var(--blue-dark) !important;
   background: var(--blue-dark) !important;
 }
-.masthead {
-  border-bottom: 2px solid var(--blue) !important;
-  box-shadow: 0 2px 16px rgba(0,0,0,0.3) !important;
-}
+.masthead { border-bottom: 2px solid var(--blue) !important; }
 .greedy-nav a, .greedy-nav .visible-links a,
 .greedy-nav .site-title, .site-title {
   color: rgba(255,255,255,0.92) !important;
 }
 .greedy-nav a:hover, .greedy-nav .visible-links a:hover {
-  color: #63b3ed !important;
-  text-decoration: none !important;
+  color: #63b3ed !important; text-decoration: none !important;
 }
 .greedy-nav .visible-links a::before { background: #63b3ed !important; }
 .greedy-nav__toggle svg { fill: white !important; }
 
 /* ══════════════════════════════
-   SIDEBAR — all pages
+   SIDEBAR — visual only, NO layout changes
 ══════════════════════════════ */
 .sidebar.sticky {
-  width: 280px !important;
-  min-width: 280px !important;
-  height: fit-content !important;
-  align-self: flex-start !important;
+  /* Visual styles only — width/float left to theme */
   background: linear-gradient(160deg, #0d1b2a 0%, #1b3a5c 55%, #2c6fad 100%) !important;
   border-radius: 16px !important;
   padding: 1.8em 1.2em 1.6em !important;
   position: relative !important;
   box-shadow: 0 8px 32px rgba(0,0,0,0.22) !important;
   margin-top: 0.8em !important;
+  height: fit-content !important;
+  align-self: flex-start !important;
 }
-/* Decorative circles */
 .sidebar.sticky::before {
   content: '' !important; position: absolute !important;
   top: -50px !important; right: -40px !important;
-  width: 180px !important; height: 180px !important;
-  border-radius: 50% !important;
+  width: 180px !important; height: 180px !important; border-radius: 50% !important;
   background: rgba(255,255,255,0.06) !important;
   pointer-events: none !important; z-index: 0 !important;
 }
 .sidebar.sticky::after {
   content: '' !important; position: absolute !important;
   bottom: -60px !important; left: -30px !important;
-  width: 220px !important; height: 220px !important;
-  border-radius: 50% !important;
+  width: 220px !important; height: 220px !important; border-radius: 50% !important;
   background: rgba(255,255,255,0.04) !important;
   pointer-events: none !important; z-index: 0 !important;
 }
@@ -75,21 +64,21 @@
   position: relative !important; z-index: 1 !important;
 }
 
-/* ── Photo ── */
+/* Photo */
 .sidebar.sticky .author__avatar {
   overflow: visible !important; display: flex !important;
   justify-content: center !important; margin-bottom: 0.6em !important;
 }
 .sidebar.sticky .author__avatar img {
   border-radius: 12px !important;
-  width: 210px !important; max-width: 210px !important; height: 210px !important;
+  width: 190px !important; max-width: 190px !important; height: 190px !important;
   object-fit: cover !important; border: none !important; outline: none !important;
   box-shadow: 0 6px 24px rgba(0,0,0,0.35) !important;
   transition: transform 0.2s !important; display: block !important;
 }
 .sidebar.sticky .author__avatar img:hover { transform: translateY(-2px) !important; }
 
-/* ── Text ── */
+/* Text */
 .sidebar.sticky .author__name {
   color: white !important; font-size: 1.05em !important; font-weight: 700 !important;
   text-align: center !important; margin-top: 0.7em !important;
@@ -106,14 +95,14 @@
   color: rgba(255,255,255,0.65) !important; font-size: 0.8em !important;
 }
 
-/* ── Follow button ── */
+/* Follow button */
 .sidebar.sticky .author__urls-wrapper button {
   background: rgba(255,255,255,0.12) !important; color: rgba(255,255,255,0.9) !important;
   border: 1px solid rgba(255,255,255,0.25) !important; border-radius: 20px !important;
   font-size: 0.8em !important; padding: 0.3em 1em !important; width: 100% !important;
 }
 
-/* ── Pills ── */
+/* Pills */
 .sidebar.sticky .author__urls {
   display: flex !important; flex-wrap: wrap !important; gap: 5px !important;
   justify-content: center !important; padding: 0.3em 0 0 !important;
@@ -131,15 +120,16 @@
   font-size: 0.75em !important; font-weight: 600 !important;
   color: white !important; text-decoration: none !important; white-space: nowrap !important;
   background: rgba(255,255,255,0.18) !important;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2) !important;
-  transition: filter 0.15s !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2) !important; transition: filter 0.15s !important;
 }
 .sidebar.sticky .author__urls li a:hover { filter: brightness(1.2) !important; }
-/* Hide original icons */
+
+/* Hide original icons → emojis */
 .sidebar.sticky .author__urls a i,
 .sidebar.sticky .author__urls a svg,
 .sidebar.sticky .author__urls a img,
 .sidebar.sticky .author__urls a [class*="fa-"] { display: none !important; }
+
 /* Platform colors */
 .sidebar.sticky .author__urls a[href*="mailto"]::before          { content: "📧 "; }
 .sidebar.sticky .author__urls a[href*="mailto"]                  { background: #e53e3e !important; }
@@ -156,33 +146,8 @@
 .sidebar.sticky .author__urls a[href*="linkedin"]::before        { content: "💼 "; }
 .sidebar.sticky .author__urls a[href*="linkedin"]                { background: #0077b5 !important; }
 
-/* ══════════════════════════════════════════
-   CONTENT AREA — fix alignment with sidebar
-══════════════════════════════════════════ */
-/* Push content right to match wider sidebar */
-@media (min-width: 64em) {
-  .page {
-    float: right !important;
-    width: calc(100% - 310px) !important;
-  }
-}
-@media (min-width: 80em) {
-  .page {
-    width: calc(100% - 330px) !important;
-  }
-}
-/* Pages WITHOUT sidebar: restore full width */
-@media (min-width: 64em) {
-  .layout--archive-taxonomy .page,
-  .page:only-child,
-  body:not(.layout--single) .page {
-    width: 100% !important;
-    float: none !important;
-  }
-}
-
 /* ══════════════════════════════
-   PAGE CONTENT
+   PAGE CONTENT — no layout overrides
 ══════════════════════════════ */
 .page__content { line-height: 1.75 !important; color: var(--text) !important; }
 .page__content h2 {
