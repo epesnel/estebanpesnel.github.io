@@ -19,6 +19,96 @@ MathJax = {
 </script>
 
 <style>
+/* ── Sidebar panel ── */
+.sidebar.sticky {
+  width: 280px !important; min-width: 280px !important;
+  height: fit-content !important; align-self: flex-start !important;
+  background: linear-gradient(160deg, #0d1b2a 0%, #1b3a5c 55%, #2c6fad 100%) !important;
+  border-radius: 16px !important; padding: 1.8em 1.2em 1.6em !important;
+  position: relative !important; box-shadow: 0 8px 32px rgba(0,0,0,0.22) !important;
+  margin-top: 0.8em !important;
+}
+.sidebar.sticky::before {
+  content:''!important; position:absolute!important; top:-50px!important; right:-40px!important;
+  width:180px!important; height:180px!important; border-radius:50%!important;
+  background:rgba(255,255,255,0.06)!important; pointer-events:none!important; z-index:0!important;
+}
+.sidebar.sticky::after {
+  content:''!important; position:absolute!important; bottom:-60px!important; left:-30px!important;
+  width:220px!important; height:220px!important; border-radius:50%!important;
+  background:rgba(255,255,255,0.04)!important; pointer-events:none!important; z-index:0!important;
+}
+.sidebar.sticky .author__avatar,
+.sidebar.sticky .author__content,
+.sidebar.sticky .author__urls-wrapper { position:relative!important; z-index:1!important; }
+
+.sidebar.sticky .author__avatar {
+  overflow:visible!important; display:flex!important;
+  justify-content:center!important; margin-bottom:0.6em!important;
+}
+.sidebar.sticky .author__avatar img {
+  border-radius:12px!important; width:210px!important; max-width:210px!important;
+  height:210px!important; object-fit:cover!important; border:none!important;
+  outline:none!important; box-shadow:0 6px 24px rgba(0,0,0,0.35)!important;
+  transition:transform 0.2s!important; display:block!important;
+}
+.sidebar.sticky .author__avatar img:hover { transform:translateY(-2px)!important; }
+.sidebar.sticky .author__name {
+  color:white!important; font-size:1.05em!important; font-weight:700!important;
+  text-align:center!important; margin-top:0.7em!important;
+}
+.sidebar.sticky .author__pronouns { color:rgba(255,255,255,0.5)!important; text-align:center!important; }
+.sidebar.sticky .author__bio {
+  color:rgba(255,255,255,0.72)!important; font-size:0.82em!important;
+  line-height:1.6!important; text-align:center!important; margin-bottom:0.8em!important;
+}
+.sidebar.sticky p, .sidebar.sticky li:not(.author__urls li) {
+  color:rgba(255,255,255,0.65)!important; font-size:0.8em!important;
+}
+.sidebar.sticky .author__urls-wrapper button {
+  background:rgba(255,255,255,0.12)!important; color:rgba(255,255,255,0.9)!important;
+  border:1px solid rgba(255,255,255,0.25)!important; border-radius:20px!important;
+  font-size:0.8em!important; padding:0.3em 1em!important; width:100%!important;
+}
+.sidebar.sticky .author__urls {
+  display:flex!important; flex-wrap:wrap!important; gap:5px!important;
+  justify-content:center!important; padding:0.3em 0 0!important;
+  list-style:none!important; margin:0!important;
+}
+.sidebar.sticky .author__urls li {
+  display:inline-flex!important; list-style:none!important;
+  background:transparent!important; border:none!important; padding:0!important;
+  transition:transform 0.15s!important;
+}
+.sidebar.sticky .author__urls li:hover { transform:translateY(-2px)!important; }
+.sidebar.sticky .author__urls li a {
+  display:inline-flex!important; align-items:center!important; gap:0.3em!important;
+  padding:0.28em 0.8em!important; border-radius:20px!important;
+  font-size:0.75em!important; font-weight:600!important;
+  color:white!important; text-decoration:none!important; white-space:nowrap!important;
+  background:rgba(255,255,255,0.18)!important;
+  box-shadow:0 2px 6px rgba(0,0,0,0.2)!important; transition:filter 0.15s!important;
+}
+.sidebar.sticky .author__urls li a:hover { filter:brightness(1.2)!important; }
+.sidebar.sticky .author__urls a i,
+.sidebar.sticky .author__urls a svg,
+.sidebar.sticky .author__urls a img,
+.sidebar.sticky .author__urls a [class*="fa-"] { display:none!important; }
+.sidebar.sticky .author__urls a[href*="mailto"]::before          { content:"📧 "; }
+.sidebar.sticky .author__urls a[href*="mailto"]                  { background:#e53e3e!important; }
+.sidebar.sticky .author__urls a[href*="scholar.google"]::before  { content:"🎓 "; }
+.sidebar.sticky .author__urls a[href*="scholar.google"]          { background:#4285f4!important; }
+.sidebar.sticky .author__urls a[href*="orcid"]::before           { content:"🔬 "; }
+.sidebar.sticky .author__urls a[href*="orcid"]                   { background:#78b13f!important; }
+.sidebar.sticky .author__urls a[href*="researchgate"]::before    { content:"📊 "; }
+.sidebar.sticky .author__urls a[href*="researchgate"]            { background:#00b0a0!important; }
+.sidebar.sticky .author__urls a[href*="semanticscholar"]::before { content:"🧠 "; }
+.sidebar.sticky .author__urls a[href*="semanticscholar"]         { background:#7c3aed!important; }
+.sidebar.sticky .author__urls a[href*="github"]::before          { content:"💻 "; }
+.sidebar.sticky .author__urls a[href*="github"]                  { background:#24292e!important; }
+.sidebar.sticky .author__urls a[href*="linkedin"]::before        { content:"💼 "; }
+.sidebar.sticky .author__urls a[href*="linkedin"]                { background:#0077b5!important; }
+
 /* ── Home page content styles ── */
 .intro-card {
   background: #f0f6ff;
