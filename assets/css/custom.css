@@ -14,84 +14,57 @@
 }
 
 /* ══════════════════════════════════════════
-   MASTHEAD — top navbar (high specificity)
+   MASTHEAD
 ══════════════════════════════════════════ */
 html body .masthead,
 html body header.masthead,
-.masthead,
-nav.greedy-nav {
+.masthead, nav.greedy-nav,
+.greedy-nav, .greedy-nav .visible-links,
+.masthead__inner-wrap {
   background: var(--blue-dark) !important;
   background-color: var(--blue-dark) !important;
   border-bottom: 2px solid var(--blue) !important;
   box-shadow: 0 2px 16px rgba(0,0,0,0.25) !important;
 }
-.greedy-nav,
-.greedy-nav .visible-links,
-.masthead__inner-wrap {
-  background: var(--blue-dark) !important;
-  background-color: var(--blue-dark) !important;
-}
-.greedy-nav a,
-.greedy-nav .visible-links a,
-.greedy-nav .site-title,
-.masthead a,
-.masthead__menu-item a,
-.site-title {
+.greedy-nav a, .greedy-nav .visible-links a,
+.masthead a, .site-title {
   color: rgba(255,255,255,0.92) !important;
   font-weight: 500 !important;
 }
-.greedy-nav a:hover,
-.greedy-nav .visible-links a:hover,
-.masthead a:hover {
+.greedy-nav a:hover, .masthead a:hover {
   color: #63b3ed !important;
   text-decoration: none !important;
 }
-.greedy-nav .visible-links a::before,
-.greedy-nav .visible-links a:hover::before {
+.greedy-nav .visible-links a::before {
   background: #63b3ed !important;
 }
-.greedy-nav__toggle svg,
-.greedy-nav button svg {
+.greedy-nav__toggle svg, .greedy-nav button svg {
   fill: rgba(255,255,255,0.9) !important;
-  color: rgba(255,255,255,0.9) !important;
 }
 
 /* ══════════════════════════════════════════
-   SIDEBAR — wider, bigger, blue panel
+   SIDEBAR — scoped to .sticky only (author profile)
+   NOT applied to page-nav sidebars
 ══════════════════════════════════════════ */
-
-/* Wider sidebar + fit-content height */
-.sidebar.sticky,
-.sidebar {
+.sidebar.sticky {
   width: 300px !important;
   min-width: 300px !important;
   height: fit-content !important;
   align-self: flex-start !important;
-}
-@media (min-width: 80em) {
-  .sidebar.sticky, .sidebar { width: 320px !important; min-width: 320px !important; }
-}
-
-/* Shrink content area accordingly */
-@media (min-width: 64em) {
-  .page { width: calc(100% - 340px) !important; }
-}
-@media (min-width: 80em) {
-  .page { width: calc(100% - 360px) !important; }
-}
-
-/* Blue textured panel */
-.sidebar {
   background: linear-gradient(160deg, #0d1b2a 0%, #1b3a5c 55%, #2c6fad 100%) !important;
   border-radius: 16px !important;
   padding: 2em 1.4em 1.8em !important;
   position: relative !important;
-  overflow: hidden !important;
   box-shadow: 0 8px 32px rgba(0,0,0,0.22) !important;
   margin-top: 0.8em !important;
+  /* NO overflow:hidden — would break dropdowns */
 }
-/* Texture circles */
-.sidebar::before {
+@media (min-width: 80em) {
+  .sidebar.sticky { width: 320px !important; min-width: 320px !important; }
+}
+
+/* Texture circles — clipped by border-radius naturally */
+.sidebar.sticky::before {
   content: '' !important; position: absolute !important;
   top: -60px !important; right: -50px !important;
   width: 200px !important; height: 200px !important;
@@ -99,7 +72,7 @@ nav.greedy-nav {
   background: rgba(255,255,255,0.06) !important;
   pointer-events: none !important; z-index: 0 !important;
 }
-.sidebar::after {
+.sidebar.sticky::after {
   content: '' !important; position: absolute !important;
   bottom: -70px !important; left: -40px !important;
   width: 250px !important; height: 250px !important;
@@ -107,19 +80,23 @@ nav.greedy-nav {
   background: rgba(255,255,255,0.04) !important;
   pointer-events: none !important; z-index: 0 !important;
 }
-.sidebar > * { position: relative !important; z-index: 1 !important; }
+/* Keep content above decorative circles */
+.sidebar.sticky .author__avatar,
+.sidebar.sticky .author__content,
+.sidebar.sticky .author__urls-wrapper {
+  position: relative !important;
+  z-index: 1 !important;
+}
 
-/* ── Profile photo: square, bigger, no border ── */
-.author__avatar {
+/* ── Profile photo ── */
+.sidebar.sticky .author__avatar {
   border-radius: 0 !important;
   overflow: visible !important;
   display: flex !important;
   justify-content: center !important;
   margin-bottom: 0.6em !important;
 }
-.author__avatar img,
-.author__avatar img.u-photo,
-.sidebar img.u-photo {
+.sidebar.sticky .author__avatar img {
   border-radius: 12px !important;
   width: 220px !important;
   max-width: 220px !important;
@@ -131,25 +108,25 @@ nav.greedy-nav {
   transition: transform 0.2s, box-shadow 0.2s !important;
   display: block !important;
 }
-.author__avatar img:hover {
+.sidebar.sticky .author__avatar img:hover {
   transform: translateY(-2px) !important;
   box-shadow: 0 10px 32px rgba(0,0,0,0.4) !important;
 }
 
-/* ── Name, pronouns, bio ── */
-.author__name {
+/* ── Name / bio ── */
+.sidebar.sticky .author__name {
   color: white !important;
   font-size: 1.1em !important;
   font-weight: 700 !important;
   text-align: center !important;
   margin-top: 0.7em !important;
 }
-.author__pronouns {
+.sidebar.sticky .author__pronouns {
   color: rgba(255,255,255,0.5) !important;
   font-size: 0.78em !important;
   text-align: center !important;
 }
-.author__bio {
+.sidebar.sticky .author__bio {
   color: rgba(255,255,255,0.72) !important;
   font-size: 0.82em !important;
   line-height: 1.6 !important;
@@ -157,9 +134,8 @@ nav.greedy-nav {
   margin-bottom: 0.8em !important;
 }
 
-/* ── "Follow" toggle button ── */
-.author__urls-wrapper button,
-.author__urls-wrapper .btn {
+/* ── Follow toggle button ── */
+.sidebar.sticky .author__urls-wrapper button {
   background: rgba(255,255,255,0.12) !important;
   color: rgba(255,255,255,0.9) !important;
   border: 1px solid rgba(255,255,255,0.25) !important;
@@ -169,10 +145,12 @@ nav.greedy-nav {
   width: 100% !important;
   cursor: pointer !important;
 }
-.author__urls-wrapper button:hover { background: rgba(255,255,255,0.22) !important; }
+.sidebar.sticky .author__urls-wrapper button:hover {
+  background: rgba(255,255,255,0.22) !important;
+}
 
-/* ── PILLS: colorful per-platform with emojis ── */
-.author__urls {
+/* ── PILLS ── */
+.sidebar.sticky .author__urls {
   display: flex !important;
   flex-wrap: wrap !important;
   gap: 6px !important;
@@ -181,8 +159,7 @@ nav.greedy-nav {
   margin: 0.2em 0 0 !important;
   list-style: none !important;
 }
-/* Base pill: transparent wrapper, color on <a> */
-.author__urls li {
+.sidebar.sticky .author__urls li {
   display: inline-flex !important;
   list-style: none !important;
   background: transparent !important;
@@ -190,10 +167,9 @@ nav.greedy-nav {
   padding: 0 !important;
   transition: transform 0.15s !important;
 }
-.author__urls li:hover { transform: translateY(-2px) !important; }
+.sidebar.sticky .author__urls li:hover { transform: translateY(-2px) !important; }
 
-/* Base <a> style */
-.author__urls li a {
+.sidebar.sticky .author__urls li a {
   display: inline-flex !important;
   align-items: center !important;
   gap: 0.3em !important;
@@ -205,82 +181,62 @@ nav.greedy-nav {
   text-decoration: none !important;
   white-space: nowrap !important;
   border: none !important;
-  /* default fallback */
   background: rgba(255,255,255,0.18) !important;
   box-shadow: 0 2px 6px rgba(0,0,0,0.2) !important;
   transition: filter 0.15s, box-shadow 0.15s !important;
 }
-.author__urls li a:hover {
+.sidebar.sticky .author__urls li a:hover {
   filter: brightness(1.15) !important;
   box-shadow: 0 4px 12px rgba(0,0,0,0.3) !important;
 }
 
-/* Hide all original icons — replaced by emojis via ::before */
-.author__urls a i,
-.author__urls a svg,
-.author__urls a img,
-.author__urls a [class*="fa-"],
-.author__urls a .svg-inline--fa {
+/* Hide original icons → replaced by emoji ::before */
+.sidebar.sticky .author__urls a i,
+.sidebar.sticky .author__urls a svg,
+.sidebar.sticky .author__urls a img,
+.sidebar.sticky .author__urls a [class*="fa-"] {
   display: none !important;
 }
 
-/* ── Per-platform colors + emojis ── */
+/* Per-platform colors + emojis */
+.sidebar.sticky .author__urls a[href*="mailto"]::before        { content: "📧 "; }
+.sidebar.sticky .author__urls a[href*="mailto"]                { background: #e53e3e !important; }
 
-/* Email */
-.author__urls a[href*="mailto"]::before        { content: "📧"; }
-.author__urls a[href*="mailto"]                { background: #e53e3e !important; }
+.sidebar.sticky .author__urls a[href*="scholar.google"]::before { content: "🎓 "; }
+.sidebar.sticky .author__urls a[href*="scholar.google"]         { background: #4285f4 !important; }
 
-/* Google Scholar */
-.author__urls a[href*="scholar.google"]::before { content: "🎓"; }
-.author__urls a[href*="scholar.google"]         { background: #4285f4 !important; }
+.sidebar.sticky .author__urls a[href*="orcid"]::before         { content: "🔬 "; }
+.sidebar.sticky .author__urls a[href*="orcid"]                 { background: #78b13f !important; }
 
-/* ORCID */
-.author__urls a[href*="orcid"]::before         { content: "🔬"; }
-.author__urls a[href*="orcid"]                 { background: #78b13f !important; }
+.sidebar.sticky .author__urls a[href*="researchgate"]::before  { content: "📊 "; }
+.sidebar.sticky .author__urls a[href*="researchgate"]          { background: #00b0a0 !important; }
 
-/* ResearchGate */
-.author__urls a[href*="researchgate"]::before  { content: "📊"; }
-.author__urls a[href*="researchgate"]          { background: #00b0a0 !important; }
+.sidebar.sticky .author__urls a[href*="semanticscholar"]::before { content: "🧠 "; }
+.sidebar.sticky .author__urls a[href*="semanticscholar"]         { background: #7c3aed !important; }
 
-/* Semantic Scholar */
-.author__urls a[href*="semanticscholar"]::before { content: "🧠"; }
-.author__urls a[href*="semanticscholar"]         { background: #7c3aed !important; }
+.sidebar.sticky .author__urls a[href*="github"]::before        { content: "💻 "; }
+.sidebar.sticky .author__urls a[href*="github"]                { background: #24292e !important; }
 
-/* GitHub */
-.author__urls a[href*="github"]::before        { content: "💻"; }
-.author__urls a[href*="github"]                { background: #24292e !important; }
+.sidebar.sticky .author__urls a[href*="linkedin"]::before      { content: "💼 "; }
+.sidebar.sticky .author__urls a[href*="linkedin"]              { background: #0077b5 !important; }
 
-/* LinkedIn */
-.author__urls a[href*="linkedin"]::before      { content: "💼"; }
-.author__urls a[href*="linkedin"]              { background: #0077b5 !important; }
+.sidebar.sticky .author__urls a[href*="twitter"]::before,
+.sidebar.sticky .author__urls a[href*="x.com"]::before         { content: "🐦 "; }
+.sidebar.sticky .author__urls a[href*="twitter"],
+.sidebar.sticky .author__urls a[href*="x.com"]                 { background: #14171a !important; }
 
-/* Twitter / X */
-.author__urls a[href*="twitter"]::before,
-.author__urls a[href*="x.com"]::before         { content: "🐦"; }
-.author__urls a[href*="twitter"],
-.author__urls a[href*="x.com"]                 { background: #000000 !important; }
+.sidebar.sticky .author__urls a[href*="arxiv"]::before         { content: "📄 "; }
+.sidebar.sticky .author__urls a[href*="arxiv"]                 { background: #b31b1b !important; }
 
-/* Bluesky */
-.author__urls a[href*="bsky"]::before          { content: "🦋"; }
-.author__urls a[href*="bsky"]                  { background: #0085ff !important; }
-
-/* Google Maps / location */
-.author__urls a[href*="maps"]::before          { content: "📍"; }
-.author__urls a[href*="maps"]                  { background: #ea4335 !important; }
-
-/* arXiv */
-.author__urls a[href*="arxiv"]::before         { content: "📄"; }
-.author__urls a[href*="arxiv"]                 { background: #b31b1b !important; }
-
-/* Metadata lines (location, employer) */
-.sidebar p, .sidebar .author__content p,
-.sidebar li, .sidebar .p-note {
+/* Metadata text */
+.sidebar.sticky p,
+.sidebar.sticky li:not(.author__urls li) {
   color: rgba(255,255,255,0.72) !important;
   font-size: 0.82em !important;
 }
 
 /* ══════════════════════════════════════════
-   PAGE CONTENT
+   PAGE CONTENT — untouched layout
 ══════════════════════════════════════════ */
 .page__content {
   font-size: 0.95em !important;
@@ -291,21 +247,27 @@ nav.greedy-nav {
   font-size: 1.2em !important; font-weight: 700 !important;
   color: var(--blue-mid) !important;
   border-bottom: 2px solid var(--blue-pale) !important;
-  padding-bottom: 0.3em !important;
-  margin-top: 1.8em !important;
+  padding-bottom: 0.3em !important; margin-top: 1.8em !important;
 }
-.page__content h3 { font-size: 1.03em !important; font-weight: 700 !important; color: var(--blue-mid) !important; }
-.page__content a { color: var(--blue) !important; text-decoration: none !important; transition: color 0.15s !important; }
+.page__content h3 {
+  font-size: 1.03em !important; font-weight: 700 !important;
+  color: var(--blue-mid) !important;
+}
+.page__content a {
+  color: var(--blue) !important; text-decoration: none !important;
+  transition: color 0.15s !important;
+}
 .page__content a:hover { color: var(--blue-light) !important; }
-.page__title { font-size: 1.5em !important; font-weight: 800 !important; color: var(--blue-dark) !important; }
+.page__title {
+  font-size: 1.5em !important; font-weight: 800 !important;
+  color: var(--blue-dark) !important;
+}
 
 /* ══════════════════════════════════════════
    FOOTER
 ══════════════════════════════════════════ */
-html body .page__footer,
-.page__footer {
+html body .page__footer, .page__footer {
   background: var(--blue-dark) !important;
-  background-color: var(--blue-dark) !important;
   color: rgba(255,255,255,0.6) !important;
 }
 .page__footer a { color: rgba(255,255,255,0.7) !important; }
