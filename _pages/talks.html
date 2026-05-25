@@ -1,14 +1,183 @@
 ---
 layout: archive
-title: "Talks and presentations"
+title: "Talks & Presentations"
 permalink: /talks/
 author_profile: true
 ---
 
+{% include base_path %}
+
+<style>
+.poster-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1.2em 1.4em;
+  margin-bottom: 1.5em;
+  background: #fafafa;
+  display: flex;
+  gap: 1.4em;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.poster-card-info { flex: 1; min-width: 200px; }
+.poster-card-info h3 { margin: 0 0 0.3em 0; font-size: 1.05em; }
+.poster-card-info .venue { color: #555; font-style: italic; font-size: 0.92em; margin-bottom: 0.6em; }
+.poster-card-info .abstract { font-size: 0.88em; color: #444; line-height: 1.6; }
+.poster-btn {
+  display: inline-block;
+  margin-top: 0.8em;
+  margin-right: 0.5em;
+  padding: 0.4em 1em;
+  background: #4a90d9;
+  color: white !important;
+  border-radius: 4px;
+  font-size: 0.88em;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+}
+.poster-btn:hover { background: #2c6fad; }
+.poster-btn-outline {
+  background: white;
+  color: #4a90d9 !important;
+  border: 1px solid #4a90d9;
+}
+.poster-btn-outline:hover { background: #f0f7ff; }
+.poster-thumb {
+  width: 120px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  transition: box-shadow 0.2s;
+  flex-shrink: 0;
+}
+.poster-thumb:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+/* Modal */
+.pdf-modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.75);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+}
+.pdf-modal-overlay.active { display: flex; }
+.pdf-modal-box {
+  background: white;
+  border-radius: 8px;
+  width: 90vw;
+  max-width: 900px;
+  height: 88vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.pdf-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6em 1em;
+  background: #f5f5f5;
+  border-bottom: 1px solid #ddd;
+  font-size: 0.92em;
+  font-weight: 600;
+}
+.pdf-modal-close {
+  cursor: pointer;
+  font-size: 1.3em;
+  color: #666;
+  background: none;
+  border: none;
+  line-height: 1;
+  padding: 0 0.2em;
+}
+.pdf-modal-close:hover { color: #222; }
+.pdf-modal-frame {
+  flex: 1;
+  width: 100%;
+  border: none;
+}
+.cv-tag { display: inline-block; background: #f0f0f0; border-radius: 3px; padding: 1px 7px; font-size: 0.78em; margin: 2px 2px 2px 0; color: #444; }
+.cv-tag-blue { background: #deeaf7; color: #1a5276; }
+</style>
+
+<!-- PDF Modal -->
+<div class="pdf-modal-overlay" id="pdfModal" onclick="closePdfModal(event)">
+  <div class="pdf-modal-box">
+    <div class="pdf-modal-header">
+      <span id="pdfModalTitle">Poster</span>
+      <button class="pdf-modal-close" onclick="document.getElementById('pdfModal').classList.remove('active')">✕</button>
+    </div>
+    <iframe class="pdf-modal-frame" id="pdfModalFrame" src=""></iframe>
+  </div>
+</div>
+
+<script>
+function openPdfModal(src, title) {
+  document.getElementById('pdfModalFrame').src = src;
+  document.getElementById('pdfModalTitle').textContent = title;
+  document.getElementById('pdfModal').classList.add('active');
+}
+function closePdfModal(e) {
+  if (e.target === document.getElementById('pdfModal')) {
+    document.getElementById('pdfModal').classList.remove('active');
+    document.getElementById('pdfModalFrame').src = '';
+  }
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    document.getElementById('pdfModal').classList.remove('active');
+    document.getElementById('pdfModalFrame').src = '';
+  }
+});
+</script>
+
+---
+
+## 🗓 2025
+
+<div class="poster-card">
+  <img
+    class="poster-thumb"
+    src="/images/poster-pcs2025-thumb.png"
+    alt="PCS 2025 Poster thumbnail"
+    onclick="openPdfModal('/files/poster-pcs2025.pdf', 'SCALED — PCS 2025 Poster')"
+    title="Click to view poster"
+  />
+  <div class="poster-card-info">
+    <h3>SCALED: Surrogate-gradient for Codec-Aware Learning of Downsampling in ABR Streaming</h3>
+    <div class="venue">📍 PCS 2025 — Picture Coding Symposium &middot; Aachen, Germany &middot; December 2025</div>
+    <div class="abstract">
+      We introduce a codec-aware learning framework enabling end-to-end training of neural downscalers
+      through non-differentiable video codecs. By leveraging data-driven surrogate gradients derived from
+      true compression noise, we align training objectives with deployment performance, achieving over
+      <strong>5% BD-Rate improvement</strong> compared to codec-agnostic approaches.
+    </div>
+    <div style="margin-top:0.7em;">
+      <span class="cv-tag cv-tag-blue">Video Compression</span>
+      <span class="cv-tag cv-tag-blue">Surrogate Gradients</span>
+      <span class="cv-tag cv-tag-blue">ABR Streaming</span>
+      <span class="cv-tag cv-tag-blue">Deep Learning</span>
+    </div>
+    <div style="margin-top:0.8em;">
+      <button class="poster-btn" onclick="openPdfModal('/files/poster-pcs2025.pdf', 'SCALED — PCS 2025 Poster')">
+        🖼 View Poster
+      </button>
+      <a class="poster-btn poster-btn-outline" href="/images/poster-pcs2025.pdf" download>
+        ⬇ Download
+      </a>
+    </div>
+  </div>
+</div>
+
+---
+
 {% if site.talkmap_link == true %}
-
 <p style="text-decoration:underline;"><a href="/talkmap.html">See a map of all the places I've given a talk!</a></p>
-
 {% endif %}
 
 {% for post in site.talks reversed %}
