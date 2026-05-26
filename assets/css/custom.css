@@ -619,6 +619,21 @@ html body .masthead__menu-item.selected a::after {
   margin: 0 !important;
   padding: 0 !important;
 }
+@media (max-width: 768px) {
+  #main:has(.sidebar) {
+    flex-direction: column !important;
+    gap: 1.5em !important;
+  }
+  #main .sidebar,
+  #main .sidebar.sticky {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-top: 0 !important;
+  }
+  #main:has(.sidebar) .page {
+    width: 100% !important;
+  }
+}
 
 /* ══════════════════════════════
    PAGE STRIP LAYOUT (shared)
