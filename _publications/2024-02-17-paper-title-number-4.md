@@ -11,6 +11,8 @@ paperurl: 'https://arxiv.org/pdf/2602.00198'
 author_profile: false
 ---
 
+{% include base_path %}
+
 <script>
 MathJax = {
   tex: {
@@ -186,8 +188,8 @@ pre.sp-bib { margin: 0; white-space: pre-wrap; color: #a0aec0; }
 <!-- ════════════ HERO ════════════ -->
 <div class="sp-hero">
   <div class="sp-hero-logos">
-    <img src="/images/logos/inria_white.png" alt="INRIA" />
-    <img src="/images/logos/mediakind.svg" alt="MediaKind" />
+    <img src="{{ base_path }}/images/logos/inria_white.png" alt="INRIA" />
+    <img src="{{ base_path }}/images/logos/mediakind.svg" alt="MediaKind" />
   </div>
   <div class="sp-hero-venue">📍 PCS 2025 &nbsp;·&nbsp; Aachen, Germany &nbsp;·&nbsp; December 2025</div>
   <div class="sp-hero-title">
@@ -232,7 +234,7 @@ The rapid growth in video consumption has introduced significant challenges to m
 <div class="sp-section-title">Overview</div>
 <p>In ABR streaming, high-resolution video is downscaled server-side, encoded with a standard codec (e.g. H.264), transmitted, decoded, and upscaled client-side — typically with a fixed bicubic filter. SCALED optimizes the <strong>learned downscaler</strong> \(f\) so that the full chain — downscale → encode → decode → bicubic upscale — produces the best possible reconstruction at a given bitrate. The key difficulty is that the codec \(\phi\) is non-differentiable: gradients cannot flow through it during training. SCALED solves this by injecting <strong>surrogate gradients</strong> derived from the actual compression error statistics, enabling true end-to-end optimization without any proxy codec.</p>
 
-<img src="/images/scaled_overview.png" alt="SCALED pipeline overview" style="width:100%; border-radius: 20px; margin: 1.2em 0; border: 1px solid var(--card-border);" />
+<img src="{{ base_path }}/images/scaled_overview.png" alt="SCALED pipeline overview" style="width:100%; border-radius: 20px; margin: 1.2em 0; border: 1px solid var(--card-border);" />
 </div>
 
 <!-- ════════════ CONTRIBUTIONS ════════════ -->

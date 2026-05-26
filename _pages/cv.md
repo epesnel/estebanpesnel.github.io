@@ -46,7 +46,7 @@ Ph.D. — Signal Processing, Artificial Intelligence &amp; Video Compression
 </span>
 <span class="cv-date">Jun 2023 – Jun 2026</span>
 </div>
-<div class="cv-subtitle"><img class="logo" src="/images/logos/univ-rennes.png" alt="Université de Rennes"> Université de Rennes &middot; <img class="logo" src="/images/logos/inria.png" alt="INRIA"> INRIA team COMPACT &middot; <img class="logo" src="/images/logos/mediakind.svg" alt="MediaKind"> MediaKind (CIFRE)</div>
+<div class="cv-subtitle"><img class="logo" src="{{ base_path }}/images/logos/univ-rennes.png" alt="Université de Rennes"> Université de Rennes &middot; <img class="logo" src="{{ base_path }}/images/logos/inria.png" alt="INRIA"> INRIA team COMPACT &middot; <img class="logo" src="{{ base_path }}/images/logos/mediakind.svg" alt="MediaKind"> MediaKind (CIFRE)</div>
 <div class="highlight-box">
 <strong>Thesis:</strong> "Learned video downscaling for end-to-end Rate-Distortion optimization of video streaming systems"<br/>
 <strong>Industrial supervisors:</strong> J. Le Tanou, M. Ropert (MediaKind)<br/>
@@ -68,7 +68,7 @@ M.Ing. — Electronic &amp; Computer Engineering
 </span>
 <span class="cv-date">2020 – 2023</span>
 </div>
-<div class="cv-subtitle"><img class="logo" src="/images/logos/insa-rennes.png" alt="INSA Rennes"> INSA Rennes — Institut National des Sciences Appliquées</div>
+<div class="cv-subtitle"><img class="logo" src="{{ base_path }}/images/logos/insa-rennes.png" alt="INSA Rennes"> INSA Rennes — Institut National des Sciences Appliquées</div>
 <p>Embedded systems design (hardware &amp; software), digital/analog signal processing, image analysis, AI (NN, CNN, transfer learning, GANs), VHDL, real-time systems.</p>
 <div class="cv-tags">
 <span class="cv-tag">C/C++</span>
@@ -84,7 +84,7 @@ M.Eng. — Aerospace &amp; Aeronautical Engineering (Exchange semester)
 </span>
 <span class="cv-date">Sep 2022 – Jan 2023</span>
 </div>
-<div class="cv-subtitle"><img class="logo" src="/images/logos/ets-montreal.svg" alt="ÉTS Montréal"> École de technologie supérieure (ÉTS) &middot; Montréal, QC, Canada</div>
+<div class="cv-subtitle"><img class="logo" src="{{ base_path }}/images/logos/ets-montreal.svg" alt="ÉTS Montréal"> École de technologie supérieure (ÉTS) &middot; Montréal, QC, Canada</div>
 <p>Selected courses: fly-by-wire systems (MGA804), video communication systems (MTI810), DSP architecture (SYS835), introduction to avionics (GPA745).</p>
 <div class="cv-tags">
 <span class="cv-tag">C++</span>
@@ -100,7 +100,7 @@ CUPGE — Computer Science &amp; Engineering (Preparatory cycle)
 </span>
 <span class="cv-date">2018 – 2020</span>
 </div>
-<div class="cv-subtitle"><img class="logo" src="/images/logos/esir.png" alt="ESIR"> ESIR — École Supérieure d'Ingénieurs de Rennes</div>
+<div class="cv-subtitle"><img class="logo" src="{{ base_path }}/images/logos/esir.png" alt="ESIR"> ESIR — École Supérieure d'Ingénieurs de Rennes</div>
 <p>Rank: <strong>4th / 45</strong>. Foundations of IT, functional and OO programming, digital/analog electronics, mathematical engineering.</p>
 </div>
 
@@ -116,7 +116,7 @@ PhD Researcher — Neural Video Compression
 </span>
 <span class="cv-date">Aug 2023 – present</span>
 </div>
-<div class="cv-subtitle"><img class="logo" src="/images/logos/mediakind.svg" alt="MediaKind"> MediaKind &middot; Rennes, France (Hybrid) — CIFRE Partnership with <img class="logo" src="/images/logos/inria.png" alt="INRIA"> INRIA</div>
+<div class="cv-subtitle"><img class="logo" src="{{ base_path }}/images/logos/mediakind.svg" alt="MediaKind"> MediaKind &middot; Rennes, France (Hybrid) — CIFRE Partnership with <img class="logo" src="{{ base_path }}/images/logos/inria.png" alt="INRIA"> INRIA</div>
 <ul>
 <li>Developed surrogate gradient methods enabling end-to-end training through non-differentiable codecs (H.264/AVC, H.266/VVC).</li>
 <li>Proposed a geometric interpretation of the SCALED surrogate gradient as an oblique projection, establishing its MSE-optimality under intensity-shift invariance.</li>
@@ -137,7 +137,7 @@ Part-time Lecturer
 </span>
 <span class="cv-date">Mar 2024 – Jun 2025</span>
 </div>
-<div class="cv-subtitle"><img class="logo" src="/images/logos/univ-rennes.png" alt="Université de Rennes"> Université de Rennes &middot; Rennes, France (On-site)</div>
+<div class="cv-subtitle"><img class="logo" src="{{ base_path }}/images/logos/univ-rennes.png" alt="Université de Rennes"> Université de Rennes &middot; Rennes, France (On-site)</div>
 <ul>
 <li><strong>ACV</strong> — Video compression basics (ESIR 2nd year)</li>
 <li><strong>AI &amp; Data Science</strong> — M2 EEEA and ISTIC</li>
@@ -150,7 +150,7 @@ Part-time Lecturer
 <span class="cv-title">Video Codec Research Intern</span>
 <span class="cv-date">Jan 2023 – Jul 2023</span>
 </div>
-<div class="cv-subtitle"><img class="logo" src="/images/logos/mediakind.svg" alt="MediaKind"> MediaKind &middot; Cesson-Sévigné, France</div>
+<div class="cv-subtitle"><img class="logo" src="{{ base_path }}/images/logos/mediakind.svg" alt="MediaKind"> MediaKind &middot; Cesson-Sévigné, France</div>
 <ul>
 <li>Designed fast algorithms for VVC/HEVC intra/inter partitioning.</li>
 <li>Built a prediction model to estimate the optimal split pattern for a given coding unit, reducing encoding complexity.</li>
@@ -168,7 +168,7 @@ Part-time Lecturer
 <span class="cv-title">Video Research Intern</span>
 <span class="cv-date">May 2022 – Aug 2022</span>
 </div>
-<div class="cv-subtitle"><img class="logo" src="/images/logos/haivision.png" alt="Haivision"> Haivision &middot; Rennes, France</div>
+<div class="cv-subtitle"><img class="logo" src="{{ base_path }}/images/logos/haivision.png" alt="Haivision"> Haivision &middot; Rennes, France</div>
 <ul>
 <li>AV1 / VP9 transcoding evaluation for social network delivery pipelines.</li>
 <li>Subjective and objective quality assessments (VMAF, PSNR, BD-Rate).</li>
@@ -190,7 +190,7 @@ Part-time Lecturer
 <span class="cv-title">Video Research Intern</span>
 <span class="cv-date">Jun 2021 – Aug 2021</span>
 </div>
-<div class="cv-subtitle"><img class="logo" src="/images/logos/harmonic.png" alt="Harmonic"> Harmonic &middot; France</div>
+<div class="cv-subtitle"><img class="logo" src="{{ base_path }}/images/logos/harmonic.png" alt="Harmonic"> Harmonic &middot; France</div>
 <p>Study of the impact of AI-based upscaling (Pixop) followed by downscaling on perceived quality and H.264/H.265 encoding performance.</p>
 <div class="cv-tags">
 <span class="cv-tag">Super-resolution</span>
