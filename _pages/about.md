@@ -20,94 +20,111 @@ MathJax = {
 </script>
 
 <style>
-/* ── Sidebar panel ── */
+/* ── Sidebar panel (refined dark) ── */
 .sidebar.sticky {
   height: fit-content !important; align-self: flex-start !important;
-  background: linear-gradient(160deg, #0d1b2a 0%, #1b3a5c 55%, #2c6fad 100%) !important;
-  border-radius: 16px !important; padding: 1.8em 1.2em 1.6em !important;
-  position: relative !important; box-shadow: 0 8px 32px rgba(0,0,0,0.22) !important;
+  background: linear-gradient(180deg, #142a45 0%, #1b3a5c 100%) !important;
+  border-radius: 14px !important; padding: 2em 1.4em 1.5em !important;
+  position: relative !important;
+  box-shadow: 0 10px 30px rgba(13,27,42,0.18),
+              0 0 0 1px rgba(255,255,255,0.06) inset !important;
   margin-top: 0.8em !important;
 }
-.sidebar.sticky::before {
-  content:''!important; position:absolute!important; top:-50px!important; right:-40px!important;
-  width:180px!important; height:180px!important; border-radius:50%!important;
-  background:rgba(255,255,255,0.06)!important; pointer-events:none!important; z-index:0!important;
-}
-.sidebar.sticky::after {
-  content:''!important; position:absolute!important; bottom:-60px!important; left:-30px!important;
-  width:220px!important; height:220px!important; border-radius:50%!important;
-  background:rgba(255,255,255,0.04)!important; pointer-events:none!important; z-index:0!important;
-}
-.sidebar.sticky .author__avatar,
-.sidebar.sticky .author__content,
-.sidebar.sticky .author__urls-wrapper { position:relative!important; z-index:1!important; }
 
+/* Avatar */
 .sidebar.sticky .author__avatar {
-  overflow:visible!important; display:flex!important;
-  justify-content:center!important; margin-bottom:0.6em!important;
+  overflow: visible !important; display: flex !important;
+  justify-content: center !important; margin-bottom: 1.1em !important;
 }
 .sidebar.sticky .author__avatar img {
-  border-radius:12px!important; width:210px!important; max-width:210px!important;
-  height:210px!important; object-fit:cover!important; border:none!important;
-  outline:none!important; box-shadow:0 6px 24px rgba(0,0,0,0.35)!important;
-  transition:transform 0.2s!important; display:block!important;
+  width: 150px !important; height: 150px !important;
+  border-radius: 50% !important; object-fit: cover !important;
+  border: 3px solid rgba(255,255,255,0.12) !important; outline: none !important;
+  box-shadow: 0 0 0 4px rgba(74,144,217,0.25),
+              0 8px 24px rgba(0,0,0,0.35) !important;
+  transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+  display: block !important;
 }
-.sidebar.sticky .author__avatar img:hover { transform:translateY(-2px)!important; }
+.sidebar.sticky .author__avatar img:hover {
+  transform: scale(1.03) !important;
+  box-shadow: 0 0 0 4px rgba(74,144,217,0.45),
+              0 8px 28px rgba(0,0,0,0.4) !important;
+}
+
+/* Name + pronouns */
 .sidebar.sticky .author__name {
-  color:white!important; font-size:1.05em!important; font-weight:700!important;
-  text-align:center!important; margin-top:0.7em!important;
+  color: white !important;
+  font-size: 1.25em !important; font-weight: 700 !important;
+  letter-spacing: -0.01em !important;
+  text-align: center !important; margin: 0 0 0.15em !important;
 }
-.sidebar.sticky .author__pronouns { color:rgba(255,255,255,0.5)!important; text-align:center!important; }
+.sidebar.sticky .author__pronouns {
+  display: block !important;
+  color: rgba(255,255,255,0.4) !important;
+  font-size: 0.75em !important; font-weight: 500 !important;
+  text-align: center !important; letter-spacing: 0.05em !important;
+  text-transform: lowercase !important;
+  margin-bottom: 0.9em !important;
+}
+
+/* Bio + meta */
 .sidebar.sticky .author__bio {
-  color:rgba(255,255,255,0.72)!important; font-size:0.82em!important;
-  line-height:1.6!important; text-align:center!important; margin-bottom:0.8em!important;
+  color: rgba(255,255,255,0.85) !important;
+  font-size: 0.88em !important; font-weight: 500 !important;
+  text-align: center !important; line-height: 1.5 !important;
+  margin-bottom: 1em !important;
 }
-.sidebar.sticky p, .sidebar.sticky li:not(.author__urls li) {
-  color:rgba(255,255,255,0.65)!important; font-size:0.8em!important;
+.sidebar.sticky p,
+.sidebar.sticky li:not(.author__urls li) {
+  color: rgba(255,255,255,0.55) !important;
+  font-size: 0.78em !important; line-height: 1.6 !important;
+  text-align: center !important;
 }
-.sidebar.sticky .author__urls-wrapper button {
-  background:rgba(255,255,255,0.12)!important; color:rgba(255,255,255,0.9)!important;
-  border:1px solid rgba(255,255,255,0.25)!important; border-radius:20px!important;
-  font-size:0.8em!important; padding:0.3em 1em!important; width:100%!important;
-}
+
+/* Follow button (hidden) */
+.sidebar.sticky .author__urls-wrapper button { display: none !important; }
+
+/* Pills — monochrome glass style */
 .sidebar.sticky .author__urls {
-  display:flex!important; flex-wrap:wrap!important; gap:5px!important;
-  justify-content:center!important; padding:0.3em 0 0!important;
-  list-style:none!important; margin:0!important;
+  display: flex !important; flex-wrap: wrap !important; gap: 6px !important;
+  justify-content: center !important; padding: 0.6em 0 0 !important;
+  margin: 0 !important; list-style: none !important;
+  border-top: 1px solid rgba(255,255,255,0.08) !important;
 }
 .sidebar.sticky .author__urls li {
-  display:inline-flex!important; list-style:none!important;
-  background:transparent!important; border:none!important; padding:0!important;
-  transition:transform 0.15s!important;
+  display: inline-flex !important; list-style: none !important;
+  background: transparent !important; border: none !important; padding: 0 !important;
 }
-.sidebar.sticky .author__urls li:hover { transform:translateY(-2px)!important; }
 .sidebar.sticky .author__urls li a {
-  display:inline-flex!important; align-items:center!important; gap:0.3em!important;
-  padding:0.28em 0.8em!important; border-radius:20px!important;
-  font-size:0.75em!important; font-weight:600!important;
-  color:white!important; text-decoration:none!important; white-space:nowrap!important;
-  background:rgba(255,255,255,0.18)!important;
-  box-shadow:0 2px 6px rgba(0,0,0,0.2)!important; transition:filter 0.15s!important;
+  display: inline-flex !important; align-items: center !important; gap: 0.3em !important;
+  padding: 0.32em 0.85em !important; border-radius: 18px !important;
+  font-size: 0.74em !important; font-weight: 600 !important;
+  color: rgba(255,255,255,0.85) !important; text-decoration: none !important;
+  white-space: nowrap !important;
+  background: rgba(255,255,255,0.08) !important;
+  border: 1px solid rgba(255,255,255,0.12) !important;
+  backdrop-filter: blur(6px) !important;
+  transition: all 0.2s ease !important;
 }
-.sidebar.sticky .author__urls li a:hover { filter:brightness(1.2)!important; }
+.sidebar.sticky .author__urls li a:hover {
+  background: rgba(74,144,217,0.25) !important;
+  border-color: rgba(74,144,217,0.5) !important;
+  color: white !important;
+  transform: translateY(-1px) !important;
+}
 .sidebar.sticky .author__urls a i,
 .sidebar.sticky .author__urls a svg,
 .sidebar.sticky .author__urls a img,
-.sidebar.sticky .author__urls a [class*="fa-"] { display:none!important; }
-.sidebar.sticky .author__urls a[href*="mailto"]::before          { content:"📧 "; }
-.sidebar.sticky .author__urls a[href*="mailto"]                  { background:#e53e3e!important; }
-.sidebar.sticky .author__urls a[href*="scholar.google"]::before  { content:"🎓 "; }
-.sidebar.sticky .author__urls a[href*="scholar.google"]          { background:#4285f4!important; }
-.sidebar.sticky .author__urls a[href*="orcid"]::before           { content:"🔬 "; }
-.sidebar.sticky .author__urls a[href*="orcid"]                   { background:#78b13f!important; }
-.sidebar.sticky .author__urls a[href*="researchgate"]::before    { content:"📊 "; }
-.sidebar.sticky .author__urls a[href*="researchgate"]            { background:#00b0a0!important; }
-.sidebar.sticky .author__urls a[href*="semanticscholar"]::before { content:"🧠 "; }
-.sidebar.sticky .author__urls a[href*="semanticscholar"]         { background:#7c3aed!important; }
-.sidebar.sticky .author__urls a[href*="github"]::before          { content:"💻 "; }
-.sidebar.sticky .author__urls a[href*="github"]                  { background:#24292e!important; }
-.sidebar.sticky .author__urls a[href*="linkedin"]::before        { content:"💼 "; }
-.sidebar.sticky .author__urls a[href*="linkedin"]                { background:#0077b5!important; }
+.sidebar.sticky .author__urls a [class*="fa-"] { display: none !important; }
+
+/* Emoji prefixes */
+.sidebar.sticky .author__urls a[href*="mailto"]::before          { content: "📧 "; }
+.sidebar.sticky .author__urls a[href*="scholar.google"]::before  { content: "🎓 "; }
+.sidebar.sticky .author__urls a[href*="orcid"]::before           { content: "🔬 "; }
+.sidebar.sticky .author__urls a[href*="researchgate"]::before    { content: "📊 "; }
+.sidebar.sticky .author__urls a[href*="semanticscholar"]::before { content: "🧠 "; }
+.sidebar.sticky .author__urls a[href*="github"]::before          { content: "💻 "; }
+.sidebar.sticky .author__urls a[href*="linkedin"]::before        { content: "💼 "; }
 
 /* ── Home page content styles ── */
 .intro-card {
@@ -259,38 +276,4 @@ MathJax = {
 <div class="hs">Research Overview</div>
 
 <div class="research-card">
-<p>A central challenge in neural video optimization is that standard codecs are fundamentally non-differentiable:</p>
-
-<div class="eq-block">
-$$y = \phi(x), \qquad \frac{\partial \phi(x)}{\partial x} \approx 0$$
-</div>
-
-<p>This prevents direct end-to-end gradient-based optimization through the codec. In our work <strong>SCALED</strong> (<em>Surrogate-gradient for Codec-Aware Learning of Downsampling in ABR Streaming</em>), we introduce surrogate-gradient approaches enabling neural networks to optimize directly with real codecs such as H.264/x264. We jointly optimize a learned downsampling function \(f(x;\theta_f)\) within the full compression pipeline:</p>
-
-<div class="eq-block">
-$$\hat{x} = g\!\left(\phi(f(x;\,\theta_f))\right)$$
-</div>
-
-<p>while leveraging surrogate gradients derived from real compression errors during backpropagation — achieving <strong>5.19% BD-BR (PSNR) improvement</strong> over codec-agnostic training approaches.</p>
-</div>
-
-<!-- ══════════════ NEWS / TIMELINE ══════════════ -->
-<div class="hs">Recent Activities</div>
-
-<div class="timeline">
-
-  <div class="timeline-item latest">
-    <div class="timeline-date">🇩🇪 December 2025 · PCS 2025, Aachen</div>
-    <div class="timeline-content">
-      Presented <strong>SCALED</strong> at the Picture Coding Symposium 2025.
-      <span class="timeline-pill">Conference paper</span>
-      <span class="timeline-pill">Poster</span><br/>
-      <a href="https://arxiv.org/pdf/2602.00198" target="_blank">📄 PDF</a>
-      &nbsp;·&nbsp;
-      <a href="/publication/scaled">🔍 Details</a>
-      &nbsp;·&nbsp;
-      <a href="/talks/">🖼 Poster</a>
-    </div>
-  </div>
-
-</div>
+<p>A central challenge in neural video optimization is that standard codecs are fundamen
