@@ -415,11 +415,12 @@ html body .greedy-nav__toggle svg { fill: rgba(255,255,255,0.82) !important; }
   border: none !important;
   box-shadow: none !important;
   object-fit: contain !important;
-  opacity: 0.6 !important;
+  opacity: 0.5 !important;
+  filter: brightness(0) invert(1) !important;
   transition: opacity var(--transition) !important;
 }
 .sidebar.sticky .author__affil-logos img:hover {
-  opacity: 1 !important;
+  opacity: 0.8 !important;
   transform: none !important;
 }
 
