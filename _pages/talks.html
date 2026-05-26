@@ -1,8 +1,8 @@
 ---
 layout: archive
-title: "Talks & Presentations"
+title: ""
 permalink: /talks/
-author_profile: true
+author_profile: false
 ---
 
 {% include base_path %}
@@ -10,51 +10,151 @@ author_profile: true
 {% assign poster_pdf = "/images/poster-pcs2025.pdf" | relative_url %}
 
 <style>
-.poster-card {
-  border: 1px solid #ddd;
+/* ── Talks timeline ── */
+.talks-timeline {
+  position: relative;
+  padding-left: 2.4em;
+  margin: 1em 0 2em;
+}
+.talks-timeline::before {
+  content: '';
+  position: absolute;
+  left: 0.6em;
+  top: 0; bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--blue) 0%, var(--blue-light) 50%, var(--card-border) 100%);
+  border-radius: 1px;
+}
+.tl-item {
+  position: relative;
+  margin-bottom: 2.2em;
+  opacity: 0;
+  transform: translateX(-12px);
+  animation: tl-in 0.6s ease forwards;
+}
+.tl-item:nth-child(1) { animation-delay: 0.15s; }
+.tl-item:nth-child(2) { animation-delay: 0.35s; }
+.tl-item:nth-child(3) { animation-delay: 0.55s; }
+.tl-item:nth-child(4) { animation-delay: 0.75s; }
+.tl-item:nth-child(5) { animation-delay: 0.95s; }
+@keyframes tl-in {
+  to { opacity: 1; transform: translateX(0); }
+}
+.tl-item::before {
+  content: '';
+  position: absolute;
+  left: -2.05em;
+  top: 0.25em;
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: var(--blue);
+  border: 2px solid var(--card-bg, #0b1422);
+  box-shadow: 0 0 0 2px var(--blue);
+}
+.tl-item.tl-latest::before {
+  background: var(--blue-light);
+  animation: tl-pulse 2.2s ease-in-out infinite;
+}
+@keyframes tl-pulse {
+  0%, 100% { box-shadow: 0 0 0 2px var(--blue-light), 0 0 0 0 rgba(74,144,217,0.55); }
+  50%      { box-shadow: 0 0 0 2px var(--blue-light), 0 0 0 10px rgba(74,144,217,0); }
+}
+.tl-date {
+  font-size: 0.8em;
+  font-weight: 700;
+  color: var(--blue);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.5em;
+}
+.tl-card {
+  border: 1px solid var(--card-border);
   border-radius: 8px;
-  padding: 1.2em 1.4em;
-  margin-bottom: 1.5em;
-  background: #fafafa;
+  background: var(--card-bg);
+  overflow: hidden;
+  transition: box-shadow 0.2s;
+}
+.tl-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
+.tl-card-body {
+  padding: 1.1em 1.3em;
   display: flex;
-  gap: 1.4em;
+  gap: 1.2em;
   align-items: flex-start;
   flex-wrap: wrap;
 }
-.poster-card-info { flex: 1; min-width: 200px; }
-.poster-card-info h3 { margin: 0 0 0.3em 0; font-size: 1.05em; }
-.poster-card-info .venue { color: #555; font-style: italic; font-size: 0.92em; margin-bottom: 0.6em; }
-.poster-card-info .abstract { font-size: 0.88em; color: #444; line-height: 1.6; }
-.poster-btn {
-  display: inline-block;
-  margin-top: 0.8em;
-  margin-right: 0.5em;
-  padding: 0.4em 1em;
-  background: #4a90d9;
-  color: white !important;
-  border-radius: 4px;
+.tl-card-body h4 {
+  margin: 0 0 0.3em;
+  font-size: 1em;
+  font-weight: 700;
+  color: var(--heading);
+  line-height: 1.4;
+}
+.tl-card-info { flex: 1; min-width: 200px; }
+.tl-venue {
+  color: var(--text-muted);
+  font-style: italic;
   font-size: 0.88em;
+  margin-bottom: 0.5em;
+}
+.tl-desc {
+  font-size: 0.86em;
+  color: var(--text-light);
+  line-height: 1.65;
+}
+.tl-tags { margin-top: 0.6em; }
+.tl-tag {
+  display: inline-block;
+  background: var(--pill-bg);
+  color: var(--pill-text);
+  border: 1px solid var(--pill-border);
+  border-radius: 3px;
+  padding: 1px 7px;
+  font-size: 0.75em;
+  margin: 2px 2px 2px 0;
+}
+.tl-actions { margin-top: 0.7em; }
+.tl-btn {
+  display: inline-block;
+  margin-right: 0.5em;
+  padding: 0.35em 0.9em;
+  border-radius: 4px;
+  font-size: 0.84em;
+  font-weight: 600;
   cursor: pointer;
   border: none;
   text-decoration: none;
+  background: var(--blue);
+  color: white !important;
 }
-.poster-btn:hover { background: #2c6fad; }
-.poster-btn-outline {
-  background: white;
-  color: #4a90d9 !important;
-  border: 1px solid #4a90d9;
+.tl-btn:hover { background: var(--blue-dark); }
+.tl-btn-outline {
+  background: transparent;
+  color: var(--blue) !important;
+  border: 1px solid var(--blue);
 }
-.poster-btn-outline:hover { background: #f0f7ff; }
+.tl-btn-outline:hover { background: rgba(74,144,217,0.1); }
+.tl-type {
+  display: inline-block;
+  background: linear-gradient(135deg, #0d1b2a, #1b3a5c);
+  color: rgba(255,255,255,0.9);
+  border-radius: 20px;
+  padding: 0.15em 0.7em;
+  font-size: 0.72em;
+  font-weight: 600;
+  margin-bottom: 0.5em;
+}
 .poster-thumb {
-  width: 120px;
-  height: 160px;
+  width: 100px;
+  height: 140px;
   border-radius: 4px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--card-border);
   cursor: pointer;
   transition: box-shadow 0.2s;
   flex-shrink: 0;
+  object-fit: cover;
 }
-.poster-thumb:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+.poster-thumb:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.25); }
+
 /* Modal */
 .pdf-modal-overlay {
   display: none;
@@ -82,23 +182,20 @@ author_profile: true
   justify-content: space-between;
   align-items: center;
   padding: 0.6em 1em;
-  background: #f5f5f5;
-  border-bottom: 1px solid #ddd;
+  background: var(--blue-pale);
+  border-bottom: 1px solid var(--card-border);
   font-size: 0.92em;
   font-weight: 600;
+  color: var(--text);
 }
 .pdf-modal-close {
   cursor: pointer;
   font-size: 1.3em;
-  color: #666;
+  color: var(--text-muted);
   background: none;
   border: none;
-  line-height: 1;
-  padding: 0 0.2em;
 }
-.pdf-modal-close:hover { color: #222; }
-.cv-tag { display: inline-block; background: #f0f0f0; border-radius: 3px; padding: 1px 7px; font-size: 0.78em; margin: 2px 2px 2px 0; color: #444; }
-.cv-tag-blue { background: #deeaf7; color: #1a5276; }
+.pdf-modal-close:hover { color: var(--title); }
 </style>
 
 <!-- PDF Modal -->
@@ -106,14 +203,9 @@ author_profile: true
   <div class="pdf-modal-box">
     <div class="pdf-modal-header">
       <span id="pdfModalTitle">Poster</span>
-      <button class="pdf-modal-close" onclick="document.getElementById('pdfModal').classList.remove('active')">✕</button>
+      <button class="pdf-modal-close" onclick="document.getElementById('pdfModal').classList.remove('active')">&#10005;</button>
     </div>
-    <embed
-      id="pdfModalFrame"
-      type="application/pdf"
-      src=""
-      style="flex:1; width:100%; border:none;"
-    />
+    <embed id="pdfModalFrame" type="application/pdf" src="" style="flex:1; width:100%; border:none;" />
   </div>
 </div>
 
@@ -137,47 +229,48 @@ document.addEventListener('keydown', function(e) {
 });
 </script>
 
-11/12/2025 🇩🇪
+<div class="strip-wrapper">
+<div class="strip-bar"><div class="strip-bar-inner"><span class="strip-bar-text">Talks</span></div></div>
+<div class="strip-content">
 
-<div class="poster-card">
-  <img
-    class="poster-thumb"
-    src="{{ "/images/pcs2025-thumb.png" | relative_url }}"
-    alt="PCS 2025 Poster thumbnail"
-    onclick="openPdfModal('{{ poster_pdf }}', 'SCALED — PCS 2025 Poster')"
-    title="Click to view poster"
-    style="object-fit: cover;"
-  />
-  <div class="poster-card-info">
-    <h3>SCALED: Surrogate-gradient for Codec-Aware Learning of Downsampling in ABR Streaming</h3>
-    <div class="venue">📍 PCS 2025 - Picture Coding Symposium &middot; Aachen, Germany &middot; December 2025</div>
-    <div class="abstract">
-      We introduce a codec-aware learning framework enabling end-to-end training of neural downscalers
-      through non-differentiable video codecs. By leveraging data-driven surrogate gradients derived from
-      true compression noise, we align training objectives with deployment performance, achieving over
-      <strong>6.11% BD-Rate improvement</strong> compared to codec-agnostic approaches.
-    </div>
-    <div style="margin-top:0.7em;">
-      <span class="cv-tag cv-tag-blue">Video Compression</span>
-      <span class="cv-tag cv-tag-blue">Surrogate Gradients</span>
-      <span class="cv-tag cv-tag-blue">ABR Streaming</span>
-      <span class="cv-tag cv-tag-blue">Deep Learning</span>
-    </div>
-    <div style="margin-top:0.8em;">
-      <button class="poster-btn" onclick="openPdfModal('{{ poster_pdf }}', 'SCALED — PCS 2025 Poster')">
-        🖼 View Poster
-      </button>
-      <a class="poster-btn poster-btn-outline" href="{{ poster_pdf }}" download>
-        ⬇ Download
-      </a>
+<div class="talks-timeline">
+
+  <!-- ── PCS 2025 ── -->
+  <div class="tl-item tl-latest">
+    <div class="tl-date">December 2025</div>
+    <div class="tl-card">
+      <div class="tl-card-body">
+        <img
+          class="poster-thumb"
+          src="{{ "/images/pcs2025-thumb.png" | relative_url }}"
+          alt="PCS 2025 Poster"
+          onclick="openPdfModal('{{ poster_pdf }}', 'SCALED — PCS 2025 Poster')"
+          title="Click to view poster"
+        />
+        <div class="tl-card-info">
+          <span class="tl-type">Conference &middot; Poster</span>
+          <h4>SCALED: Surrogate-gradient for Codec-Aware Learning of Downsampling in ABR Streaming</h4>
+          <div class="tl-venue">PCS 2025 — Picture Coding Symposium &middot; Aachen, Germany</div>
+          <div class="tl-desc">
+            Codec-aware learning framework enabling end-to-end training of neural downscalers
+            through non-differentiable video codecs via surrogate gradients.
+            <strong>6.11% BD-Rate improvement</strong> over codec-agnostic approaches.
+          </div>
+          <div class="tl-tags">
+            <span class="tl-tag">Video Compression</span>
+            <span class="tl-tag">Surrogate Gradients</span>
+            <span class="tl-tag">ABR Streaming</span>
+          </div>
+          <div class="tl-actions">
+            <button class="tl-btn" onclick="openPdfModal('{{ poster_pdf }}', 'SCALED — PCS 2025 Poster')">View Poster</button>
+            <a class="tl-btn tl-btn-outline" href="{{ poster_pdf }}" download>Download</a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+
 </div>
 
-{% if site.talkmap_link == true %}
-<p style="text-decoration:underline;"><a href="/talkmap.html">See a map of all the places I've given a talk!</a></p>
-{% endif %}
-
-{% for post in site.talks reversed %}
-  {% include archive-single-talk.html %}
-{% endfor %}
+</div>
+</div>

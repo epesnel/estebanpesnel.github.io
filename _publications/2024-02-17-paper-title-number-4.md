@@ -26,7 +26,7 @@ MathJax = {
 .page__title, .page__meta, .page__share, .page__footer-follow { display: none !important; }
 
 /* ── Base ── */
-.sp { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: #1a1a2e; }
+.sp { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: var(--text); }
 
 /* ── Hero banner ── */
 .sp-hero {
@@ -87,33 +87,33 @@ MathJax = {
 /* ── Sections ── */
 .sp-section { margin: 2em 0 0.6em; }
 .sp-section-title {
-  font-size: 1.05em; font-weight: 700; color: #1b3a5c;
-  border-left: 4px solid #2c6fad; padding-left: 0.65em;
+  font-size: 1.05em; font-weight: 700; color: var(--heading);
+  border-left: 4px solid var(--blue); padding-left: 0.65em;
   margin: 0 0 0.8em 0;
 }
 .sp-abstract {
-  background: #f0f6ff; border: 1px solid #c3daf7;
+  background: var(--card-bg); border: 1px solid var(--card-border);
   border-radius: 8px; padding: 1.1em 1.3em;
-  font-size: 0.92em; line-height: 1.8; color: #2d3748;
+  font-size: 0.92em; line-height: 1.8; color: var(--text);
 }
 
 /* ── Contribution grid ── */
 .sp-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px,1fr)); gap: 0.8em; }
 .sp-card {
-  background: #fafafa; border: 1px solid #e2e8f0;
+  background: var(--card-bg); border: 1px solid var(--card-border);
   border-radius: 8px; padding: 0.9em 1em;
-  font-size: 0.87em; line-height: 1.55;
-  border-top: 3px solid #2c6fad;
+  font-size: 0.87em; line-height: 1.55; color: var(--text);
+  border-top: 3px solid var(--blue);
 }
-.sp-card strong { display: block; color: #1b3a5c; margin-bottom: 0.3em; font-size: 0.95em; }
+.sp-card strong { display: block; color: var(--heading); margin-bottom: 0.3em; font-size: 0.95em; }
 
 /* ── Equation blocks ── */
 .sp-eq {
-  background: #f7f7f7; border-left: 3px solid #cbd5e0;
+  background: var(--eq-bg); border-left: 3px solid var(--separator);
   border-radius: 0 6px 6px 0; padding: 0.8em 1.2em;
   margin: 0.8em 0; overflow-x: auto;
 }
-.sp-eq-label { font-size: 0.75em; color: #718096; text-align: right; margin-top: 0.3em; }
+.sp-eq-label { font-size: 0.75em; color: var(--text-muted); text-align: right; margin-top: 0.3em; }
 
 /* ── Result cards ── */
 .sp-results { display: flex; flex-wrap: wrap; gap: 0.8em; margin: 0.8em 0 1.4em; }
@@ -130,17 +130,17 @@ MathJax = {
 
 /* ── Table ── */
 .sp-table-wrap { overflow-x: auto; margin: 1em 0; }
-.sp-table { width: 100%; border-collapse: collapse; font-size: 0.84em; }
+.sp-table { width: 100%; border-collapse: collapse; font-size: 0.84em; color: var(--text); }
 .sp-table thead tr { background: #1b3a5c; color: white; }
 .sp-table th { padding: 0.6em 0.8em; text-align: center; font-weight: 600; white-space: nowrap; }
-.sp-table td { padding: 0.45em 0.8em; text-align: center; border-bottom: 1px solid #e2e8f0; }
-.sp-table tbody tr:hover { background: #f0f6ff; }
-.sp-table .ours { background: #f0fff4; font-weight: 600; }
+.sp-table td { padding: 0.45em 0.8em; text-align: center; border-bottom: 1px solid var(--card-border); }
+.sp-table tbody tr:hover { background: var(--blue-pale); }
+.sp-table .ours { background: var(--card-bg); font-weight: 600; }
 .sp-table .ours td:first-child { border-left: 3px solid #27ae60; }
-.sp-table .good { color: #276749; font-weight: 600; }
-.sp-table .bad  { color: #c53030; font-weight: 600; }
+.sp-table .good { color: #48bb78; font-weight: 600; }
+.sp-table .bad  { color: #fc8181; font-weight: 600; }
 .sp-table .group-header td {
-  background: #edf2f7; color: #4a5568; font-size: 0.8em;
+  background: var(--blue-pale); color: var(--text-muted); font-size: 0.8em;
   font-weight: 700; text-align: left; padding: 0.3em 0.8em;
   letter-spacing: 0.05em; text-transform: uppercase;
 }

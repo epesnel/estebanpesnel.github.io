@@ -1,15 +1,15 @@
 ---
 layout: archive
-title: "Publications"
+title: ""
 permalink: /publications/
-author_profile: true
+author_profile: false
 ---
 
 {% include base_path %}
 
 <style>
 .pub-list-card {
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--card-border);
   border-radius: 10px;
   padding: 0;
   margin-bottom: 1.4em;
@@ -35,27 +35,25 @@ author_profile: true
   font-size: 0.75em; color: rgba(255,255,255,0.55);
   white-space: nowrap; padding-top: 0.3em;
 }
-.pub-list-body { padding: 1.1em 1.3em; }
+.pub-list-body { padding: 1.1em 1.3em; background: var(--card-bg); }
 .pub-list-title {
   font-size: 1.02em; font-weight: 700;
-  color: #1b3a5c; margin: 0 0 0.5em 0; line-height: 1.4;
+  color: var(--heading); margin: 0 0 0.5em 0; line-height: 1.4;
 }
-.pub-list-title a {
-  color: inherit; text-decoration: none;
-}
-.pub-list-title a:hover { color: #2c6fad; }
+.pub-list-title a { color: inherit; text-decoration: none; }
+.pub-list-title a:hover { color: var(--blue); }
 .pub-list-authors {
-  font-size: 0.83em; color: #555; margin-bottom: 0.6em; line-height: 1.6;
+  font-size: 0.83em; color: var(--text-muted); margin-bottom: 0.6em; line-height: 1.6;
 }
-.pub-list-authors .me { font-weight: 700; color: #1b3a5c; }
+.pub-list-authors .me { font-weight: 700; color: var(--heading); }
 .pub-list-excerpt {
-  font-size: 0.86em; color: #4a5568; line-height: 1.65;
+  font-size: 0.86em; color: var(--text-light); line-height: 1.65;
   margin-bottom: 0.8em;
 }
 .pub-list-footer {
   display: flex; align-items: center; flex-wrap: wrap;
   gap: 0.5em; padding-top: 0.6em;
-  border-top: 1px solid #edf2f7;
+  border-top: 1px solid var(--card-border);
 }
 .pub-btn {
   display: inline-flex; align-items: center; gap: 0.3em;
@@ -67,21 +65,25 @@ author_profile: true
 .pub-btn-red:hover  { background: #9b2c2c; }
 .pub-btn-blue { background: #2b6cb0; color: white; }
 .pub-btn-blue:hover { background: #2c5282; }
-.pub-btn-gray { background: #edf2f7; color: #4a5568; border: 1px solid #e2e8f0; }
-.pub-btn-gray:hover { background: #e2e8f0; }
+.pub-btn-gray { background: var(--blue-pale); color: var(--text-light); border: 1px solid var(--card-border); }
+.pub-btn-gray:hover { background: var(--card-border); }
 .pub-tag {
   display: inline-block; padding: 0.15em 0.55em;
   border-radius: 20px; font-size: 0.72em;
-  background: #ebf4ff; color: #2b6cb0;
-  border: 1px solid #bee3f8;
+  background: var(--pill-bg); color: var(--pill-text);
+  border: 1px solid var(--pill-border);
 }
 </style>
+
+<div class="strip-wrapper">
+<div class="strip-bar"><div class="strip-bar-inner"><span class="strip-bar-text">Publications</span></div></div>
+<div class="strip-content">
 
 {% assign pubs_sorted = site.publications | sort: 'date' | reverse %}
 {% for post in pubs_sorted %}
 <div class="pub-list-card">
   <div class="pub-list-header">
-    <span class="pub-list-venue">📍 {{ post.venue }}</span>
+    <span class="pub-list-venue">{{ post.venue }}</span>
     <span class="pub-list-date">{{ post.date | date: "%B %Y" }}</span>
   </div>
   <div class="pub-list-body">
@@ -96,11 +98,11 @@ author_profile: true
     {% endif %}
     <div class="pub-list-footer">
       {% if post.paperurl %}
-      <a class="pub-btn pub-btn-red" href="{{ post.paperurl }}" target="_blank">📄 PDF</a>
+      <a class="pub-btn pub-btn-red" href="{{ post.paperurl }}" target="_blank">PDF</a>
       {% endif %}
-      <a class="pub-btn pub-btn-blue" href="{{ post.url | relative_url }}">🔍 Details</a>
+      <a class="pub-btn pub-btn-blue" href="{{ post.url | relative_url }}">Details</a>
       {% if post.doi %}
-      <a class="pub-btn pub-btn-gray" href="https://doi.org/{{ post.doi }}" target="_blank">🔗 DOI</a>
+      <a class="pub-btn pub-btn-gray" href="https://doi.org/{{ post.doi }}" target="_blank">DOI</a>
       {% endif %}
       {% if post.tags %}
         {% for tag in post.tags %}
@@ -111,3 +113,6 @@ author_profile: true
   </div>
 </div>
 {% endfor %}
+
+</div>
+</div>
