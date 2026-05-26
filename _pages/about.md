@@ -2,6 +2,7 @@
 permalink: /
 title: "Esteban Pesnel"
 author_profile: true
+layout: single
 mathjax: true
 redirect_from:
   - /about/
@@ -21,7 +22,6 @@ MathJax = {
 <style>
 /* ── Sidebar panel ── */
 .sidebar.sticky {
-  width: 280px !important; min-width: 280px !important;
   height: fit-content !important; align-self: flex-start !important;
   background: linear-gradient(160deg, #0d1b2a 0%, #1b3a5c 55%, #2c6fad 100%) !important;
   border-radius: 16px !important; padding: 1.8em 1.2em 1.6em !important;
