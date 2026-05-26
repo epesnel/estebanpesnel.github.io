@@ -9,6 +9,7 @@ date: 2025-12-08
 venue: 'Picture Coding Symposium (PCS) 2025'
 paperurl: 'https://arxiv.org/pdf/2602.00198'
 author_profile: false
+publisher_logo: "logos/ieee-sps.png"
 ---
 
 {% include base_path %}

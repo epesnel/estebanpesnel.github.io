@@ -54,7 +54,17 @@ author_profile: false
   display: flex; align-items: center; flex-wrap: wrap;
   gap: 0.5em; padding-top: 0.6em;
   border-top: 1px solid var(--card-border);
+  position: relative;
 }
+.pub-list-logo {
+  margin-left: auto;
+}
+.pub-list-logo img {
+  height: 30px; width: auto; object-fit: contain;
+  opacity: 0.35;
+  transition: opacity 0.3s;
+}
+.pub-list-logo img:hover { opacity: 0.6; }
 .pub-btn {
   display: inline-flex; align-items: center; gap: 0.3em;
   padding: 0.3em 0.8em; border-radius: 5px;
@@ -108,6 +118,11 @@ author_profile: false
         {% for tag in post.tags %}
         <span class="pub-tag">{{ tag }}</span>
         {% endfor %}
+      {% endif %}
+      {% if post.publisher_logo %}
+      <span class="pub-list-logo">
+        <img src="{{ '/images/' | append: post.publisher_logo | relative_url }}" alt="Publisher" />
+      </span>
       {% endif %}
     </div>
   </div>
