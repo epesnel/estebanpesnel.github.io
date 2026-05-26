@@ -620,19 +620,50 @@ html body .masthead__menu-item.selected a::after {
   margin: 0 !important;
   padding: 0 !important;
 }
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   #main:has(.sidebar) {
     flex-direction: column !important;
     gap: 1.5em !important;
+    padding: 0 1em !important;
   }
   #main .sidebar,
   #main .sidebar.sticky {
     width: 100% !important;
     max-width: 100% !important;
     margin-top: 0 !important;
+    overflow: visible !important;
   }
   #main:has(.sidebar) .page {
     width: 100% !important;
+  }
+  .sidebar.sticky .author__urls li.author__desktop {
+    white-space: normal !important;
+    overflow: visible !important;
+  }
+  .sidebar.sticky .author__urls {
+    overflow: visible !important;
+  }
+  .sidebar.sticky .author__urls li {
+    overflow: visible !important;
+  }
+  .sidebar.sticky .author__urls li a {
+    white-space: nowrap !important;
+    overflow: visible !important;
+    max-width: none !important;
+  }
+  .sidebar.sticky .author__name {
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+  }
+  .sidebar.sticky .author__bio {
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+  }
+  .sidebar.sticky {
+    overflow: visible !important;
+  }
+  .sidebar.sticky * {
+    max-width: none !important;
   }
 }
 
