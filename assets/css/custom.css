@@ -636,14 +636,23 @@ html body .masthead__menu-item.selected a::after {
   #main:has(.sidebar) .page {
     width: 100% !important;
   }
-  .sidebar.sticky .author__urls li.author__desktop {
-    white-space: normal !important;
-    overflow: visible !important;
+  .sidebar.sticky .author__urls-wrapper {
+    display: block !important;
+    position: relative !important;
   }
   .sidebar.sticky .author__urls {
+    display: flex !important;
+    position: relative !important;
+    right: auto !important;
+    margin-top: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    z-index: auto !important;
     overflow: visible !important;
   }
-  .sidebar.sticky .author__urls li {
+  .sidebar.sticky .author__urls li.author__desktop {
+    white-space: normal !important;
     overflow: visible !important;
   }
   .sidebar.sticky .author__urls li a {
@@ -658,12 +667,6 @@ html body .masthead__menu-item.selected a::after {
   .sidebar.sticky .author__bio {
     overflow-wrap: normal !important;
     word-break: normal !important;
-  }
-  .sidebar.sticky {
-    overflow: visible !important;
-  }
-  .sidebar.sticky * {
-    max-width: none !important;
   }
 }
 
