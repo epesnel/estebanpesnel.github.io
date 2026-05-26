@@ -156,24 +156,78 @@ MathJax = {
   margin: 0.8em 0; overflow-x: auto; text-align: center;
 }
 
-/* News / activity card */
-.news-card {
-  border: 1px solid #e2e8f0; border-radius: 10px;
-  overflow: hidden; margin-bottom: 1em;
+/* ── Timeline ── */
+.timeline {
+  position: relative;
+  padding-left: 2.2em;
+  margin: 0.5em 0 1em;
 }
-.news-card-header {
-  background: #1b3a5c; color: white;
-  padding: 0.5em 1.1em; font-size: 0.82em; font-weight: 600;
-  display: flex; align-items: center; gap: 0.5em;
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0.72em;
+  top: 0.4em;
+  bottom: 0.4em;
+  width: 2px;
+  background: linear-gradient(to bottom, #2c6fad 0%, #90cdf4 60%, #c3daf7 100%);
+  border-radius: 1px;
 }
-.news-card-body {
-  padding: 0.9em 1.1em; font-size: 0.9em; line-height: 1.65; color: #2d3748;
+.timeline-item {
+  position: relative;
+  margin-bottom: 1.5em;
+  opacity: 0;
+  transform: translateX(-10px);
+  animation: timeline-in 0.7s ease forwards;
 }
-.news-card-body a { color: #2c6fad; font-weight: 600; }
-.news-pill {
-  display: inline-block; background: #ebf4ff; color: #2b6cb0;
-  border-radius: 20px; padding: 0.1em 0.6em; font-size: 0.78em;
-  border: 1px solid #bee3f8; margin-left: 0.3em; vertical-align: middle;
+.timeline-item:nth-child(1) { animation-delay: 0.15s; }
+.timeline-item:nth-child(2) { animation-delay: 0.35s; }
+.timeline-item:nth-child(3) { animation-delay: 0.55s; }
+.timeline-item:nth-child(4) { animation-delay: 0.75s; }
+.timeline-item:nth-child(5) { animation-delay: 0.95s; }
+@keyframes timeline-in {
+  to { opacity: 1; transform: translateX(0); }
+}
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -1.68em;
+  top: 0.35em;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #2c6fad;
+  border: 2px solid white;
+  box-shadow: 0 0 0 2px #2c6fad;
+}
+.timeline-item.latest::before {
+  background: #4a90d9;
+  animation: pulse 2.2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 2px #4a90d9, 0 0 0 0 rgba(74,144,217,0.55); }
+  50%      { box-shadow: 0 0 0 2px #4a90d9, 0 0 0 10px rgba(74,144,217,0); }
+}
+.timeline-date {
+  font-size: 0.78em;
+  font-weight: 600;
+  color: #2c6fad;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.3em;
+}
+.timeline-content {
+  font-size: 0.92em;
+  line-height: 1.7;
+  color: #2d3748;
+}
+.timeline-content strong { color: #1b3a5c; }
+.timeline-content a { color: #2c6fad; font-weight: 600; }
+.timeline-pill {
+  display: inline-block;
+  background: #ebf4ff; color: #2b6cb0;
+  border-radius: 20px; padding: 0.1em 0.6em;
+  font-size: 0.78em; border: 1px solid #bee3f8;
+  margin: 0 0.15em; vertical-align: middle;
 }
 </style>
 
@@ -220,22 +274,23 @@ $$\hat{x} = g\!\left(\phi(f(x;\,\theta_f))\right)$$
 <p>while leveraging surrogate gradients derived from real compression errors during backpropagation — achieving <strong>5.19% BD-BR (PSNR) improvement</strong> over codec-agnostic training approaches.</p>
 </div>
 
-<!-- ══════════════ NEWS ══════════════ -->
+<!-- ══════════════ NEWS / TIMELINE ══════════════ -->
 <div class="hs">Recent Activities</div>
 
-<div class="news-card">
-  <div class="news-card-header">
-    🇩🇪 &nbsp;December 2025 &nbsp;·&nbsp; PCS 2025, Aachen, Germany
+<div class="timeline">
+
+  <div class="timeline-item latest">
+    <div class="timeline-date">🇩🇪 December 2025 · PCS 2025, Aachen</div>
+    <div class="timeline-content">
+      Presented <strong>SCALED</strong> at the Picture Coding Symposium 2025.
+      <span class="timeline-pill">Conference paper</span>
+      <span class="timeline-pill">Poster</span><br/>
+      <a href="https://arxiv.org/pdf/2602.00198" target="_blank">📄 PDF</a>
+      &nbsp;·&nbsp;
+      <a href="/publication/scaled">🔍 Details</a>
+      &nbsp;·&nbsp;
+      <a href="/talks/">🖼 Poster</a>
+    </div>
   </div>
-  <div class="news-card-body">
-    Presented <strong>SCALED</strong> at the Picture Coding Symposium 2025.
-    <span class="news-pill">Conference paper</span>
-    <span class="news-pill">Poster</span>
-    <br/><br/>
-    <a href="https://arxiv.org/pdf/2602.00198" target="_blank">📄 PDF (arXiv)</a>
-    &nbsp;&nbsp;
-    <a href="/publication/scaled">🔍 Paper details</a>
-    &nbsp;&nbsp;
-    <a href="/talks/">🖼 Poster</a>
-  </div>
+
 </div>
