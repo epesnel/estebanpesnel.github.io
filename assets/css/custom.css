@@ -546,15 +546,9 @@ table td, table th {
 ══════════════════════════════ */
 html body .masthead__menu-item.selected a {
   color: #ffffff !important;
-  position: relative !important;
 }
 html body .masthead__menu-item.selected a::after {
-  content: '' !important; display: block !important;
-  position: absolute !important; bottom: 0 !important; left: 50% !important;
-  width: 4px !important; height: 4px !important;
-  border-radius: 50% !important;
-  background: var(--accent) !important;
-  transform: translateX(-50%) !important;
+  display: none !important;
 }
 
 /* ══════════════════════════════
