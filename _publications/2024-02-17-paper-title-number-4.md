@@ -162,6 +162,22 @@ MathJax = {
   letter-spacing: 0.05em; text-transform: uppercase;
 }
 
+/* ── Publisher logo ── */
+.sp-publisher {
+  display: flex; justify-content: flex-end; align-items: center;
+  gap: 0.6em; margin-top: 2em; padding-top: 1em;
+  border-top: 1px solid var(--separator);
+}
+.sp-publisher img {
+  height: 32px; width: auto; object-fit: contain;
+  opacity: 0.35;
+  transition: opacity 0.3s;
+}
+.sp-publisher img:hover { opacity: 0.7; }
+.sp-publisher span {
+  font-size: 0.7em; color: var(--text-tertiary); font-weight: 500;
+}
+
 /* ── Citation ── */
 .sp-citation {
   position: relative; background: #1a202c; color: #a0aec0;
@@ -354,6 +370,11 @@ $$\frac{\partial \hat{y}}{\partial y}\bigg|_{\text{surrogate}} = \mathbf{I} - \f
   <span class="bib-field">doi</span>       = {<span class="bib-val">10.1109/PCS65673.2025.11417641</span>}
 }</pre>
 </div>
+</div>
+
+<div class="sp-publisher">
+  <span>Published by</span>
+  <img src="{{ base_path }}/images/logos/ieee-sps.png" alt="IEEE Signal Processing Society" />
 </div>
 
 </div><!-- end .sp -->
