@@ -7,13 +7,156 @@ author_profile: false
 
 {% include base_path %}
 
+<style>
+.teach-intro {
+  font-size: 0.95em; color: var(--text-secondary); line-height: 1.8;
+  margin-bottom: 2.5em;
+}
+
+.teach-card {
+  background: linear-gradient(135deg, var(--card-bg) 0%, rgba(41,151,255,0.06) 100%);
+  border: 1px solid var(--card-border);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+  border-radius: var(--radius, 16px);
+  padding: 1.6em 1.8em;
+  margin-bottom: 1.2em;
+  position: relative; overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+.teach-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(135deg, transparent 60%, rgba(255,140,66,0.05) 100%);
+  pointer-events: none;
+}
+.teach-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  border-color: rgba(41,151,255,0.25);
+}
+
+.teach-header {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  gap: 1em; margin-bottom: 0.6em; flex-wrap: wrap;
+}
+.teach-title {
+  font-size: 1.1em; font-weight: 700; color: var(--heading);
+  letter-spacing: -0.02em; margin: 0;
+}
+.teach-badge {
+  display: inline-block; padding: 0.2em 0.7em; border-radius: 20px;
+  font-size: 0.7em; font-weight: 600; white-space: nowrap;
+  background: var(--accent-subtle); color: var(--accent);
+  border: 1px solid var(--pill-border);
+}
+.teach-badge-warm {
+  background: var(--accent-warm-subtle); color: var(--accent-warm);
+  border: 1px solid rgba(255,140,66,0.15);
+}
+
+.teach-meta {
+  font-size: 0.82em; color: var(--text-secondary); margin-bottom: 0.8em;
+  display: flex; flex-wrap: wrap; gap: 0.3em 1.2em;
+}
+.teach-meta span { display: inline-flex; align-items: center; gap: 0.3em; }
+
+.teach-desc {
+  font-size: 0.88em; line-height: 1.75; color: var(--text);
+  margin: 0;
+}
+
+.teach-tags {
+  display: flex; flex-wrap: wrap; gap: 5px; margin-top: 0.8em;
+}
+.teach-tag {
+  display: inline-block; padding: 0.15em 0.55em; border-radius: 12px;
+  font-size: 0.7em; font-weight: 500;
+  background: var(--accent-subtle); color: var(--accent);
+  border: 1px solid var(--pill-border);
+}
+
+.teach-year {
+  font-size: 0.88em; font-weight: 600; color: var(--accent);
+  text-transform: uppercase; letter-spacing: 0.05em;
+  margin: 2em 0 0.8em; padding-bottom: 0.4em;
+  border-bottom: 1px solid var(--separator);
+}
+</style>
+
 <div class="strip-wrapper">
 <div class="strip-bar"><div class="strip-bar-inner"><span class="strip-bar-text">Teaching</span></div></div>
 <div class="strip-content">
 
-{% for post in site.teaching reversed %}
-  {% include archive-single.html %}
-{% endfor %}
+<div class="teach-year">2025 – 2026</div>
+
+<div class="teach-card">
+  <div class="teach-header">
+    <h3 class="teach-title">AI Tools</h3>
+    <span class="teach-badge-warm">Fall 2025</span>
+  </div>
+  <div class="teach-meta">
+    <span>📍 M2 SIVOS — ISTIC, Université de Rennes</span>
+  </div>
+  <p class="teach-desc">Introduction to core AI/ML methods for signal &amp; video processing students. Practical sessions on dimensionality reduction, classification and regression techniques.</p>
+  <div class="teach-tags">
+    <span class="teach-tag">PCA</span>
+    <span class="teach-tag">SVM / SVR</span>
+    <span class="teach-tag">Machine Learning</span>
+    <span class="teach-tag">Practical sessions</span>
+  </div>
+</div>
+
+<div class="teach-card">
+  <div class="teach-header">
+    <h3 class="teach-title">Coding Tools</h3>
+    <span class="teach-badge">Fall 2025</span>
+  </div>
+  <div class="teach-meta">
+    <span>📍 M2 SIVOS — ISTIC, Université de Rennes</span>
+  </div>
+  <p class="teach-desc">Software development fundamentals for research engineers. C++ and object-oriented programming, Python scripting, version control, and best practices for scientific code.</p>
+  <div class="teach-tags">
+    <span class="teach-tag">C++</span>
+    <span class="teach-tag">OO Programming</span>
+    <span class="teach-tag">Python</span>
+  </div>
+</div>
+
+<div class="teach-year">2024 – 2025</div>
+
+<div class="teach-card">
+  <div class="teach-header">
+    <h3 class="teach-title">ACV — Image &amp; Entropy Coding</h3>
+    <span class="teach-badge">Spring 2025</span>
+  </div>
+  <div class="teach-meta">
+    <span>📍 ESIR, École Supérieure d'Ingénieurs de Rennes</span>
+  </div>
+  <p class="teach-desc">Practical work on image compression and entropy coding. Co-designed with Aline Roumy (INRIA, team CompACT). Creation and supervision of lab sessions.</p>
+  <div class="teach-tags">
+    <span class="teach-tag">Image Coding</span>
+    <span class="teach-tag">Entropy Coding</span>
+    <span class="teach-tag">Lab sessions</span>
+  </div>
+</div>
+
+<div class="teach-year">2023 – 2024</div>
+
+<div class="teach-card">
+  <div class="teach-header">
+    <h3 class="teach-title">ACV — Image &amp; Entropy Coding</h3>
+    <span class="teach-badge">Spring 2024</span>
+  </div>
+  <div class="teach-meta">
+    <span>📍 ESIR, École Supérieure d'Ingénieurs de Rennes</span>
+  </div>
+  <p class="teach-desc">Practical work on image compression and entropy coding. Co-designed with Aline Roumy (INRIA, team CompACT). Creation and supervision of lab sessions.</p>
+  <div class="teach-tags">
+    <span class="teach-tag">Image Coding</span>
+    <span class="teach-tag">Entropy Coding</span>
+    <span class="teach-tag">Lab sessions</span>
+  </div>
+</div>
 
 </div>
 </div>

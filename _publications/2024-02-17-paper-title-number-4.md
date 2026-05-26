@@ -8,7 +8,7 @@ excerpt: 'End-to-end training with real non-differentiable video codecs via surr
 date: 2025-12-08
 venue: 'Picture Coding Symposium (PCS) 2025'
 paperurl: 'https://arxiv.org/pdf/2602.00198'
-author_profile: true
+author_profile: false
 ---
 
 <script>
@@ -30,37 +30,52 @@ MathJax = {
 
 /* ── Hero banner ── */
 .sp-hero {
-  background: linear-gradient(135deg, #0d1b2a 0%, #1b3a5c 60%, #2c6fad 100%);
+  background: linear-gradient(135deg, var(--card-bg) 0%, rgba(41,151,255,0.12) 50%, rgba(255,140,66,0.08) 100%);
+  border: 1px solid var(--card-border);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
   border-radius: 12px; padding: 2em 2.2em 1.8em;
-  margin-bottom: 2em; color: white; position: relative; overflow: hidden;
+  margin-bottom: 2em; color: var(--text); position: relative; overflow: hidden;
+}
+.sp-hero-logos {
+  position: absolute; top: 1.2em; right: 1.5em;
+  display: flex; align-items: center; gap: 1em;
+  opacity: 0.5; z-index: 1;
+}
+.sp-hero-logos img {
+  height: 20px; width: auto; object-fit: contain;
+  opacity: 0.5;
+}
+.sp-hero-logos img[alt="MediaKind"] {
+  filter: brightness(0) invert(1);
 }
 .sp-hero::before {
   content: ''; position: absolute; top: -40px; right: -40px;
   width: 200px; height: 200px; border-radius: 50%;
-  background: rgba(255,255,255,0.04);
+  background: rgba(41,151,255,0.06);
 }
 .sp-hero::after {
   content: ''; position: absolute; bottom: -60px; left: 30%;
   width: 300px; height: 300px; border-radius: 50%;
-  background: rgba(255,255,255,0.03);
+  background: rgba(255,140,66,0.04);
 }
 .sp-hero-venue {
   display: inline-flex; align-items: center; gap: 0.4em;
-  background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2);
+  background: var(--accent-subtle); border: 1px solid var(--pill-border);
   border-radius: 20px; padding: 0.25em 0.9em;
-  font-size: 0.8em; font-weight: 500; margin-bottom: 1em;
+  font-size: 0.8em; font-weight: 500; margin-bottom: 1em; color: var(--accent);
 }
 .sp-hero-title {
   font-size: 1.5em; font-weight: 800; line-height: 1.3;
-  margin: 0 0 0.8em 0; max-width: 700px;
+  margin: 0 0 0.8em 0; max-width: 700px; color: var(--heading);
 }
-.sp-hero-title em { color: #63b3ed; font-style: normal; }
+.sp-hero-title em { color: var(--accent); font-style: normal; }
 .sp-authors {
-  font-size: 0.88em; margin-bottom: 0.5em; opacity: 0.9; line-height: 1.8;
+  font-size: 0.88em; margin-bottom: 0.5em; opacity: 0.9; line-height: 1.8; color: var(--text);
 }
-.sp-authors .me { font-weight: 700; color: #63b3ed; }
+.sp-authors .me { font-weight: 700; color: var(--accent); }
 .sp-affiliations {
-  font-size: 0.75em; opacity: 0.65; margin-bottom: 1.4em; line-height: 1.7;
+  font-size: 0.75em; opacity: 0.65; margin-bottom: 1.4em; line-height: 1.7; color: var(--text-secondary);
 }
 .sp-buttons { display: flex; flex-wrap: wrap; gap: 0.5em; }
 .sp-btn {
@@ -71,17 +86,17 @@ MathJax = {
   transition: transform 0.15s, box-shadow 0.15s;
 }
 .sp-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,0.25); }
-.sp-btn-primary { background: #e53e3e; color: white; }
-.sp-btn-secondary { background: rgba(255,255,255,0.15); color: white; border: 1px solid rgba(255,255,255,0.3); }
-.sp-btn-secondary:hover { background: rgba(255,255,255,0.25); }
+.sp-btn-primary { background: rgba(41,151,255,0.2); color: var(--accent); border: 1px solid var(--pill-border); }
+.sp-btn-secondary { background: var(--accent-subtle); color: var(--accent); border: 1px solid var(--pill-border); }
+.sp-btn-secondary:hover { background: var(--accent); color: white; }
 
 /* ── Tags ── */
 .sp-tags { margin: 0 0 0.8em 0; }
 .sp-tag {
   display: inline-block; padding: 0.2em 0.7em; border-radius: 20px;
   font-size: 0.76em; font-weight: 500; margin: 2px;
-  background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.85);
-  border: 1px solid rgba(255,255,255,0.18);
+  background: var(--accent-warm-subtle); color: var(--accent-warm);
+  border: 1px solid rgba(255,140,66,0.15);
 }
 
 /* ── Sections ── */
@@ -170,6 +185,10 @@ pre.sp-bib { margin: 0; white-space: pre-wrap; color: #a0aec0; }
 
 <!-- ════════════ HERO ════════════ -->
 <div class="sp-hero">
+  <div class="sp-hero-logos">
+    <img src="/images/logos/inria_white.png" alt="INRIA" />
+    <img src="/images/logos/mediakind.svg" alt="MediaKind" />
+  </div>
   <div class="sp-hero-venue">📍 PCS 2025 &nbsp;·&nbsp; Aachen, Germany &nbsp;·&nbsp; December 2025</div>
   <div class="sp-hero-title">
     <em>SCALED</em>: Surrogate-gradient for Codec-Aware<br/>Learning of Downsampling in ABR Streaming
@@ -206,6 +225,14 @@ pre.sp-bib { margin: 0; white-space: pre-wrap; color: #a0aec0; }
 <div class="sp-abstract">
 The rapid growth in video consumption has introduced significant challenges to modern streaming architectures. OTT video delivery now predominantly relies on Adaptive Bitrate (ABR) streaming, which dynamically adjusts bitrate and resolution based on client-side constraints such as display capabilities and network bandwidth. This pipeline typically involves downsampling the original high-resolution content, encoding and transmitting it, followed by decoding and upsampling on the client side. Traditionally, these processing stages have been optimized in isolation, leading to suboptimal end-to-end rate-distortion (R-D) performance. The advent of deep learning has spurred interest in jointly optimizing the ABR pipeline using learned resampling methods. However, training such systems end-to-end remains challenging due to the non-differentiable nature of standard video codecs, which obstructs gradient-based optimization. Recent works have addressed this issue using differentiable proxy models, based either on deep neural networks or hybrid coding schemes with differentiable components such as soft quantization, to approximate the codec behavior. While differentiable proxy codecs have enabled progress in compression-aware learning, they remain approximations that may not fully capture the behavior of standard, non-differentiable codecs. In this work, we introduce a novel framework that enables end-to-end training with real, non-differentiable codecs by leveraging data-driven surrogate gradients derived from actual compression errors. It facilitates the alignment between training objectives and deployment performance. Experimental results show a <strong>5.19% improvement in BD-BR (PSNR)</strong> compared to codec-agnostic training approaches, consistently across the entire rate-distortion convex hull spanning multiple downsampling ratios.
 </div>
+</div>
+
+<!-- ════════════ OVERVIEW ════════════ -->
+<div class="sp-section">
+<div class="sp-section-title">Overview</div>
+<p>In ABR streaming, high-resolution video is downscaled server-side, encoded with a standard codec (e.g. H.264), transmitted, decoded, and upscaled client-side — typically with a fixed bicubic filter. SCALED optimizes the <strong>learned downscaler</strong> \(f\) so that the full chain — downscale → encode → decode → bicubic upscale — produces the best possible reconstruction at a given bitrate. The key difficulty is that the codec \(\phi\) is non-differentiable: gradients cannot flow through it during training. SCALED solves this by injecting <strong>surrogate gradients</strong> derived from the actual compression error statistics, enabling true end-to-end optimization without any proxy codec.</p>
+
+<img src="/images/scaled_overview.png" alt="SCALED pipeline overview" style="width:100%; border-radius: 20px; margin: 1.2em 0; border: 1px solid var(--card-border);" />
 </div>
 
 <!-- ════════════ CONTRIBUTIONS ════════════ -->
