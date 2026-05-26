@@ -276,4 +276,38 @@ MathJax = {
 <div class="hs">Research Overview</div>
 
 <div class="research-card">
-<p>A central challenge in neural video optimization is that standard codecs are fundamen
+<p>A central challenge in neural video optimization is that standard codecs are fundamentally non-differentiable:</p>
+
+<div class="eq-block">
+$$y = \phi(x), \qquad \frac{\partial \phi(x)}{\partial x} \approx 0$$
+</div>
+
+<p>This prevents direct end-to-end gradient-based optimization through the codec. In our work <strong>SCALED</strong> (<em>Surrogate-gradient for Codec-Aware Learning of Downsampling in ABR Streaming</em>), we introduce surrogate-gradient approaches enabling neural networks to optimize directly with real codecs such as H.264/x264. We jointly optimize a learned downsampling function \(f(x;\theta_f)\) within the full compression pipeline:</p>
+
+<div class="eq-block">
+$$\hat{x} = g\!\left(\phi(f(x;\,\theta_f))\right)$$
+</div>
+
+<p>while leveraging surrogate gradients derived from real compression errors during backpropagation — achieving <strong>5.19% BD-BR (PSNR) improvement</strong> over codec-agnostic training approaches.</p>
+</div>
+
+<!-- ══════════════ NEWS / TIMELINE ══════════════ -->
+<div class="hs">Recent Activities</div>
+
+<div class="timeline">
+
+  <div class="timeline-item latest">
+    <div class="timeline-date">🇩🇪 December 2025 · PCS 2025, Aachen</div>
+    <div class="timeline-content">
+      Presented <strong>SCALED</strong> at the Picture Coding Symposium 2025.
+      <span class="timeline-pill">Conference paper</span>
+      <span class="timeline-pill">Poster</span><br/>
+      <a href="https://arxiv.org/pdf/2602.00198" target="_blank">📄 PDF</a>
+      &nbsp;·&nbsp;
+      <a href="/publication/scaled">🔍 Details</a>
+      &nbsp;·&nbsp;
+      <a href="/talks/">🖼 Poster</a>
+    </div>
+  </div>
+
+</div>
