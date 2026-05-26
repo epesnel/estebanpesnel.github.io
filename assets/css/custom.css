@@ -12,23 +12,54 @@
 }
 
 /* ══════════════════════════════
-   MASTHEAD
+   MASTHEAD — Academic Pages structure
 ══════════════════════════════ */
-.masthead, .masthead__inner-wrap,
-.greedy-nav, .greedy-nav .visible-links {
-  background-color: var(--blue-dark) !important;
-  background: var(--blue-dark) !important;
+html body .masthead,
+html body .masthead__inner-wrap,
+html body .masthead__menu,
+html body nav.greedy-nav,
+html body .greedy-nav,
+html body .greedy-nav .visible-links,
+html body ul.visible-links,
+html body .masthead__menu-item {
+  background-color: #0d1b2a !important;
+  background: #0d1b2a !important;
 }
-.masthead { border-bottom: 2px solid var(--blue) !important; }
-.greedy-nav a, .greedy-nav .visible-links a,
-.greedy-nav .site-title, .site-title {
+
+html body .masthead {
+  border-bottom: 2px solid #2c6fad !important;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.25) !important;
+}
+
+html body .masthead a,
+html body .masthead__menu a,
+html body .greedy-nav a,
+html body .visible-links a,
+html body .masthead__menu-item a {
   color: rgba(255,255,255,0.92) !important;
+  font-weight: 500 !important;
+  text-decoration: none !important;
 }
-.greedy-nav a:hover, .greedy-nav .visible-links a:hover {
-  color: #63b3ed !important; text-decoration: none !important;
+
+html body .masthead a:hover,
+html body .greedy-nav a:hover,
+html body .masthead__menu-item a:hover {
+  color: #63b3ed !important;
+  text-decoration: none !important;
 }
-.greedy-nav .visible-links a::before { background: #63b3ed !important; }
-.greedy-nav__toggle svg { fill: white !important; }
+
+html body .greedy-nav .visible-links a::before {
+  background: #63b3ed !important;
+}
+
+/* Theme toggle icon (sun/moon) */
+html body #theme-icon,
+html body #theme-toggle a {
+  color: white !important;
+}
+html body .greedy-nav__toggle svg {
+  fill: white !important;
+}
 
 /* ══════════════════════════════
    SIDEBAR — visual only, NO layout changes
