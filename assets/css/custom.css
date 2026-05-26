@@ -306,8 +306,8 @@ html body .greedy-nav__toggle svg { fill: rgba(255,255,255,0.82) !important; }
   display: block !important; width: 100% !important;
   text-align: center !important; font-size: 0.72em !important;
   color: var(--text-tertiary) !important;
-  padding: 0.15em 0 !important; white-space: normal !important;
-  overflow-wrap: anywhere !important;
+  padding: 0.15em 0 !important; white-space: nowrap !important;
+  overflow: hidden !important; text-overflow: ellipsis !important;
 }
 
 /* Social pills — subtle, monochrome */
