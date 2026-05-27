@@ -20,7 +20,7 @@ MathJax = {
 </script>
 
 <style>
-/* ── Home — Apple-like ── */
+/* ── Home - Apple-like ── */
 .intro-card {
   background: var(--card-bg);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
@@ -151,7 +151,7 @@ MathJax = {
 
 <!-- ══════════════ INTRO ══════════════ -->
 <div class="intro-card">
-  <p>I'm a PhD student jointly affiliated with <strong>INRIA</strong> (team CompACT) and <strong>MediaKind</strong> in Rennes, France. My research sits at the intersection of deep learning and video compression — designing neural networks that make standard codecs more efficient.</p>
+  <p>I'm a PhD student jointly affiliated with <strong>INRIA</strong> (team CompACT) and <strong>MediaKind</strong> in Rennes, France. My research sits at the intersection of deep learning and video compression - designing neural networks that make standard codecs more efficient.</p>
   <p>Before starting my PhD, I graduated from <strong>INSA Rennes</strong> in electronics &amp; computer engineering, with an exchange semester in aerospace engineering at <strong>ÉTS Montréal</strong>.</p>
 </div>
 
@@ -177,7 +177,7 @@ MathJax = {
 $$\hat{x} = g\!\bigl(\phi(f(x))\bigr), \qquad \min_{\theta_f,\,\theta_g}\; D(\hat{x}, x) + \lambda\, R\!\bigl(f(x)\bigr)$$
 </div>
 
-<p>The central challenge is that conventional codecs (H.264, HEVC, ...) are <strong>non-differentiable</strong> — gradients cannot flow through them, preventing standard backpropagation across the full pipeline. My work explores strategies to overcome this barrier: surrogate gradients, differentiable proxies, and codec-aware training schemes.</p>
+<p>The central challenge is that conventional codecs (H.264, HEVC, ...) are <strong>non-differentiable</strong> - gradients cannot flow through them, preventing standard backpropagation across the full pipeline. My work explores strategies to overcome this barrier: surrogate gradients, differentiable proxies, and codec-aware training schemes.</p>
 </div>
 
 <!-- ══════════════ NEWS / TIMELINE ══════════════ -->

@@ -128,11 +128,98 @@ html[data-theme="dark"] .gm-orb { opacity: 0; animation: gm-in 2s cubic-bezier(0
   to { opacity: 1; }
 }
 
-/* Dark mode orbs — disabled */
+/* Dark mode orbs */
 html[data-theme="dark"] .gm-orb-1,
 html[data-theme="dark"] .gm-orb-2,
 html[data-theme="dark"] .gm-orb-3 {
   display: none;
+}
+
+/* ── Floating particles background ── */
+.bg-particles {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+.bg-particle {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0;
+  animation: particleDrift linear infinite, particleFadeIn 3s ease forwards;
+}
+
+html[data-theme="dark"] .bg-particle--1 {
+  width: 180px; height: 180px;
+  background: rgba(41,151,255,0.15);
+  top: 15%; left: 10%;
+  animation: particleDrift1 28s linear infinite, particleFadeIn 3s ease forwards;
+}
+html[data-theme="dark"] .bg-particle--2 {
+  width: 140px; height: 140px;
+  background: rgba(255,140,66,0.12);
+  top: 55%; right: 8%;
+  animation: particleDrift2 32s linear infinite, particleFadeIn 3s 0.5s ease forwards;
+}
+html[data-theme="dark"] .bg-particle--3 {
+  width: 200px; height: 200px;
+  background: rgba(41,151,255,0.1);
+  bottom: 10%; left: 35%;
+  animation: particleDrift3 35s linear infinite, particleFadeIn 3s 1s ease forwards;
+}
+html[data-theme="dark"] .bg-particle--4 {
+  width: 120px; height: 120px;
+  background: rgba(255,140,66,0.1);
+  top: 30%; right: 30%;
+  animation: particleDrift4 30s linear infinite, particleFadeIn 3s 1.5s ease forwards;
+}
+html[data-theme="dark"] .bg-particle--5 {
+  width: 160px; height: 160px;
+  background: rgba(100,77,255,0.1);
+  top: 70%; left: 15%;
+  animation: particleDrift5 38s linear infinite, particleFadeIn 3s 2s ease forwards;
+}
+
+
+@keyframes particleFadeIn {
+  to { opacity: 1; }
+}
+@keyframes particleDrift1 {
+  0%   { transform: translate(0, 0); }
+  25%  { transform: translate(160px, -120px); }
+  50%  { transform: translate(-80px, -200px); }
+  75%  { transform: translate(-180px, -50px); }
+  100% { transform: translate(0, 0); }
+}
+@keyframes particleDrift2 {
+  0%   { transform: translate(0, 0); }
+  25%  { transform: translate(-140px, 100px); }
+  50%  { transform: translate(120px, 180px); }
+  75%  { transform: translate(160px, -80px); }
+  100% { transform: translate(0, 0); }
+}
+@keyframes particleDrift3 {
+  0%   { transform: translate(0, 0); }
+  25%  { transform: translate(180px, 80px); }
+  50%  { transform: translate(100px, -150px); }
+  75%  { transform: translate(-120px, -100px); }
+  100% { transform: translate(0, 0); }
+}
+@keyframes particleDrift4 {
+  0%   { transform: translate(0, 0); }
+  25%  { transform: translate(-100px, -140px); }
+  50%  { transform: translate(140px, -60px); }
+  75%  { transform: translate(80px, 120px); }
+  100% { transform: translate(0, 0); }
+}
+@keyframes particleDrift5 {
+  0%   { transform: translate(0, 0); }
+  25%  { transform: translate(120px, 150px); }
+  50%  { transform: translate(-150px, 80px); }
+  75%  { transform: translate(-60px, -130px); }
+  100% { transform: translate(0, 0); }
 }
 
 /* Light mode orbs */
@@ -170,9 +257,13 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+html {
+  background-color: var(--bg) !important;
+}
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif !important;
   letter-spacing: -0.01em;
+  background-color: transparent !important;
 }
 * { transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94); }
 
@@ -202,12 +293,25 @@ html body .masthead__menu a,
 html body .greedy-nav a,
 html body .visible-links a,
 html body .masthead__menu-item a {
+  font-family: 'Inter', -apple-system, 'SF Pro Display', BlinkMacSystemFont, 'Helvetica Neue', sans-serif !important;
   color: rgba(255,255,255,0.82) !important;
-  font-weight: 400 !important;
-  font-size: 0.88em !important;
+  font-weight: 600 !important;
+  font-size: 0.95em !important;
   letter-spacing: 0 !important;
   text-decoration: none !important;
   transition: color var(--transition) !important;
+}
+html body .greedy-nav .visible-links li:not(.masthead__menu-item--lg):not(.tail) a {
+  background: linear-gradient(90deg, rgba(255,255,255,0.85), rgba(200,215,240,0.85), rgba(240,200,180,0.8)) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+html body .greedy-nav .visible-links li:not(.masthead__menu-item--lg):not(.tail) a:hover {
+  background: linear-gradient(90deg, #ffffff, rgba(41,151,255,0.85), rgba(255,140,66,0.7)) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
 }
 html body .masthead__menu-item--lg a {
   font-family: 'Great Vibes', cursive !important;
@@ -221,12 +325,49 @@ html body .masthead__menu-item a:hover {
   color: #ffffff !important;
 }
 html body .greedy-nav .visible-links a::before {
-  background: var(--accent) !important;
+  display: none !important;
+}
+html body .greedy-nav .visible-links li:not(.masthead__menu-item--lg) a {
+  position: relative !important;
+  padding: 0.5rem 0 !important;
+  margin: 0 1.2rem !important;
+}
+html body .greedy-nav .visible-links li:not(.masthead__menu-item--lg) a::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 50% !important;
+  width: 0 !important;
+  height: 2px !important;
+  background: linear-gradient(90deg, var(--accent), var(--accent-warm, #ff8c42)) !important;
   border-radius: 2px !important;
+  transform: translateX(-50%) !important;
+  transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+html body .greedy-nav .visible-links li:not(.masthead__menu-item--lg) a:hover::after {
+  width: 100% !important;
+}
+html body .greedy-nav .visible-links li.selected:not(.masthead__menu-item--lg) a::after {
+  width: 100% !important;
 }
 html body #theme-icon,
 html body #theme-toggle a { color: rgba(255,255,255,0.82) !important; }
 html body .greedy-nav__toggle svg { fill: rgba(255,255,255,0.82) !important; }
+html body .greedy-nav .visible-links {
+  display: table !important;
+  margin: 0 auto !important;
+  width: auto !important;
+}
+html body .greedy-nav .visible-links li {
+  display: table-cell !important;
+  vertical-align: middle !important;
+}
+html body .greedy-nav button {
+  display: none !important;
+}
+html body .greedy-nav .hidden-links {
+  display: none !important;
+}
 
 /* ══════════════════════════════
    SIDEBAR — frosted card
@@ -547,9 +688,6 @@ table td, table th {
 ══════════════════════════════ */
 html body .masthead__menu-item.selected a {
   color: #ffffff !important;
-}
-html body .masthead__menu-item.selected a::after {
-  display: none !important;
 }
 
 /* ══════════════════════════════
@@ -878,4 +1016,108 @@ html[data-theme="dark"] .tl-card {
   background: var(--card-bg);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
   backdrop-filter: saturate(180%) blur(20px);
+}
+
+/* ══════════════════════════════
+   SCROLL REVEAL ANIMATIONS
+══════════════════════════════ */
+.reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  filter: blur(6px);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+.reveal-delay-1 { transition-delay: 0.12s; }
+.reveal-delay-2 { transition-delay: 0.24s; }
+.reveal-delay-3 { transition-delay: 0.36s; }
+.reveal-delay-4 { transition-delay: 0.48s; }
+.reveal-delay-5 { transition-delay: 0.6s; }
+.reveal-delay-6 { transition-delay: 0.72s; }
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  filter: blur(4px);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+  filter: blur(0);
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.88);
+  filter: blur(6px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-scale.visible {
+  opacity: 1;
+  transform: scale(1);
+  filter: blur(0);
+}
+
+/* ══════════════════════════════
+   CURSOR GLOW ON CARDS
+══════════════════════════════ */
+.glow-card {
+  position: relative;
+  overflow: hidden;
+}
+.glow-card::after {
+  content: '';
+  position: absolute;
+  top: var(--glow-y, -200px);
+  left: var(--glow-x, -200px);
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(41,151,255,0.15) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+.glow-card:hover::after {
+  opacity: 1;
+}
+html[data-theme="dark"] .glow-card::after {
+  background: radial-gradient(circle, rgba(41,151,255,0.2) 0%, rgba(255,140,66,0.06) 40%, transparent 70%);
+}
+.glow-card > * {
+  position: relative;
+  z-index: 2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .reveal-left, .reveal-scale {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* ══════════════════════════════
+   PAGE TRANSITIONS
+══════════════════════════════ */
+body {
+  opacity: 1;
+  transition: opacity 0.25s ease;
+}
+body.page-exit {
+  opacity: 0;
+  transform: translateY(-8px);
 }

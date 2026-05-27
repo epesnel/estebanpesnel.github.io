@@ -13,21 +13,36 @@ redirect_from:
 <style>
 
 /* ── Entries ── */
-.cv-entry { margin-bottom: 1.6em; }
+.cv-entry { margin-bottom: 1.6em; padding: 1em 1.2em; border-radius: var(--radius-sm, 10px); border: 1px solid transparent; background: transparent; transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+.cv-entry:hover { background: linear-gradient(135deg, var(--card-bg) 0%, rgba(41,151,255,0.06) 100%); border-color: var(--card-border); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(0,0,0,0.1); }
 .cv-entry-header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.4em; }
 .cv-date { color: var(--text-muted); font-size: 0.88em; white-space: nowrap; }
 .cv-title { font-weight: 600; font-size: 1.05em; color: var(--title); }
 .cv-subtitle { color: var(--text-muted); font-style: italic; margin: 0.15em 0 0.4em 0; }
 .cv-tags { margin-top: 0.4em; }
-.cv-tag { display: inline-block; background: var(--blue-pale); border-radius: 3px; padding: 1px 7px; font-size: 0.78em; margin: 2px 2px 2px 0; color: var(--text-muted); }
-.cv-tag-blue { background: var(--pill-bg); color: var(--pill-text); }
+.cv-tag { display: inline-block; background: linear-gradient(135deg, rgba(41,151,255,0.1), rgba(255,140,66,0.1)); border-radius: 20px; padding: 0.15em 0.6em; font-size: 0.78em; margin: 2px 2px 2px 0; color: var(--text-secondary); border: 1px solid rgba(41,151,255,0.12); }
+.cv-tag-blue { background: linear-gradient(135deg, rgba(41,151,255,0.15), rgba(255,140,66,0.1)); color: var(--accent); border-color: rgba(41,151,255,0.18); }
 .cv-tag-green { background: var(--pill-bg); color: #48bb78; }
 .cv-divider { border: none; border-top: 1px solid var(--card-border); margin: 0.4em 0 1.2em 0; }
-.skill-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 0.5em; margin-bottom: 1em; }
-.skill-item { background: var(--card-bg); border-left: 3px solid var(--blue-light); padding: 0.3em 0.6em; font-size: 0.88em; color: var(--text); }
+.skill-grid { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1.2em; }
+.skill-item { display: inline-block; padding: 0.25em 0.75em; border-radius: 20px; font-size: 0.82em; font-weight: 500; background: linear-gradient(135deg, rgba(41,151,255,0.1), rgba(255,140,66,0.1)); color: var(--text-secondary); border: 1px solid rgba(41,151,255,0.12); transition: all 0.3s ease; }
+.skill-item:hover { background: linear-gradient(135deg, rgba(41,151,255,0.2), rgba(255,140,66,0.2)); color: var(--text-primary); border-color: rgba(41,151,255,0.3); transform: translateY(-1px); }
 .highlight-box { background: var(--card-bg); border-left: 4px solid var(--blue-light); padding: 0.6em 1em; margin: 0.5em 0; font-size: 0.91em; line-height: 1.7; color: var(--text); }
-.logo { height: 16px; vertical-align: -2px; margin-right: 4px; object-fit: contain; border-radius: 3px; background: rgba(255,255,255,0.9); padding: 2px 4px; }
+.logo { height: 16px; vertical-align: -2px; margin-right: 4px; object-fit: contain; border-radius: 3px; background: none; padding: 2px 4px; filter: brightness(0) invert(1); opacity: 0.5; transition: opacity 0.3s ease; }
+.logo:hover { opacity: 0.8; }
+.logo.logo-white { filter: none; }
 .skill-cat { font-size: 0.95em; font-weight: 600; margin: 0.8em 0 0.4em 0; color: var(--heading); }
+
+.lang-grid { display: flex; gap: 0.8em; flex-wrap: wrap; }
+.lang-card { flex: 1; min-width: 160px; background: linear-gradient(135deg, var(--card-bg) 0%, rgba(41,151,255,0.06) 100%); border: 1px solid var(--card-border); border-radius: var(--radius-sm, 10px); padding: 1em 1.2em; position: relative; overflow: hidden; transition: all 0.3s ease; }
+.lang-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, transparent 60%, rgba(255,140,66,0.06) 100%); pointer-events: none; }
+.lang-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.15); border-color: rgba(41,151,255,0.2); }
+.lang-flag { font-size: 1.8em; margin-bottom: 0.3em; }
+.lang-info { position: relative; z-index: 1; }
+.lang-name { font-size: 0.95em; font-weight: 600; color: var(--heading); }
+.lang-level { font-size: 0.78em; color: var(--text-muted); margin-top: 0.15em; }
+.lang-bar { height: 3px; background: rgba(255,255,255,0.08); border-radius: 3px; margin-top: 0.7em; overflow: hidden; position: relative; z-index: 1; }
+.lang-bar-fill { height: 100%; border-radius: 3px; background: linear-gradient(90deg, var(--accent), var(--accent-warm, #ff8c42)); }
 
 </style>
 
@@ -42,11 +57,11 @@ redirect_from:
 <div class="cv-entry">
 <div class="cv-entry-header">
 <span class="cv-title">
-Ph.D. — Signal Processing, Artificial Intelligence &amp; Video Compression
+Ph.D. - Signal Processing, Artificial Intelligence &amp; Video Compression
 </span>
 <span class="cv-date">Jun 2023 – Jun 2026</span>
 </div>
-<div class="cv-subtitle"><img class="logo" src="{{ base_path }}/images/logos/univ-rennes.png" alt="Université de Rennes"> Université de Rennes &middot; <img class="logo" src="{{ base_path }}/images/logos/inria.png" alt="INRIA"> INRIA team COMPACT &middot; <img class="logo" src="{{ base_path }}/images/logos/mediakind.svg" alt="MediaKind"> MediaKind (CIFRE)</div>
+<div class="cv-subtitle"><img class="logo" src="{{ base_path }}/images/logos/univ-rennes.png" alt="Université de Rennes"> Université de Rennes &middot; <img class="logo" src="{{ base_path }}/images/logos/inria_white.png" alt="INRIA" class="logo logo-white"> INRIA team COMPACT &middot; <img class="logo" src="{{ base_path }}/images/logos/mediakind.svg" alt="MediaKind"> MediaKind (CIFRE)</div>
 <div class="highlight-box">
 <strong>Thesis:</strong> "Learned video downscaling for end-to-end Rate-Distortion optimization of video streaming systems"<br/>
 <strong>Industrial supervisors:</strong> J. Le Tanou, M. Ropert (MediaKind)<br/>
@@ -64,11 +79,11 @@ Ph.D. — Signal Processing, Artificial Intelligence &amp; Video Compression
 <div class="cv-entry">
 <div class="cv-entry-header">
 <span class="cv-title">
-M.Ing. — Electronic &amp; Computer Engineering
+M.Ing. - Electronic &amp; Computer Engineering
 </span>
 <span class="cv-date">2020 – 2023</span>
 </div>
-<div class="cv-subtitle"><img class="logo" src="{{ base_path }}/images/logos/insa-rennes.png" alt="INSA Rennes"> INSA Rennes — Institut National des Sciences Appliquées</div>
+<div class="cv-subtitle"><img class="logo" src="{{ base_path }}/images/logos/insa-rennes.png" alt="INSA Rennes"> INSA Rennes - Institut National des Sciences Appliquées</div>
 <p>Embedded systems design (hardware &amp; software), digital/analog signal processing, image analysis, AI (NN, CNN, transfer learning, GANs), VHDL, real-time systems.</p>
 <div class="cv-tags">
 <span class="cv-tag">C/C++</span>
@@ -80,11 +95,11 @@ M.Ing. — Electronic &amp; Computer Engineering
 <div class="cv-entry">
 <div class="cv-entry-header">
 <span class="cv-title">
-M.Eng. — Aerospace &amp; Aeronautical Engineering (Exchange semester)
+M.Eng. - Aerospace &amp; Aeronautical Engineering (Exchange semester)
 </span>
 <span class="cv-date">Sep 2022 – Jan 2023</span>
 </div>
-<div class="cv-subtitle"><img class="logo" src="{{ base_path }}/images/logos/ets-montreal.svg" alt="ÉTS Montréal"> École de technologie supérieure (ÉTS) &middot; Montréal, QC, Canada</div>
+<div class="cv-subtitle"><img class="logo" src="{{ base_path }}/images/logos/ets-montreal.svg" alt="ÉTS Montréal" class="logo logo-white" style="height: 22px;"> École de technologie supérieure (ÉTS) &middot; Montréal, QC, Canada</div>
 <p>Selected courses: fly-by-wire systems (MGA804), video communication systems (MTI810), DSP architecture (SYS835), introduction to avionics (GPA745).</p>
 <div class="cv-tags">
 <span class="cv-tag">C++</span>
@@ -96,11 +111,11 @@ M.Eng. — Aerospace &amp; Aeronautical Engineering (Exchange semester)
 <div class="cv-entry">
 <div class="cv-entry-header">
 <span class="cv-title">
-CUPGE — Computer Science &amp; Engineering (Preparatory cycle)
+CUPGE - Computer Science &amp; Engineering (Preparatory cycle)
 </span>
 <span class="cv-date">2018 – 2020</span>
 </div>
-<div class="cv-subtitle"><img class="logo" src="{{ base_path }}/images/logos/esir.png" alt="ESIR"> ESIR — École Supérieure d'Ingénieurs de Rennes</div>
+<div class="cv-subtitle"><img class="logo" src="{{ base_path }}/images/logos/esir.png" alt="ESIR"> ESIR - École Supérieure d'Ingénieurs de Rennes</div>
 <p>Rank: <strong>4th / 45</strong>. Foundations of IT, functional and OO programming, digital/analog electronics, mathematical engineering.</p>
 </div>
 
@@ -112,11 +127,11 @@ CUPGE — Computer Science &amp; Engineering (Preparatory cycle)
 <div class="cv-entry">
 <div class="cv-entry-header">
 <span class="cv-title">
-PhD Researcher — Neural Video Compression
+PhD Researcher - Neural Video Compression
 </span>
 <span class="cv-date">Aug 2023 – present</span>
 </div>
-<div class="cv-subtitle"><img class="logo" src="{{ base_path }}/images/logos/mediakind.svg" alt="MediaKind"> MediaKind &middot; Rennes, France (Hybrid) — CIFRE Partnership with <img class="logo" src="{{ base_path }}/images/logos/inria.png" alt="INRIA"> INRIA</div>
+<div class="cv-subtitle"><img class="logo" src="{{ base_path }}/images/logos/mediakind.svg" alt="MediaKind"> MediaKind &middot; Rennes, France (Hybrid) - CIFRE Partnership with <img class="logo" src="{{ base_path }}/images/logos/inria_white.png" alt="INRIA" class="logo logo-white"> INRIA</div>
 <ul>
 <li>Developed surrogate gradient methods enabling end-to-end training through non-differentiable codecs (H.264/AVC, H.266/VVC).</li>
 <li>Proposed a geometric interpretation of the SCALED surrogate gradient as an oblique projection, establishing its MSE-optimality under intensity-shift invariance.</li>
@@ -139,9 +154,9 @@ Part-time Lecturer
 </div>
 <div class="cv-subtitle"><img class="logo" src="{{ base_path }}/images/logos/univ-rennes.png" alt="Université de Rennes"> Université de Rennes &middot; Rennes, France (On-site)</div>
 <ul>
-<li><strong>ACV</strong> — Video compression basics (ESIR 2nd year)</li>
-<li><strong>AI &amp; Data Science</strong> — M2 EEEA and ISTIC</li>
-<li><strong>Python / C++ Programming</strong> — M2 SIVOS, ISTIC</li>
+<li><strong>ACV</strong> - Video compression basics (ESIR 2nd year)</li>
+<li><strong>AI &amp; Data Science</strong> - M2 EEEA and ISTIC</li>
+<li><strong>Python / C++ Programming</strong> - M2 SIVOS, ISTIC</li>
 </ul>
 </div>
 
@@ -235,41 +250,79 @@ Part-time Lecturer
 <h2>&#128196; Publications</h2>
 <hr class="cv-divider"/>
 
-<ul>{% for post in site.publications reversed %}
-  {% include archive-single-cv.html %}
-{% endfor %}</ul>
-
-<hr style="border: none; border-top: 1px solid var(--card-border); margin: 2em 0;"/>
-
-<h2>&#127908; Talks</h2>
-<hr class="cv-divider"/>
-
-<ul>{% for post in site.talks reversed %}
-  {% include archive-single-talk-cv.html %}
-{% endfor %}</ul>
+<div class="cv-entry">
+<div class="cv-entry-header">
+<span class="cv-title">SCALED - Surrogate Codec Approach for Learned End-to-end Downscaling</span>
+<span class="cv-date">December 2025</span>
+</div>
+<div class="cv-subtitle">E. Pesnel, J. Le Tanou, M. Ropert, T. Maugey, A. Roumy</div>
+<p style="font-size: 0.9em; color: var(--text-light);">Picture Coding Symposium (PCS) 2025, Aachen - IEEE Signal Processing Society</p>
+<div class="cv-tags">
+<span class="cv-tag cv-tag-blue">Conference paper</span>
+<span class="cv-tag cv-tag-blue">Poster</span>
+</div>
+</div>
 
 <hr style="border: none; border-top: 1px solid var(--card-border); margin: 2em 0;"/>
 
 <h2>&#127979; Teaching</h2>
 <hr class="cv-divider"/>
 
-<ul>{% for post in site.teaching reversed %}
-  {% include archive-single-cv.html %}
-{% endfor %}</ul>
+<div class="cv-entry">
+<div class="cv-entry-header">
+<span class="cv-title">AI Tools - PCA, SVM/SVR, Machine Learning</span>
+<span class="cv-date">Fall 2025</span>
+</div>
+<div class="cv-subtitle">M2 SIVOS - ISTIC, Université de Rennes</div>
+</div>
+
+<div class="cv-entry">
+<div class="cv-entry-header">
+<span class="cv-title">Coding Tools - C++, OO Programming, Python</span>
+<span class="cv-date">Fall 2025</span>
+</div>
+<div class="cv-subtitle">M2 SIVOS - ISTIC, Université de Rennes</div>
+</div>
+
+<div class="cv-entry">
+<div class="cv-entry-header">
+<span class="cv-title">ACV - Image &amp; Entropy Coding</span>
+<span class="cv-date">Spring 2024 &amp; 2025</span>
+</div>
+<div class="cv-subtitle">ESIR, Université de Rennes - with A. Roumy (INRIA)</div>
+</div>
 
 <hr style="border: none; border-top: 1px solid var(--card-border); margin: 2em 0;"/>
 
 <h2>&#127757; Languages</h2>
 <hr class="cv-divider"/>
 
-<table>
-<thead><tr><th>Language</th><th>Level</th></tr></thead>
-<tbody>
-<tr><td>&#127467;&#127479; French</td><td>Native</td></tr>
-<tr><td>&#127468;&#127463; English</td><td>Full professional proficiency — TOEIC <strong>935 / 990</strong> (2022)</td></tr>
-<tr><td>&#127466;&#127480; Spanish</td><td>Limited professional proficiency</td></tr>
-</tbody>
-</table>
+<div class="lang-grid">
+  <div class="lang-card">
+    <div class="lang-flag">&#127467;&#127479;</div>
+    <div class="lang-info">
+      <div class="lang-name">French</div>
+      <div class="lang-level">Native</div>
+    </div>
+    <div class="lang-bar"><div class="lang-bar-fill" style="width: 100%"></div></div>
+  </div>
+  <div class="lang-card">
+    <div class="lang-flag">&#127468;&#127463;</div>
+    <div class="lang-info">
+      <div class="lang-name">English</div>
+      <div class="lang-level">TOEIC <strong>935 / 990</strong></div>
+    </div>
+    <div class="lang-bar"><div class="lang-bar-fill" style="width: 94%"></div></div>
+  </div>
+  <div class="lang-card">
+    <div class="lang-flag">&#127466;&#127480;</div>
+    <div class="lang-info">
+      <div class="lang-name">Spanish</div>
+      <div class="lang-level">Professional</div>
+    </div>
+    <div class="lang-bar"><div class="lang-bar-fill" style="width: 50%"></div></div>
+  </div>
+</div>
 
 </div>
 </div>

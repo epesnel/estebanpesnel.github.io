@@ -1,0 +1,83 @@
+---
+layout: default
+permalink: /404.html
+sitemap: false
+author_profile: false
+---
+
+<style>
+.error-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
+  padding: 3em 1.5em;
+  text-align: center;
+}
+.error-page__inner {
+  max-width: 480px;
+}
+.error-page__code {
+  font-size: 8em;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin: 0;
+  background: linear-gradient(135deg, var(--accent, #2997ff) 0%, var(--accent-warm, #ff8c42) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.error-page__title {
+  font-size: 1.6em;
+  font-weight: 700;
+  color: var(--heading, #f5f5f7);
+  letter-spacing: -0.03em;
+  margin: 0.3em 0 0.4em;
+}
+.error-page__description {
+  font-size: 0.95em;
+  line-height: 1.7;
+  color: var(--text-secondary, #ababaf);
+  margin: 0 0 2em;
+}
+.error-page__btn {
+  display: inline-block;
+  padding: 0.7em 2em;
+  font-size: 0.92em;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, var(--accent, #2997ff) 0%, var(--accent-warm, #ff8c42) 100%);
+  border: none;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              box-shadow 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 0 4px 16px rgba(41, 151, 255, 0.25);
+}
+.error-page__btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(41, 151, 255, 0.35);
+}
+.error-page__divider {
+  width: 48px;
+  height: 3px;
+  margin: 0 auto 1.6em;
+  border: none;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--accent, #2997ff), var(--accent-warm, #ff8c42));
+  opacity: 0.5;
+}
+</style>
+
+<div id="main" role="main">
+  <div class="error-page">
+    <div class="error-page__inner">
+      <p class="error-page__code">404</p>
+      <h1 class="error-page__title">Page not found</h1>
+      <hr class="error-page__divider">
+      <p class="error-page__description">The page you're looking for doesn't exist or has been moved.</p>
+      <a href="/" class="error-page__btn">Back to Home</a>
+    </div>
+  </div>
+</div>

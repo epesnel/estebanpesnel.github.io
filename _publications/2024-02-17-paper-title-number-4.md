@@ -221,7 +221,7 @@ pre.sp-bib { margin: 0; white-space: pre-wrap; color: #a0aec0; }
   </div>
   <div class="sp-affiliations">
     <sup>*</sup>MediaKind, Rennes, France &nbsp;&nbsp;
-    <sup>†</sup>INRIA, Rennes, France — team COMPACT
+    <sup>†</sup>INRIA, Rennes, France - team COMPACT
   </div>
   <div class="sp-tags">
     <span class="sp-tag">Video Compression</span>
@@ -249,7 +249,7 @@ The rapid growth in video consumption has introduced significant challenges to m
 <!-- ════════════ OVERVIEW ════════════ -->
 <div class="sp-section">
 <div class="sp-section-title">Overview</div>
-<p>In ABR streaming, high-resolution video is downscaled server-side, encoded with a standard codec (e.g. H.264), transmitted, decoded, and upscaled client-side — typically with a fixed bicubic filter. SCALED optimizes the <strong>learned downscaler</strong> \(f\) so that the full chain — downscale → encode → decode → bicubic upscale — produces the best possible reconstruction at a given bitrate. The key difficulty is that the codec \(\phi\) is non-differentiable: gradients cannot flow through it during training. SCALED solves this by injecting <strong>surrogate gradients</strong> derived from the actual compression error statistics, enabling true end-to-end optimization without any proxy codec.</p>
+<p>In ABR streaming, high-resolution video is downscaled server-side, encoded with a standard codec (e.g. H.264), transmitted, decoded, and upscaled client-side - typically with a fixed bicubic filter. SCALED optimizes the <strong>learned downscaler</strong> \(f\) so that the full chain - downscale → encode → decode → bicubic upscale - produces the best possible reconstruction at a given bitrate. The key difficulty is that the codec \(\phi\) is non-differentiable: gradients cannot flow through it during training. SCALED solves this by injecting <strong>surrogate gradients</strong> derived from the actual compression error statistics, enabling true end-to-end optimization without any proxy codec.</p>
 
 <img src="{{ base_path }}/images/scaled_overview.png" alt="SCALED pipeline overview" style="width:100%; border-radius: 20px; margin: 1.2em 0; border: 1px solid var(--card-border);" />
 </div>
@@ -281,14 +281,14 @@ The rapid growth in video consumption has introduced significant challenges to m
 
 <div class="sp-eq">
 $$\hat{y} = y + \mathrm{sg}(\epsilon)\,\frac{\sigma(\epsilon)}{\mathrm{sg}(\sigma(\epsilon))}, \qquad \epsilon = \phi(y) - y$$
-<div class="sp-eq-label">Eq. (7) — SCALED forward pass</div>
+<div class="sp-eq-label">Eq. (7) - SCALED forward pass</div>
 </div>
 
 <p>Gradient flows exclusively through \(\sigma(\epsilon)\), yielding a dynamically scaled surrogate Jacobian that encodes true codec statistics:</p>
 
 <div class="sp-eq">
 $$\frac{\partial \hat{y}}{\partial y}\bigg|_{\text{surrogate}} = \mathbf{I} - \frac{\boldsymbol{\epsilon}\,(\boldsymbol{\epsilon} - \bar{\boldsymbol{\epsilon}})^T}{N\,\sigma^2(\boldsymbol{\epsilon})}$$
-<div class="sp-eq-label">Eq. (8) — Surrogate Jacobian</div>
+<div class="sp-eq-label">Eq. (8) - Surrogate Jacobian</div>
 </div>
 
 <p>Unlike STE or proxy-based methods, the gradient adapts dynamically to the current compression error distribution.</p>
@@ -326,7 +326,7 @@ $$\frac{\partial \hat{y}}{\partial y}\bigg|_{\text{surrogate}} = \mathbf{I} - \f
 </tr>
 </thead>
 <tbody>
-<tr class="group-header"><td colspan="7">XIPH dataset — BD-BR vs Lanczos (↓ is better)</td></tr>
+<tr class="group-header"><td colspan="7">XIPH dataset - BD-BR vs Lanczos (↓ is better)</td></tr>
 <tr>
   <td>ProgDownLite<sub>YUV</sub></td><td>D-only, no codec</td><td>✗</td>
   <td>-0.85%</td><td>-1.19%</td><td>-4.71%</td><td>-3.60%</td>

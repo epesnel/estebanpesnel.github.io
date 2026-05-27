@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg enable-background="new 0 0 144.2 144.2" version="1.1" viewBox="0 0 144.2 144.2" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <style type="text/css">
-	.st0{fill:hsla(349, 98%, 45%, 1);}
+	.st0{fill:none;}
 	.st1{fill:#FEFEFE;}
 	.st2{clip-path:url(#SVGID_00000126307005173185535850000015026723739192629944_);}
 	.st3{fill:url(#_x3C_Path_x3E__00000139292893659640491320000008553742753740994721_);}
@@ -32,7 +32,7 @@
 			<g clip-path="url(#e)">
 			
 				<linearGradient id="b" x1="-161.31" x2="-161.06" y1="494.53" y2="494.53" gradientTransform="matrix(297.11 0 0 64.202 47979 -31676)" gradientUnits="userSpaceOnUse">
-				<stop stop-color="#E4022C" offset="0"/>
+				<stop stop-color="#FEFEFE" offset="0"/>
 				<stop stop-color="#FEFEFE" offset="1"/>
 			</linearGradient>
 			
@@ -50,7 +50,7 @@
 			<g clip-path="url(#f)">
 			
 				<linearGradient id="a" x1="-161.91" x2="-161.66" y1="487.96" y2="487.96" gradientTransform="matrix(-46.344 -14.08 7.766 -25.562 -11252 10274)" gradientUnits="userSpaceOnUse">
-				<stop stop-color="#E4022C" offset="0"/>
+				<stop stop-color="#FEFEFE" offset="0"/>
 				<stop stop-color="#FEFEFE" offset="1"/>
 			</linearGradient>
 			
