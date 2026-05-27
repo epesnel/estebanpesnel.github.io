@@ -13,7 +13,7 @@ minimal_mistakes_skin    : "sunrise"
 title                    : "Esteban Pesnel"
 title_separator          : "-"
 name                     : &name "Esteban Pesnel"
-description              : &description "Esteban Pesnel's academic portfolio"   # Update this with a general description of your site, this is the default if not overridden by a page
+description              : &description "PhD Student in Video Compression & Deep Learning - INRIA CompACT & MediaKind, Rennes"
 url                      : "https://epesnel.github.io"
 baseurl                  : "/estebanpesnel.github.io"
 repository               : "epesnel/estebanpesnel.github.io"

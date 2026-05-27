@@ -1,6 +1,7 @@
 ---
 permalink: /
-title: ""
+title: "Esteban Pesnel's homepage"
+description: "PhD Student in Video Compression & Deep Learning. Research on neural codec wrappers, surrogate gradients, and ABR streaming. INRIA CompACT & MediaKind, Rennes."
 author_profile: true
 layout: single
 mathjax: true
