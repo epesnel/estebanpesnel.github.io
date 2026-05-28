@@ -172,7 +172,7 @@ MathJax = {
 <div class="hs">Research Overview</div>
 
 <div class="research-card">
-<p>My research focuses on <strong>end-to-end rate-distortion optimization</strong> of video streaming systems by jointly learning neural pre-processing \(f\) and post-processing \(g\) around a standard video codec \(\phi\):</p>
+<p>My research focuses on <strong>end-to-end rate-distortion optimization</strong> of video streaming systems by learning a neural pre-processing \(f\) and optionally a post-processing \(g\) (which can be learned or fixed, e.g. bicubic) around a standard video codec \(\phi\):</p>
 
 <div class="eq-block">
 $$\hat{x} = g\!\bigl(\phi(f(x))\bigr), \qquad \min_{\theta_f,\,\theta_g}\; D(\hat{x}, x) + \lambda\, R\!\bigl(f(x)\bigr)$$

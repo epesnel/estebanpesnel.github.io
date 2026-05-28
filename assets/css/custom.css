@@ -152,32 +152,32 @@ html[data-theme="dark"] .gm-orb-3 {
 }
 
 html[data-theme="dark"] .bg-particle--1 {
-  width: 180px; height: 180px;
-  background: rgba(41,151,255,0.15);
+  width: 250px; height: 250px;
+  background: rgba(41,151,255,0.3);
   top: 15%; left: 10%;
   animation: particleDrift1 28s linear infinite, particleFadeIn 3s ease forwards;
 }
 html[data-theme="dark"] .bg-particle--2 {
-  width: 140px; height: 140px;
-  background: rgba(255,140,66,0.12);
+  width: 220px; height: 220px;
+  background: rgba(255,140,66,0.25);
   top: 55%; right: 8%;
   animation: particleDrift2 32s linear infinite, particleFadeIn 3s 0.5s ease forwards;
 }
 html[data-theme="dark"] .bg-particle--3 {
-  width: 200px; height: 200px;
-  background: rgba(41,151,255,0.1);
+  width: 280px; height: 280px;
+  background: rgba(41,151,255,0.2);
   bottom: 10%; left: 35%;
   animation: particleDrift3 35s linear infinite, particleFadeIn 3s 1s ease forwards;
 }
 html[data-theme="dark"] .bg-particle--4 {
-  width: 120px; height: 120px;
-  background: rgba(255,140,66,0.1);
+  width: 180px; height: 180px;
+  background: rgba(255,140,66,0.2);
   top: 30%; right: 30%;
   animation: particleDrift4 30s linear infinite, particleFadeIn 3s 1.5s ease forwards;
 }
 html[data-theme="dark"] .bg-particle--5 {
-  width: 160px; height: 160px;
-  background: rgba(100,77,255,0.1);
+  width: 230px; height: 230px;
+  background: rgba(100,77,255,0.2);
   top: 70%; left: 15%;
   animation: particleDrift5 38s linear infinite, particleFadeIn 3s 2s ease forwards;
 }
@@ -408,10 +408,11 @@ html body .greedy-nav .hidden-links {
 }
 .sidebar.sticky .author__avatar img {
   width: 100% !important; max-width: 100% !important; height: auto !important;
-  aspect-ratio: 1 !important;
-  border-radius: var(--radius) !important; object-fit: cover !important;
+  border-radius: 0 !important; object-fit: contain !important;
+  background: transparent !important;
+  padding: 0 !important;
   border: none !important; outline: none !important;
-  box-shadow: var(--shadow-lg) !important;
+  box-shadow: none !important;
   transition: transform var(--transition) !important; display: block !important;
 }
 .sidebar.sticky .author__avatar img:hover {
@@ -464,9 +465,9 @@ html body .greedy-nav .hidden-links {
 }
 .sidebar.sticky .author__urls li::after { display: none !important; }
 .sidebar.sticky .author__urls li a {
-  display: inline-flex !important; align-items: center !important; gap: 0.3em !important;
-  padding: 0.25em 0.65em !important; border-radius: 20px !important;
-  font-size: 0.68em !important; font-weight: 500 !important;
+  display: inline-flex !important; align-items: center !important; gap: 0.4em !important;
+  padding: 0.35em 0.8em !important; border-radius: 20px !important;
+  font-size: 0.76em !important; font-weight: 500 !important;
   color: var(--text-secondary) !important; text-decoration: none !important;
   white-space: nowrap !important; overflow: hidden !important;
   text-overflow: ellipsis !important; max-width: 100% !important;
@@ -481,8 +482,11 @@ html body .greedy-nav .hidden-links {
   box-shadow: var(--shadow-sm) !important;
 }
 .sidebar.sticky .author__urls a i,
-.sidebar.sticky .author__urls a svg,
-.sidebar.sticky .author__urls a [class*="fa-"] { display: none !important; }
+.sidebar.sticky .author__urls a svg {
+  display: inline-block !important;
+  font-size: 1.1em !important;
+}
+.sidebar.sticky .author__urls a [class*="fa-"] { display: inline-block !important; font-size: 1.1em !important; }
 .sidebar.sticky .author__urls a::before { content: none !important; }
 
 /* ── Sidebar focus & affiliations ── */
