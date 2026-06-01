@@ -187,6 +187,20 @@ $$\hat{x} = g\!\bigl(\phi(f(x))\bigr), \qquad \min_{\theta_f,\,\theta_g}\; D(\ha
 <div class="timeline">
 
   <div class="timeline-item latest">
+    <div class="timeline-date">🚀 June 2025 · Side project</div>
+    <div class="timeline-content">
+      Released <strong><a href="https://epesnel.github.io/net.sketch.io/" target="_blank">net.sketch.io</a></strong> — a browser-based TF/Keras architecture visualizer. Paste Python code, get a publication-ready diagram with MACs heatmaps and live parameter editing. No backend needed.
+      <span class="timeline-pill">Open source</span>
+      <span class="timeline-pill">Web tool</span><br/>
+      <a href="https://epesnel.github.io/net.sketch.io/" target="_blank">🔗 Try it</a>
+      &nbsp;·&nbsp;
+      <a href="https://github.com/epesnel/net.sketch.io" target="_blank">📦 GitHub</a>
+      &nbsp;·&nbsp;
+      <a href="/projects/">📋 Projects</a>
+    </div>
+  </div>
+
+  <div class="timeline-item">
     <div class="timeline-date">🇩🇪 December 2025 · PCS 2025, Aachen</div>
     <div class="timeline-content">
       Presented <strong>SCALED</strong> at the Picture Coding Symposium 2025 !

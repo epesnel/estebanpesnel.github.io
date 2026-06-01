@@ -1,0 +1,108 @@
+---
+layout: archive
+title: ""
+permalink: /projects/
+author_profile: false
+---
+
+{% include base_path %}
+
+<style>
+.project-card {
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 1.4em;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.project-card:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  transform: translateY(-2px);
+}
+.project-header {
+  background: linear-gradient(135deg, #0d1b2a, #1b3a5c);
+  padding: 1.2em 1.3em;
+  display: flex; justify-content: space-between;
+  align-items: center; gap: 1em; flex-wrap: wrap;
+}
+.project-title {
+  font-size: 1.1em; font-weight: 700; color: #fff;
+  margin: 0; line-height: 1.3;
+}
+.project-title a { color: inherit; text-decoration: none; }
+.project-title a:hover { color: var(--accent, #f9b248); }
+.project-badge {
+  display: inline-flex; align-items: center; gap: 0.3em;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 20px; padding: 0.2em 0.75em;
+  font-size: 0.75em; color: rgba(255,255,255,0.9);
+  white-space: nowrap;
+}
+.project-body { padding: 1.2em 1.3em; background: var(--card-bg); }
+.project-desc {
+  font-size: 0.9em; color: var(--text-light); line-height: 1.7;
+  margin-bottom: 0.8em;
+}
+.project-features {
+  display: flex; flex-wrap: wrap; gap: 0.4em; margin-bottom: 1em;
+}
+.project-feat {
+  display: inline-block; padding: 0.15em 0.6em;
+  border-radius: 20px; font-size: 0.72em;
+  background: var(--pill-bg); color: var(--pill-text);
+  border: 1px solid var(--pill-border);
+}
+.project-footer {
+  display: flex; align-items: center; flex-wrap: wrap;
+  gap: 0.5em; padding-top: 0.8em;
+  border-top: 1px solid var(--card-border);
+}
+.proj-btn {
+  display: inline-flex; align-items: center; gap: 0.3em;
+  padding: 0.35em 0.9em; border-radius: 5px;
+  font-size: 0.78em; font-weight: 600;
+  text-decoration: none !important;
+  transition: background 0.2s;
+}
+.proj-btn-blue { background: #2b6cb0; color: white; }
+.proj-btn-blue:hover { background: #2c5282; }
+.proj-btn-dark { background: #24292e; color: white; }
+.proj-btn-dark:hover { background: #1a1e22; }
+.proj-btn-gray { background: var(--blue-pale); color: var(--text-light); border: 1px solid var(--card-border); }
+.proj-btn-gray:hover { background: var(--card-border); }
+</style>
+
+<div class="strip-wrapper">
+<div class="strip-bar"><div class="strip-bar-inner"><span class="strip-bar-text">Projects</span></div></div>
+<div class="strip-content">
+
+<!-- ═══════ net.sketch.io ═══════ -->
+<div class="project-card">
+  <div class="project-header">
+    <div class="project-title">
+      <a href="https://epesnel.github.io/net.sketch.io/" target="_blank">net.sketch.io</a>
+    </div>
+    <span class="project-badge">Web tool</span>
+  </div>
+  <div class="project-body">
+    <div class="project-desc">
+      A browser-based TF/Keras model visualizer. Paste Python code, get an interactive architecture diagram — publication-ready SVG export, MACs/params heatmaps, and live parameter editing. No backend, no install, runs entirely in the browser.
+    </div>
+    <div class="project-features">
+      <span class="project-feat">Static analysis</span>
+      <span class="project-feat">Shape inference</span>
+      <span class="project-feat">SVG export</span>
+      <span class="project-feat">MACs heatmap</span>
+      <span class="project-feat">73/73 TF accuracy</span>
+      <span class="project-feat">24 architectures tested</span>
+    </div>
+    <div class="project-footer">
+      <a class="proj-btn proj-btn-blue" href="https://epesnel.github.io/net.sketch.io/" target="_blank">Live Demo</a>
+      <a class="proj-btn proj-btn-dark" href="https://github.com/epesnel/net.sketch.io" target="_blank">GitHub</a>
+    </div>
+  </div>
+</div>
+
+</div>
+</div>
