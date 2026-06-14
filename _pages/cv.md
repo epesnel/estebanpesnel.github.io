@@ -127,7 +127,7 @@ CUPGE - Computer Science &amp; Engineering (Preparatory cycle)
 <div class="cv-entry">
 <div class="cv-entry-header">
 <span class="cv-title">
-PhD Researcher - Neural Video Compression
+PhD Researcher - Deep Learning for Video Compression
 </span>
 <span class="cv-date">Aug 2023 – present</span>
 </div>

@@ -187,9 +187,20 @@ $$\hat{x} = g\!\bigl(\phi(f(x))\bigr), \qquad \min_{\theta_f,\,\theta_g}\; D(\ha
 <div class="timeline">
 
   <div class="timeline-item latest">
+    <div class="timeline-date">📝 June 2026 · MMSP 2026</div>
+    <div class="timeline-content">
+      Submitted a new paper to <strong>IEEE MMSP 2026</strong>: <em>A Projection-Based Surrogate Gradient Interpretation for Neural Codec Wrappers</em> - extending surrogate gradients to full neural wrapping with up to −23.59% BD-Rate gains.
+      <span class="timeline-pill">Submitted</span><br/>
+      <a href="https://hal.science/hal-05653605v1" target="_blank">📄 HAL preprint</a>
+      &nbsp;·&nbsp;
+      <a href="/publication/projection-surrogate">🔍 Details</a>
+    </div>
+  </div>
+
+  <div class="timeline-item">
     <div class="timeline-date">🚀 June 2025 · Side project</div>
     <div class="timeline-content">
-      Released <strong><a href="https://epesnel.github.io/net.sketch.io/" target="_blank">net.sketch.io</a></strong> — a browser-based TF/Keras architecture visualizer. Paste Python code, get a publication-ready diagram with MACs heatmaps and live parameter editing. No backend needed.
+      Released <strong><a href="https://epesnel.github.io/net.sketch.io/" target="_blank">net.sketch.io</a></strong> - a browser-based TF/Keras architecture visualizer. Paste Python code, get a publication-ready diagram with MACs heatmaps and live parameter editing. No backend needed.
       <span class="timeline-pill">Open source</span>
       <span class="timeline-pill">Web tool</span><br/>
       <a href="https://epesnel.github.io/net.sketch.io/" target="_blank">🔗 Try it</a>
