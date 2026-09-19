@@ -269,6 +269,32 @@ Part-time Lecturer
 
 <div class="cv-entry">
 <div class="cv-entry-header">
+<span class="cv-title">LoResNet - Light Codec-Aware Downscaling via Latent Distillation for Real-Time ABR Streaming</span>
+<span class="cv-date">December 2026</span>
+</div>
+<div class="cv-subtitle">E. Pesnel, J. Le Tanou, M. Ropert, A. Roumy, T. Maugey</div>
+<p style="font-size: 0.9em; color: var(--text-light);">IEEE International Conference on Visual Communications and Image Processing (VCIP) 2026, Singapore</p>
+<div class="cv-tags">
+<span class="cv-tag cv-tag-blue">Conference paper</span>
+<span class="cv-tag cv-tag-green">Accepted</span>
+</div>
+</div>
+
+<div class="cv-entry">
+<div class="cv-entry-header">
+<span class="cv-title">A Projection-Based Surrogate Gradient Interpretation for Neural Codec Wrappers</span>
+<span class="cv-date">June 2026</span>
+</div>
+<div class="cv-subtitle">E. Pesnel, J. Le Tanou, M. Ropert, A. Roumy, T. Maugey</div>
+<p style="font-size: 0.9em; color: var(--text-light);">IEEE International Conference on Multimedia Signal Processing (MMSP) 2026</p>
+<div class="cv-tags">
+<span class="cv-tag cv-tag-blue">Conference paper</span>
+<span class="cv-tag cv-tag-blue">Oral</span>
+</div>
+</div>
+
+<div class="cv-entry">
+<div class="cv-entry-header">
 <span class="cv-title">SCALED - Surrogate Codec Approach for Learned End-to-end Downscaling</span>
 <span class="cv-date">December 2025</span>
 </div>
