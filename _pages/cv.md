@@ -131,7 +131,7 @@ PhD Intern - Deep Learning for Video Compression
 </span>
 <span class="cv-date">Nov 2026 – Feb 2027</span>
 </div>
-<div class="cv-subtitle">Disney Research|Studios &middot; Zurich, Switzerland</div>
+<div class="cv-subtitle"><img class="logo" src="{{ base_path }}/images/logos/disney-research.png" alt="Disney Research"> Disney Research|Studios &middot; Zurich, Switzerland</div>
 <ul>
 <li>Research internship on deep learning methods for video compression.</li>
 </ul>

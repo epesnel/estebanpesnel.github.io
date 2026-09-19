@@ -624,9 +624,13 @@ html body .greedy-nav .hidden-links {
   transition: color var(--transition) !important;
 }
 .page__footer a:hover { color: var(--accent) !important; }
+.page__footer footer {
+  margin-top: 0 !important;
+  padding: 0 !important;
+}
 .page__footer-compact {
   max-width: 1200px; margin: 0 auto;
-  padding: 1.2em 2em;
+  padding: 0.7em 2em;
   display: flex; justify-content: space-between; align-items: center;
   flex-wrap: wrap; gap: 0.5em; font-size: 0.78em;
 }
