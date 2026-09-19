@@ -189,9 +189,8 @@ $$\hat{x} = g\!\bigl(\phi(f(x))\bigr), \qquad \min_{\theta_f,\,\theta_g}\; D(\ha
   <div class="timeline-item latest">
     <div class="timeline-date">🎉 September 2026 · VCIP 2026</div>
     <div class="timeline-content">
-      Paper accepted (oral) at <strong>IEEE VCIP 2026</strong>: <em>LoResNet: Light Codec-Aware Downscaling via Latent Distillation for Real-Time ABR Streaming</em> - lightweight codec-aware downscalers distilled for real-time CPU deployment, with up to −8.77% BD-Rate PSNR gains.
-      <span class="timeline-pill">Accepted</span>
-      <span class="timeline-pill">Oral</span><br/>
+      Paper accepted at <strong>IEEE VCIP 2026</strong>: <em>LoResNet: Light Codec-Aware Downscaling via Latent Distillation for Real-Time ABR Streaming</em> - lightweight codec-aware downscalers distilled for real-time CPU deployment, with up to −8.77% BD-Rate PSNR gains.
+      <span class="timeline-pill">Accepted</span><br/>
       <a href="https://hal.science/hal-05749683" target="_blank">📄 HAL preprint</a>
       &nbsp;·&nbsp;
       <a href="/publication/loresnet">🔍 Details</a>
@@ -199,10 +198,11 @@ $$\hat{x} = g\!\bigl(\phi(f(x))\bigr), \qquad \min_{\theta_f,\,\theta_g}\; D(\ha
   </div>
 
   <div class="timeline-item">
-    <div class="timeline-date">📝 June 2026 · MMSP 2026</div>
+    <div class="timeline-date">🎉 June 2026 · MMSP 2026</div>
     <div class="timeline-content">
-      Submitted a new paper to <strong>IEEE MMSP 2026</strong>: <em>A Projection-Based Surrogate Gradient Interpretation for Neural Codec Wrappers</em> - extending surrogate gradients to full neural wrapping with up to −23.59% BD-Rate gains.
-      <span class="timeline-pill">Submitted</span><br/>
+      Paper accepted (oral) at <strong>IEEE MMSP 2026</strong>: <em>A Projection-Based Surrogate Gradient Interpretation for Neural Codec Wrappers</em> - extending surrogate gradients to full neural wrapping with up to −23.59% BD-Rate gains.
+      <span class="timeline-pill">Accepted</span>
+      <span class="timeline-pill">Oral</span><br/>
       <a href="https://hal.science/hal-05653605v1" target="_blank">📄 HAL preprint</a>
       &nbsp;·&nbsp;
       <a href="/publication/projection-surrogate">🔍 Details</a>

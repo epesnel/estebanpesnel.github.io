@@ -127,6 +127,23 @@ CUPGE - Computer Science &amp; Engineering (Preparatory cycle)
 <div class="cv-entry">
 <div class="cv-entry-header">
 <span class="cv-title">
+PhD Intern - Deep Learning for Video Compression
+</span>
+<span class="cv-date">Nov 2026 – Feb 2027</span>
+</div>
+<div class="cv-subtitle">Disney Research|Studios &middot; Zurich, Switzerland</div>
+<ul>
+<li>Research internship on deep learning methods for video compression.</li>
+</ul>
+<div class="cv-tags">
+<span class="cv-tag cv-tag-blue">Deep Learning</span>
+<span class="cv-tag cv-tag-blue">Video Compression</span>
+</div>
+</div>
+
+<div class="cv-entry">
+<div class="cv-entry-header">
+<span class="cv-title">
 PhD Researcher - Deep Learning for Video Compression
 </span>
 <span class="cv-date">Aug 2023 – present</span>

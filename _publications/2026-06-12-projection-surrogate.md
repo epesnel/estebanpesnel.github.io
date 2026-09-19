@@ -6,7 +6,7 @@ permalink: /publication/projection-surrogate
 title: "A Projection-Based Surrogate Gradient Interpretation for Neural Codec Wrappers"
 excerpt: 'Reinterpreting surrogate gradients as first-order local codec approximations, enabling full neural wrapping with up to -23.59% BD-Rate gains.'
 date: 2026-06-12
-venue: 'Submitted to IEEE MMSP 2026'
+venue: 'Accepted at IEEE MMSP 2026'
 paperurl: 'https://hal.science/hal-05653605v1'
 author_profile: false
 publisher_logo: "logos/ieee-sps.png"
@@ -170,7 +170,7 @@ MathJax = {
     <img src="{{ base_path }}/images/logos/inria_white.png" alt="INRIA" />
     <img src="{{ base_path }}/images/logos/mediakind.svg" alt="MediaKind" />
   </div>
-  <div class="sp-hero-venue">📝 Submitted to IEEE MMSP 2026</div>
+  <div class="sp-hero-venue">✅ Accepted (Oral) · IEEE MMSP 2026</div>
   <div class="sp-hero-title">
     A <em>Projection-Based</em> Surrogate Gradient Interpretation<br/>for Neural Codec Wrappers
   </div>
@@ -272,7 +272,7 @@ $$\mathbf{J}_{\text{Proj}} = \mathbf{I} - \frac{\boldsymbol{\epsilon}\,(\boldsym
 </div>
 
 <div class="sp-publisher">
-  <span>Submitted to</span>
+  <span>Accepted by</span>
   <img src="{{ base_path }}/images/logos/ieee-sps.png" alt="IEEE Signal Processing Society" />
 </div>
 
