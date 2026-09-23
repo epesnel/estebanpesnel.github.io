@@ -8,6 +8,7 @@ author_profile: false
 {% include base_path %}
 
 {% assign poster_pdf = "/images/poster-pcs2025.pdf" | relative_url %}
+{% assign mmsp_slides_pdf = "/images/slides-mmsp2026.pdf" | relative_url %}
 
 <style>
 /* ── Talks timeline ── */
@@ -235,8 +236,43 @@ document.addEventListener('keydown', function(e) {
 
 <div class="talks-timeline">
 
-  <!-- ── PCS 2025 ── -->
+  <!-- ── MMSP 2026 ── -->
   <div class="tl-item tl-latest">
+    <div class="tl-date">September 2026</div>
+    <div class="tl-card">
+      <div class="tl-card-body">
+        <img
+          class="poster-thumb"
+          src="{{ "/images/mmsp2026-thumb.png" | relative_url }}"
+          alt="MMSP 2026 Slides"
+          onclick="openPdfModal('{{ mmsp_slides_pdf }}', 'Projection-Based Surrogate Gradient - MMSP 2026 Slides')"
+          title="Click to view slides"
+        />
+        <div class="tl-card-info">
+          <span class="tl-type">Conference &middot; Oral</span>
+          <h4>A Projection-Based Surrogate Gradient Interpretation for Neural Codec Wrappers</h4>
+          <div class="tl-venue">IEEE MMSP 2026 &middot; Istanbul, T&uuml;rkiye</div>
+          <div class="tl-desc">
+            Reinterpreting the SCALED surrogate gradient as a first-order local approximation of the codec,
+            and extending it from downscaling-only to full neural wrapper optimization, with
+            <strong>BD-Rate (PSNR) reductions up to -23.59%</strong> on x264.
+          </div>
+          <div class="tl-tags">
+            <span class="tl-tag">Video Compression</span>
+            <span class="tl-tag">Surrogate Gradients</span>
+            <span class="tl-tag">Neural Wrappers</span>
+          </div>
+          <div class="tl-actions">
+            <button class="tl-btn" onclick="openPdfModal('{{ mmsp_slides_pdf }}', 'Projection-Based Surrogate Gradient - MMSP 2026 Slides')">View Slides</button>
+            <a class="tl-btn tl-btn-outline" href="{{ mmsp_slides_pdf }}" download>Download</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── PCS 2025 ── -->
+  <div class="tl-item">
     <div class="tl-date">December 2025</div>
     <div class="tl-card">
       <div class="tl-card-body">

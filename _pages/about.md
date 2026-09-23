@@ -187,6 +187,20 @@ $$\hat{x} = g\!\bigl(\phi(f(x))\bigr), \qquad \min_{\theta_f,\,\theta_g}\; D(\ha
 <div class="timeline">
 
   <div class="timeline-item latest">
+    <div class="timeline-date">🎤 September 2026 · MMSP 2026, Istanbul</div>
+    <div class="timeline-content">
+      Presented <strong>A Projection-Based Surrogate Gradient Interpretation for Neural Codec Wrappers</strong> (oral) at IEEE MMSP 2026 in Istanbul, Türkiye.
+      <span class="timeline-pill">Oral</span>
+      <span class="timeline-pill">Slides</span><br/>
+      <a href="/images/slides-mmsp2026.pdf" target="_blank">📊 Slides (PDF)</a>
+      &nbsp;·&nbsp;
+      <a href="/publication/projection-surrogate">🔍 Details</a>
+      &nbsp;·&nbsp;
+      <a href="/talks/">🎙 Talks</a>
+    </div>
+  </div>
+
+  <div class="timeline-item">
     <div class="timeline-date">🎉 September 2026 · VCIP 2026</div>
     <div class="timeline-content">
       Paper accepted at <strong>IEEE VCIP 2026</strong>: <em>LoResNet: Light Codec-Aware Downscaling via Latent Distillation for Real-Time ABR Streaming</em> - lightweight codec-aware downscalers distilled for real-time CPU deployment, with up to −8.77% BD-Rate PSNR gains.
